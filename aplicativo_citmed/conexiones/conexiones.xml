@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<conexiones>
+
+	<!-- Perfil de conexión al esquema general de servinte.
+		 En caso de posibles cambios a realizar en cuanto a las conexiones,
+		 tomar el perfil adecuado de entre las opciones señaladas más abajo
+		 como PERFILES SERVINTE.
+	-->
+	<conexion0>
+		<usuario>basdat</usuario>
+		<contrasena>basdat</contrasena>
+		<servicio>//BDORCL:1523/SVT</servicio>
+	</conexion0>
+	
+	
+	<!-- Perfil de conexión al esquema del directorio.
+		 En caso de posibles cambios a realizar en cuanto a las conexiones,
+		 tomar el perfil adecuado de entre las opciones señaladas más abajo
+		 como PERFILES DIRECTORIO.
+	-->
+	<directorio>
+		<usuario>directorio</usuario>
+		<contrasena>Passw0rdDir</contrasena>
+		<servicio>//BDORCL:1522/hcc</servicio>
+	</directorio>
+	
+	<!-- Perfil de conexión al esquema de sistemas.
+		 En caso de posibles cambios a realizar en cuanto a las conexiones,
+		 tomar el perfil adecuado de entre las opciones señaladas más abajo
+		 como PERFILES SISTEMAS.
+	-->
+	<sistemas>
+	
+	<!--<usuario>citmed</usuario>
+		<contrasena>PassW0rdCit</contrasena>
+		<servicio>//VECCSVBDP01:1522/DHCC</servicio> -->
+		<usuario>CITMED</usuario>
+		<contrasena>123456</contrasena>
+		<servicio>//localhost:1521/SVT</servicio>
+	</sistemas>
+	
+	
+	
+	<seguridad>
+		<usuario>sistemas</usuario>
+		<contrasena>PassW0rdSis</contrasena>
+		<servicio>//BDORCL_HCC:1522/hcc</servicio>
+	</seguridad>
+	
+
+	
+	
+	<!-- Perfil de conexión al esquema trackex.
+		 En caso de posibles cambios a realizar en cuanto a las conexiones,
+		 tomar el perfil adecuado de entre las opciones señaladas más abajo
+		 como PERFILES TRACKEX.
+	-->
+	<trackex>
+		<usuario>trackex</usuario>
+		<contrasena>PassW0rdTra</contrasena>
+		<servicio>//BDORCL:1522/hcc</servicio>
+	</trackex>
+	
+
+    <link>http://localhost/aplicativo_</link>
+	<!--	<link>http://localhost/aplicativo_</link>-->
+	<!-- <link>http://app.clinicaracas.com:8080/SWAM/aplicativo_</link>-->
+	<version>Versión Beta - 2.0</version>
+	
+</conexiones>
+	
+	<!-- PERFILES SERVINTE -->
+	<!--	
+		// *** PRODUCCIÓN *** //
+		<usuario>basdat</usuario>
+		<contrasena>basdat</contrasena>
+		<servicio>//hcc-bd01-vip:1521/servinte</servicio>
+
+		// *** PRUEBA *** //
+		<usuario>basdat</usuario>
+		<contrasena>basdat</contrasena>
+		<servicio>//veccsvbdp02:1521/psvt</servicio>
+			
+		// *** DESARROLLO *** //
+		<usuario>basdat</usuario>
+		<contrasena>basdat</contrasena>
+		<servicio>//veccsvbdp02:1521/dsvt</servicio>
+	-->
+	
+	
+	<!-- PERFILES DIRECTORIO -->
+	<!--	
+		// *** PRODUCCIÓN - HCC.CLINICARACAS.COM *** //
+		<usuario>directorio</usuario>
+		<contrasena>Passw0rdDir</contrasena>
+		<servicio>//hcc-bd01-vip:1521/hcc</servicio>
+		
+		// *** DESARROLLO - DHCC *** //
+		<usuario>directorio</usuario>
+		<contrasena>Passw0rdDir</contrasena>
+		<servicio>//veccsvbdp02:1521/dhcc</servicio>
+	-->
+	
+	<!-- PERFILES SISTEMAS -->
+	<!--
+		// *** PRODUCCIÓN - HCC.CLINICARACAS.COM *** //
+		<usuario>sistemas</usuario>
+		<contrasena>PassW0rdSis</contrasena>
+		<servicio>//hcc-bd01-vip:1521/hcc</servicio>
+		
+		// *** DESARROLLO - DHCC *** //
+		<usuario>sistemas</usuario>
+		<contrasena>PassW0rdSis</contrasena>
+		<servicio>//veccsvbdp02:1521/dhcc</servicio>
+	-->
+	
+	<!-- PERFILES TRACKEX -->
+	<!--
+		// *** TRACKEX HCC.CLINICARACAS.COM *** //
+		<usuario>trackex</usuario>
+		<contrasena>PassW0rdTra</contrasena>
+		<servicio>//hcc-bd01-vip:1521/hcc</servicio>
+		
+		// *** TRACKEX DESARROLLO - DHCC *** //
+		<usuario>trackex</usuario>
+		<contrasena>PassW0rdTra</contrasena>
+		<servicio>//veccsvbdp02:1521/dhcc</servicio>
+	-->
