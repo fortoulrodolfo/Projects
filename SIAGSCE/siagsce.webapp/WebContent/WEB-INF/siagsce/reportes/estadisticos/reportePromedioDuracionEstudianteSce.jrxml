@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportePromedioDuracionEstudianteSce" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6534092-12ec-4177-b275-9d374d36ddce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="23"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="TablaResumen" uuid="72b8ebcf-2107-48f7-90e0-7b6e960b2e0f">
+		<parameter name="listaDuracion" class="JRDataSource"/>
+		<field name="promedioDias" class="java.lang.Integer"/>
+		<field name="promedioMeses" class="java.lang.Number"/>
+		<field name="direccionPrograma" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="listaDuracion" class="JRDataSource"/>
+	<parameter name="fecha_inicio" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.lang.String"/>
+	<parameter name="ICON_LEFT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_RIGHT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_FOOTER" class="java.lang.String"/>
+	<field name="direccionPrograma" class="java.lang.String"/>
+	<field name="promedioDias" class="java.lang.Integer"/>
+	<field name="promedioMeses" class="java.lang.Number"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="160" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="ddb1b22a-e40c-4178-9c70-9daaba4ae480" x="60" y="101" width="481" height="22"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="d6549a81-772a-4f87-bbd7-f6268edc931e" mode="Transparent" x="60" y="103" width="481" height="46" forecolor="#0B68C3" backcolor="#000000"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Promedio que tardan los estudiantes en finalizar SCE]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement uuid="17230ec8-cfd4-4d75-a83d-d2934521b504" x="508" y="138" width="92" height="12" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="76c5c9ae-4076-4e71-bbf4-32e7eaacfe13" x="409" y="138" width="99" height="16" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e5ab170-372b-4ff9-b849-ed68f6d599f9" x="136" y="25" width="322" height="64" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTROCCIDENTAL “LISANDRO ALVARADO”
+ DECANATO DE CIENCIAS Y TECNOLOGIA
+COORDINACION SERVICIO COMUNITARIO ESTUDIANTIL
+BARQUISIMETO
+]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="182e974f-62a9-4c7e-8aa8-2e72071dfa34" x="10" y="152" width="572" height="3" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="e0f6bf97-7e61-4483-98b7-9d130e9dc265" x="476" y="10" width="100" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_RIGHT_HEADER}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="d43ba03a-c341-4b0a-b84f-5380531166e9" x="20" y="10" width="97" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_LEFT_HEADER}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="71" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="4d177064-fb89-4591-8487-b4a4a0f2b2ba" key="table" style="table" x="5" y="0" width="525" height="51"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="TablaResumen" uuid="2db1dc09-7a79-44a6-b68f-c7abfce7ef44">
+						<dataSourceExpression><![CDATA[$P{listaDuracion}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="163" uuid="e78e4c22-5dae-474c-919d-ec57f6b54e79">
+						<jr:columnHeader style="table_CH" height="19" rowSpan="1">
+							<staticText>
+								<reportElement uuid="ec04155a-cf1f-4c95-b9bb-19461b4d375b" mode="Opaque" x="0" y="0" width="163" height="19" forecolor="#FFFFFF" backcolor="#006699"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dirección de Programa]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="08b78843-2f26-44e9-aaec-e59a99e3c3f0" x="0" y="0" width="163" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{direccionPrograma}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="182" uuid="9a7db8be-ce8b-45f8-ac18-846fd2adb160">
+						<jr:columnHeader style="table_CH" height="19" rowSpan="1">
+							<staticText>
+								<reportElement uuid="558044aa-c6d7-404a-b958-e46ac40df95e" mode="Opaque" x="0" y="0" width="182" height="19" forecolor="#FFFFFF" backcolor="#006699"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Promedio en Dias]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="9bfb2419-28ca-43c8-a801-5148fa172a5d" x="0" y="0" width="182" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{promedioDias}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="217" uuid="ab296c18-324b-4dc5-928b-6731f59c0ede">
+						<jr:columnHeader style="table_CH" height="19" rowSpan="1">
+							<staticText>
+								<reportElement uuid="b0099580-3356-4acd-958a-de42f83fbbc5" mode="Opaque" x="0" y="0" width="217" height="19" forecolor="#FFFFFF" backcolor="#006699"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Promedio en Meses]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement uuid="ca5595b7-6869-4206-baa2-e09701655225" x="0" y="0" width="217" height="20"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{promedioMeses}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="63" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="c7840ffb-b085-4182-9f4b-244eae7125ff" x="553" y="8" width="40" height="20" forecolor="#0B68C3"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="6bf7e499-2d84-4f18-add9-c1dd3296fc66" x="5" y="3" width="569" height="1" forecolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="b970a037-75f1-4192-b326-04924fb817fd" x="198" y="34" width="193" height="26"/>
+				<imageExpression><![CDATA[$P{ICON_FOOTER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="abcc81a2-314d-446a-bb0f-ee1a7e09a943" x="177" y="4" width="251" height="20" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<box rightPadding="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avenida Las Industrias, Núcleo Obelisco]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="364" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="991066c6-9085-431e-ade9-1fd740cece3f" x="25" y="53" width="533" height="302"/>
+			</rectangle>
+			<bar3DChart>
+				<chart isShowLegend="true" renderType="draw" theme="default">
+					<reportElement uuid="95f71576-b621-4d10-89c3-7ad1736855ce" stretchType="RelativeToTallestObject" mode="Opaque" x="32" y="71" width="521" height="282"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Promedio en Meses"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{direccionPrograma}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{promedioMeses}]]></valueExpression>
+						<labelExpression><![CDATA[new java.text.DecimalFormat("0.0").format($F{promedioMeses})]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot labelRotation="0.0"/>
+					<itemLabel color="#FFFFFF" backgroundColor="#FFFFFF">
+						<font size="8" isBold="true"/>
+					</itemLabel>
+					<categoryAxisLabelExpression><![CDATA["Dirección de Programa"]]></categoryAxisLabelExpression>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat tickLabelMask="0" verticalTickLabels="true">
+							<labelFont>
+								<font size="10"/>
+							</labelFont>
+							<tickLabelFont>
+								<font size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisLabelExpression><![CDATA["Promedio"]]></valueAxisLabelExpression>
+					<rangeAxisMinValueExpression><![CDATA[0]]></rangeAxisMinValueExpression>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

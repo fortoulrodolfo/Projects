@@ -1,0 +1,85 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winEstudiantesCulminado" title="Estudiantes por Culminar SCE" border="normal" width="100%" height="498px"
+        apply="org.zkoss.bind.BindComposer" sclass="fondo_arbol1"
+		onCancel="@command('cerrarVentana')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMEstudiantesCulminado')">
+<style src="css/style2.css" />
+		<listbox height="330px" vflex="true" 
+			model="@bind(vm.modeloEstudiante)"
+			emptyMessage="No hay estudiantes con SCE culminado" 
+			selectedItems="@bind(vm.selectedEstudiantes)"
+			multiple="true" checkmark="true">
+			<auxhead>
+				<auxheader colspan="8">
+					<hbox><image src="images/iconos/16x16/Filter.png"/>
+						<textbox id="txtFiltroEstudiante"
+							placeholder="Nombre " value="@bind(vm.texto)"
+							onChange="@command('filtrarEstudiante')" instant="true" />
+							<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+							
+					</hbox>
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="" width="40px" />
+				<listheader label="Cédula" width="10%" />
+				<listheader label="Nombre" width="15%" />
+				<listheader label="Apellido" width="15%" />
+				<listheader label="Dirección" width="25%" />
+				<listheader label="Teléfono" width="15%"/>
+				<listheader label="Programa" width="20%" />
+				<listheader label="H. Ejecutadas" width="10%"  />
+
+			</listhead>
+			<template name="model">
+
+				<listitem>
+					<listcell label="" />	
+					<listcell label="@bind(each.cedula)" />
+					<listcell label="@bind(each.nombre)" />
+					<listcell label="@bind(each.apellido)" />
+					<listcell label="@bind(each.direccion)" />
+					<listcell label="@bind(each.telefono)" />
+					<listcell
+						label="@bind(each.programa)" />
+					<listcell
+						label="@bind(each.horasEjecutadas)" />
+
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar" image="images/iconos/16x16/aceptar.png"
+				onClick="@command('aceptar')" sclass="button" />
+			<button label="Salir" image="images/iconos/16x16/salir.png"
+				onClick="@command('cerrarVentana')" sclass="button" />
+		</hbox>
+
+	</window>
+</zk>

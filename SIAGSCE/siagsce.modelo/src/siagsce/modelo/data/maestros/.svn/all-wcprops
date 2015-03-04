@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1024/siagsce.modelo/src/siagsce/modelo/data/maestros
+END
+Motivo.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Motivo.java
+END
+Exonerado.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Exonerado.java
+END
+DireccionPrograma.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/DireccionPrograma.java
+END
+MensajeBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/88/siagsce.modelo/src/siagsce/modelo/data/maestros/MensajeBox.java
+END
+Profesor.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Profesor.java
+END
+CoordinacionSce.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/CoordinacionSce.java
+END
+DirectorPrograma.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/DirectorPrograma.java
+END
+ListadoEstudiantesEvaluadosTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/data/maestros/ListadoEstudiantesEvaluadosTaller.java
+END
+Retiro.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Retiro.java
+END
+Proyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Proyecto.java
+END
+Noticia.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Noticia.java
+END
+Causa.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Causa.java
+END
+InscripcionTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/InscripcionTaller.java
+END
+Actividad.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Actividad.java
+END
+Descarga.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/832/siagsce.modelo/src/siagsce/modelo/data/maestros/Descarga.java
+END
+ListadoNoticias.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/715/siagsce.modelo/src/siagsce/modelo/data/maestros/ListadoNoticias.java
+END
+RepresentanteProfesoral.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1024/siagsce.modelo/src/siagsce/modelo/data/maestros/RepresentanteProfesoral.java
+END
+Taller.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Taller.java
+END
+Parametro.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Parametro.java
+END
+CoordinadorSce.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1024/siagsce.modelo/src/siagsce/modelo/data/maestros/CoordinadorSce.java
+END
+Estudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/maestros/Estudiante.java
+END
+ListadoEstudiantesCulminados.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/88/siagsce.modelo/src/siagsce/modelo/data/maestros/ListadoEstudiantesCulminados.java
+END

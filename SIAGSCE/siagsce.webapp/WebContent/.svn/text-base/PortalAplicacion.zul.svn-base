@@ -1,0 +1,90 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 02/03/2014
+
+***************************************************************************************** -->
+
+
+<?page id="mainPage" title="SIAGSCE" contentType="text/html;charset=UTF-8"?>
+<zk>
+<style src="css/style2.css" />
+<style>
+	.principal{
+		position:relative;
+		min-width:1200px;
+		min-height:600px;
+		}
+		 .h-inline-block {
+        display: inline-block;
+        _display: inline;
+		
+	</style>
+
+<?meta name="viewport" content="width=device-width, initial-scale=1.0" ?>
+<window sclass="principal" border="0" height="100%" contentStyle="overflow:auto" id="windowindex" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vmportalaplicacion') @init('siagsce.viewmodel.seguridad.VMPortalAplicacion')" title="">
+
+
+	<borderlayout id="borderprincipal" height="100%" style="background-color:#fff;" >
+		<north height="15%" >
+			<borderlayout>
+				<north sclass="banner" flex="true" size="100%" >
+			       			 <hbox>
+			       			 <div>
+								<a href="PortalAplicacion.zul"><image src="images/logo/SIAGSCE.png"  height="100px" width="160px" zindex="2" style="margin-left:15px; margin-top:-5px;"/></a>
+							</div>
+							
+							<div style="margin-left:850px; margin-top:5px;">
+							<window border="normal" title="" width="210px;" position="left,top" sclass="fondo_arbol1">
+							<h:form id="f" name="f" action="j_spring_security_logout" 
+								method="POST" xmlns:h="native">
+								<grid>
+									<rows>
+										<row  align="right">
+											<hbox>
+											 <label id="nombreusuario" value="@bind(vmportalaplicacion.nombreUsuario)" width="100px"/>
+											 <image id="imgImagen" height="40px" width="40px" content="@bind(vmportalaplicacion.imagen)"  align="right"/>
+											 <vbox>
+											  <button label="Editar Perfil" id="editarperfil" onClick="@command('editarPerfil')" style="border-style:none;background-color:white;"/>
+											  <button type="submit" label="Cerrar Sesion" style="border-style:none;background-color:white;"/>
+											</vbox>
+											</hbox>
+										</row>
+									</rows>
+								</grid>
+							</h:form>
+							</window>
+							</div>
+							</hbox>
+						</north>
+			</borderlayout>
+		</north>
+		<west size="24%" sclass="arbol" border="normal" margins="12,12,12,12">
+		<tree id="tree" rows="20" vflex="1" >
+        <treecols sizable="true">
+            <treecol hflex="1" label="Menú de Opciones"  sclass="fondo_arbol1" style="color:white;"/>       
+        </treecols>
+       </tree>		
+		</west>
+		<center  id="bordercenter" border="normal" sclass="marca_agua"  margins="12,12,12,12"  >
+ 	      <div id="divcenter" sclass="marca_agua" visible="true" >	       
+ 	       <box id="boxcenter" sclass="marca_agua" visible="false" >
+		  	</box>	 
+		   <box id="boxcenter2" sclass="marca_agua"  visible="true" >
+					 </box>	 
+				  		 
+		 </div>
+			
+		</center>
+		
+		<south vflex="1" flex="true" >
+						         <div sclass="footer">
+						             <label  style="padding-left:35%;" value="© 2014 Desarrollado por Iterator- Todos los derechos reservados.">
+						   	     	</label>
+						   	      </div>
+					
+		</south>
+	</borderlayout>
+</window>
+</zk>

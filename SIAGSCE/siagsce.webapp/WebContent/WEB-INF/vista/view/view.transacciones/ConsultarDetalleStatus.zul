@@ -1,0 +1,105 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window
+		title="Actividades del Estudiante" mode="modal" minimizable="false" maximizable="false" closable="true"
+		border="normal" width="60%" height="80%" sclass="fondo_arbol1"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMConsultarDetalleStatus')">
+
+		<groupbox>
+			<caption label="Datos del Proyecto" sclass="text"></caption>
+			<grid id="grdProyecto">
+				<columns>
+					<column label="" width="30%" />
+					<column label="" width="70%" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Nombre:"></label>
+						</cell>
+						<cell>
+							<textbox   value="@bind(vm.proyectoNombre)" width="100%" readonly="true" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Descripción:"></label>
+						</cell>
+						<cell>
+							<textbox value="@bind(vm.proyectoDescripcion)" width="100%" readonly="true"></textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+		</groupbox>
+
+		<groupbox style="margin-top:4px;">
+			
+			<caption label="Actividades Asignadas" sclass="text"></caption>
+			<listbox model="@bind(vm.modeloActividades)" height="120px" vflex="true" emptyMessage="No tiene actividades asignadas">
+			
+			<listhead>
+				<listheader label="Fecha Inicio" width="20%" />
+				<listheader label="Nombre" width="20%" />
+				<listheader label="Descripción" width="40%" />
+				<listheader label="Horas Actividad" width="20%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+				
+					<listcell label="@bind(each.actividadAsignadaFechaInicio)" />
+					<listcell label="@bind(each.actividad.getActividadNombre())" />
+					<listcell label="@bind(each.actividad.getActividadDescripcion())" />
+					<listcell label="@bind(each.actividad.getActividadCantidadHoras())" />
+				</listitem>
+			</template>
+
+		</listbox>
+		</groupbox>
+		
+		<groupbox>
+			<caption label="Actividades Ejecutadas" sclass="text"></caption>
+			<listbox model="@bind(vm.modeloActividadesEje)" height="120px" vflex="true" emptyMessage="No tiene actividades Ejecutadas">
+			
+			<listhead>
+				<listheader label="Fecha Ejecución" width="20%" />
+				<listheader label="Nombre" width="20%" />
+				<listheader label="Descripción" width="40%" />
+				<listheader label="Horas Ejecutadas" width="20%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+				
+					<listcell label="@bind(each.actividadEjecutadaFecha)" />
+					<listcell label="@bind(each.actividadasignada.getActividad().getActividadNombre())" />
+					<listcell label="@bind(each.actividadasignada.actividad.getActividadDescripcion())" />
+					<listcell label="@bind(each.actividadEjecutadaHorasCumplidas)" />
+				</listitem>
+			</template>
+
+		</listbox>
+		</groupbox>
+
+		<hbox width="100%" pack="end" align="center"  >
+			<button  label="Salir" onClick="@command('cerrarVentana')" image="images/iconos/24x24/salir.png"
+				 sclass="button" />
+		</hbox>
+
+	</window>
+</zk>

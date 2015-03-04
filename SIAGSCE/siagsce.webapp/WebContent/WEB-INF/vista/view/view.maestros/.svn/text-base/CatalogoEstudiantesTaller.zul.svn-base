@@ -1,0 +1,89 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoEstudianteTaller"
+		title="Catalogo de estudiantes en Taller"  border="normal" width="40%" height="60%" closable="true" sclass="fondo_arbol1" >
+
+		<listbox id="lbxCatalogoEstudianteTaller" width="100%">
+			<auxhead>
+				<auxheader colspan="5"
+					label="Catalogo de Estudiantes Inscritos en el Taller"
+					align="center"  width="100%"/>
+			</auxhead>
+			<auxhead>
+				<auxheader colspan="6" width="100%">
+					<textbox id="txtFiltroTaller" value="Filtro" />
+				</auxheader>
+			</auxhead>
+
+			<listhead>
+				<listheader label="Cedula" width="20%" sort="auto" />
+				<listheader label="Nombre" width="20%" sort="auto" />
+				<listheader label="Apellido" width="20%" sort="auto" />
+				<listheader label="Programa" width="20%" sort="auto" />
+				<listheader label="Unidades de Credito" width="17%" sort="auto" />
+				<listheader label="Estatus" width="16%" sort="auto" />
+
+			</listhead>
+			<listitem>
+				<listcell label="18.655.404" />
+				<listcell label="Pedro" />
+				<listcell label="Perez" />
+				
+				<listcell label="Informatica" />
+				<listcell label="120" />
+
+			</listitem>
+
+			<listitem>
+				<listcell label="18.655.432" />
+				<listcell label="Carmen" />
+				<listcell label="Gonzalez" />
+				
+				<listcell label="Informatica" />
+				<listcell label="120" />
+
+			</listitem>
+
+			<listitem>
+				<listcell label="20278011" />
+				<listcell label="Karina" />
+				<listcell label="Oropeza" />
+				
+				<listcell label="Analisis de Sistemas" />
+				<listcell label="120" />
+
+			</listitem>
+
+
+			<listitem>
+				<listcell label="19.104.287" />
+				<listcell label="Pastor" />
+				<listcell label="Hernandez" />
+				
+				<listcell label="Ing. en Produccion" />
+				<listcell label="120" />
+
+			</listitem>
+
+		</listbox>
+		<space></space>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnAceptarEvaluacionTaller" label="Aceptar"
+				image="/iconos/aceptar.png" orient="vertical" width="70px"
+				height="50px" />
+			<button id="btnSalirEvaluacionTaller" label="Salir"
+				image="/iconos/salir.png" orient="vertical" width="70px"
+				height="50px" />
+		</hbox>
+
+
+	</window>
+</zk>

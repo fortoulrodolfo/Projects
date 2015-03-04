@@ -1,0 +1,430 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winIntegrantesSce"  title="Integrantes del SCE"
+		border="normal" apply="org.zkoss.bind.BindComposer" width="100%"
+		height="498px"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMIntegrantesSce')">
+
+
+		<vbox spacing="10px">
+			<groupbox>
+				<caption sclass="text"
+					label=" Datos de Coordinación General SCE ">
+				</caption>
+
+				<tabbox id="tbxIntegrantesSce" height="350px" width="100%" >
+					<tabs>
+						<tab id="tbCoordinador"   label="Coordinador General" visible="@load(vm.vcoord)" selected="@load(vm.vcoord)"/>
+						<tab id="tbRepresentante" label="Representante Profesoral" visible="@load(vm.vrepre)" selected="@load(vm.vrepre)" />
+						<tab id="tbHistorial"     label="Historial Integrantes SCE" />
+					</tabs>
+					<tabpanels>
+						<tabpanel visible="@load(vm.vcoord)">
+
+							<grid>
+								<columns>
+									<column width="15%" />
+									<column width="35%" />
+									<column width="15%" />
+									<column />
+								</columns>
+								<rows>
+									<row>
+										<cell>
+											<label value="Cédula:"></label>
+										</cell>
+										<cell>
+											<hbox align="center">
+												<textbox width="200px"
+													id="txtcedulaCoordinador"
+													value="@bind(vm.cedulaCoordinador)">
+												</textbox>
+												<button
+													image="/images/iconos/16x16/buscar.png" sclass="button"
+													width="40px" height="25px"
+													onClick="@command('MostrarCatalogoProfesoresAcreditadosCoordinacion')" />
+											</hbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Nombre:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtNombreCoordinador"
+												value="@bind(vm.nombreCoordinador)">
+											</textbox>
+										</cell>
+										<cell>
+											<label value="Apellido:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtApellidoCoordinador"
+												value="@bind(vm.apellidoCoordinador)">
+											</textbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Teléfono:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtTelefonoCoordinador"
+												value="@bind(vm.telefonoCoordinador)">
+											</textbox>
+										</cell>
+										<cell>
+											<label value="Email:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtEmailCoordinador"
+												value="@bind(vm.emailCoordinador)">
+											</textbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Dirección:">
+											</label>
+										</cell>
+										<cell colspan="3">
+											<textbox width="85%"
+												id="txtDireccionCoordinador"
+												value="@bind(vm.direccionCoordinador)" readonly="true">
+											</textbox>
+										</cell>
+									</row>
+								</rows>
+							</grid>
+							<hbox width="100%" pack="end"
+								align="center">
+								<button id="btnGuardarCoordinador"
+									sclass="button" label="Guardar"
+									image="/images/iconos/16x16/guardar.png"
+									onClick="@command('registrarCoordinador')" />
+									<button id="btnModificarCoordinador"
+									sclass="button" label="Modificar"
+									image="/images/iconos/16x16/editar.png"
+									onClick="@command('registrarCoordinador')" />
+
+
+								<button id="btnCancelarCoordinador"
+									sclass="button" label="Cancelar"
+									image="/images/iconos/16x16/cancelar.png"
+									onClick="@command('cancelarCoordinador')" />
+								<button sclass="button" label="Salir"
+									image="/images/iconos/16x16/salir.png"
+									onClick="@command('salir')" />
+							</hbox>
+
+						</tabpanel>
+						<tabpanel visible="@load(vm.vrepre)">
+
+							<grid>
+								<columns>
+									<column width="15%" />
+									<column width="35%" />
+									<column width="15%" />
+									<column />
+								</columns>
+								<rows>
+									<row>
+										<cell>
+											<label value="Programa:"></label>
+										</cell>
+										<cell>
+											<combobox
+												id="cmbProgramaRepresentante"
+												model="@bind(vm.modeloDireccion)"
+												selectedItem="@bind(vm.selectedDireccion)"
+												onSelect="@command('programaSeleccionado')">
+												<template
+													name="model">
+													<comboitem
+														label="@bind(each.direccionNombre)" />
+												</template>
+											</combobox>
+
+										</cell>
+										<cell>
+											<label value="Cédula:"></label>
+										</cell>
+										<cell>
+											<hbox align="center">
+												<textbox width="160px"
+													id="txtCedulaRepresentante"
+													value="@bind(vm.cedulaRepresentante)">
+												</textbox>
+												<button sclass="button"
+													width="40px" height="25px"
+													image="/images/iconos/16x16/buscar.png"
+													onClick="@command('MostrarCatalogoProfesoresAcreditadosRepresentante')" />
+											</hbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Nombre:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtNombreRepresentante"
+												value="@bind(vm.nombreRepresentante)">
+											</textbox>
+										</cell>
+										<cell>
+											<label value="Apellido:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtApellidoRepresentante"
+												value="@bind(vm.apellidoRepresentante)">
+											</textbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Teléfono:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtTelefonoRepresentante"
+												value="@bind(vm.telefonoRepresentante)">
+											</textbox>
+										</cell>
+										<cell>
+											<label value="Email:"></label>
+										</cell>
+										<cell>
+											<textbox width="200px"
+												id="txtEmailRepresentante"
+												value="@bind(vm.emailRepresentante)">
+											</textbox>
+										</cell>
+									</row>
+									<row>
+										<cell>
+											<label value="Dirección:">
+											</label>
+										</cell>
+										<cell colspan="3">
+											<textbox width="85%"
+												id="txtDireccionRepresentante"
+												value="@bind(vm.direccionRepresentante)">
+											</textbox>
+										</cell>
+									</row>
+								</rows>
+							</grid>
+
+							<div align="right">
+
+
+								<button id="btnGuardarRepresentante"
+									label="Guardar" sclass="button"
+									image="/images/iconos/16x16/guardar.png"
+									onClick="@command('registrarRepresentante')" />
+
+								<button id="btnModificarRepresentante"
+									label="Modificar" sclass="button"
+									image="/images/iconos/16x16/editar.png"
+									onClick="@command('modificarRepresentante')" />
+								<button label="Cancelar" sclass="button"
+									image="/images/iconos/16x16/cancelar.png"
+									onClick="@command('cancelarRepresentante')" />
+									
+									<button label="Salir" sclass="button"
+									image="/images/iconos/16x16/salir.png"
+									onClick="@command('salir')" />
+							</div>
+
+														
+						</tabpanel>
+						<tabpanel>
+							<tabbox height="300px"  width="100%">
+								<tabs>
+									<tab
+										id=" tbHCoordinador" label="Historial Coordinador SCE" visible="@load(vm.vhcoord)" selected="@load(vm.vhcoord)"/>
+									<tab
+										id=" tbHRepresentante" label="Historial Representante Profesoral SCE" visible="@load(vm.vhrepre)" selected="@load(vm.vhrepre)"/>
+								</tabs>
+								<tabpanels>
+									<tabpanel visible="@load(vm.vhcoord)">
+										<listbox
+											id="grpHistorialCoordinador"
+											model="@bind(vm.modelocoordinadorhistorial)" height="200px" vflex="true" emptyMessage="No hay Coordinador Asignado">
+											<auxhead>
+												<auxheader
+													colspan="5">
+													<hbox>
+														<image
+															src="images/iconos/16x16/Filter.png" />
+														<textbox
+															id="txtFiltroCoordinador" placeholder="Nombre "
+															value="@bind(vm.texto)"
+															onChange="@command('filtrarCoordinador')" instant="true" />
+														<combobutton
+															label="" image="images/iconos/16x16/buscar.png">
+															<popup
+																id="popOpcionesCoordinador">
+																<listbox
+																	id=" lbxSeleccionParametro" width="180px"
+																	model="@bind(vm.valores)"
+																	selectedItem="@bind(vm.seleccion)"
+																	onSelect="@command('seleccionFiltro')">
+																	<listhead>
+																		<listheader />
+																	</listhead>
+																	<template
+																		name="model">
+																		<listitem
+																			label="@bind(each)" />
+																	</template>
+																</listbox>
+															</popup>
+														</combobutton>
+													</hbox>
+												</auxheader>
+											</auxhead>
+
+
+											<listhead>
+												<listheader label="Cédula" width="10%" />
+												<listheader label="Nombre" width="15%"/>
+												<listheader
+													label="Apellido"  width="15%"/>
+												<listheader
+													label="Fecha Inicio" width="10%"/>
+												<listheader
+													label="Fecha Culminación" width="10%"/>
+											</listhead>
+											<template name="model">
+												<listitem>
+													<listcell
+														label="@bind(each.profesorcoordinador.profesorCedula)" />
+													<listcell
+														label="@bind(each.profesorcoordinador.profesorNombre)" />
+													<listcell
+														label="@bind(each.profesorcoordinador.profesorApellido)" />
+													<listcell
+														label="@bind(each.coordinadorFechaInicio)" />
+													<listcell
+														label="@bind(each.coordinadorFechaCulminacionString)" />
+												</listitem>
+											</template>
+										</listbox>
+										<div align="right">
+											<button label="Salir"
+												sclass="button" image="/images/iconos/16x16/salir.png"
+												onClick="@command('salir')" />
+										</div>
+									</tabpanel>
+									<tabpanel visible="@load(vm.vhrepre)">
+										<listbox
+											model="@bind(vm.modeloRepresentanteHistorial)" height="200px"
+											emptyMessage="No hay representantes asignados" vflex="true">
+											<auxhead>
+												<auxheader
+													colspan="6">
+													<hbox>
+														<image
+															src="images/iconos/16x16/Filter.png" />
+														<textbox
+															id="txtFiltroRepresentante" placeholder="Nombre "
+															value="@bind(vm.textoRepresentante)"
+															onChange="@command('filtrarRepresentante')" instant="true" />
+														<combobutton
+															label="" image="images/iconos/16x16/buscar.png">
+															<popup
+																id="popOpcionesRepresentante">
+																<listbox
+																	id=" lbxSeleccionParametroRepresentante" width="180px"
+																	model="@bind(vm.valoresRepresentante)"
+																	selectedItem="@bind(vm.seleccionRepresentante)"
+																	onSelect="@command('seleccionFiltroRepresentante')">
+																	<listhead>
+																		<listheader />
+																	</listhead>
+																	<template
+																		name="model">
+																		<listitem
+																			label="@bind(each)" />
+																	</template>
+																</listbox>
+														</popup>
+														</combobutton>
+														<hbox>
+														<separator/>
+														<separator/>
+														<label value="Actuales:"/>
+														<checkbox  onCheck="@command('cargarVigente')"/>
+														</hbox>
+													</hbox>
+												</auxheader>
+											</auxhead>
+											<listhead>
+												<listheader
+													label="Cédula" width="10%" />
+												<listheader
+													label="Nombre" width="15%" />
+												<listheader
+													label="Apellido" width="15%" />
+												<listheader
+													label="Fecha Inicio" width="15%" />
+												<listheader
+													label="Fecha Culminación" width="10%" />
+												<listheader
+													label="programa" width="15%" />
+
+											</listhead>
+											<template name="model">
+												<listitem>
+
+													<listcell
+														label="@bind(each.profesorm.profesorCedula)" />
+													<listcell
+														label="@bind(each.profesorm.profesorNombre)" />
+													<listcell
+														label="@bind(each.profesorm.profesorApellido)" />
+													<listcell
+														label="@bind(each.representanteProfesoralFechaInicio)" />
+													<listcell
+														label="@bind(each.representanteProfesoralFechaCulminacionString)" />
+													<listcell
+														label="@bind(each.direccionProgramam.direccionNombre)" />
+
+
+
+
+
+												</listitem>
+											</template>
+										</listbox>
+										<div align="right">
+											<button label="Salir"
+												sclass="button" image="/images/iconos/16x16/salir.png"
+												onClick="@command('salir')" />
+										</div>
+									</tabpanel>
+
+								</tabpanels>
+							</tabbox>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</groupbox>
+		</vbox>
+	</window>
+</zk>

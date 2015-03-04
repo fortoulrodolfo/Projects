@@ -1,0 +1,78 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id=""  title="Catálogo de Profesores Acreditados para SCE"
+	border="normal"  width="60%" height="60%"  sclass="fondo_arbol1" 
+		minimizable="false" maximizable="false" mode="modal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoProfesorAcreditadoCoordinacion')">
+
+		<listbox id="lbxCatalogoProfesor" vflex="true"
+			model="@bind(vm.modeloProfesorAcred)" emptyMessage="no hay profesores acreditados"
+			selectedItem="@bind(vm.selectedAcreditados)" checkmark="true">
+			<auxhead>
+				<auxheader colspan="7">
+					<hbox>
+						<image src="images/iconos/16x16/Filter.png" />
+						<textbox id="txtFiltroProfesorA"
+							value="@bind(vm.texto)" onChange="@command('filtrarProfesor')"
+							instant="true"  placeholder="Nombre"/>
+						<combobutton label=""
+							image="images/iconos/16x16/buscar.png">
+							<popup id="popOpciones">
+								<listbox id=" lbxSeleccionParametro"
+									width="180px" model="@bind(vm.valores)"
+									selectedItem="@bind(vm.seleccion)"
+									onSelect="@command('seleccionFiltro')">
+									<listhead>
+										<listheader />
+									</listhead>
+									<template name="model">
+										<listitem label="@bind(each)" />
+									</template>
+								</listbox>
+							</popup>
+						</combobutton>
+					</hbox>
+				</auxheader>
+			</auxhead>
+
+			<listhead>
+				<listheader label="" width="3%"/>
+				<listheader label="Cédula" width="10%"/>
+				<listheader label="Nombre" width="12%"/>
+				<listheader label="Apellido" width="12%" />
+				<listheader label="Teléfono" width="16%"/>
+				<listheader label="E-mail" width="30%"/>
+				<listheader label="Dirección" width="20%"/>
+
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label=""></listcell>
+					<listcell label="@bind(each.profesorCedula)"></listcell>
+					<listcell label="@bind(each.profesorNombre)"></listcell>
+					<listcell label="@bind(each.profesorApellido)"></listcell>
+					<listcell label="@bind(each.profesorTelefono)"></listcell>
+					<listcell label="@bind(each.profesorEmail)"></listcell>
+					<listcell label="@bind(each.profesorDireccion)"></listcell>
+				</listitem>
+			</template>
+
+		</listbox>
+		<space></space>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnAceptarProfesorAcreditado" label="Aceptar"
+				image="images/iconos/16x16/aceptar.png" sclass="button" onClick="@command('aceptar')" />
+			<button id="btnSalirProfesorAcreditado" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button" onClick="@command('salir')"  />
+		</hbox>
+
+
+	</window>
+</zk>

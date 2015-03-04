@@ -1,0 +1,201 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+	<window id="wimInscripcionAlTaller"  title="Inscripción al Taller"
+		border="normal" apply="org.zkoss.bind.BindComposer" sclass="fondo_arbol1" width="100%" height="520px"
+		  viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMInscripcionAlTaller')">
+
+		<groupbox>
+			<caption sclass="text" label="Datos del Taller"></caption>
+			<grid>
+				<columns>
+					<column width="18%"/>
+					<column width="32%"/>
+					<column width="18%"/>
+					<column width="32%"/>
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Descripción: "></label>
+						</cell>
+						<cell>
+								<textbox id="descInscripcionTaller"
+									Readonly="true" width="200px" rows="2"
+									value="@bind(vm.descripcionInscripcionTaller)" />
+								<button
+									image="/images/iconos/16x16/buscar.png" width="40px" height="25px"
+									onClick="@command('MostrarCatalogoTaller')" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Inicio de inscripción:"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" id="fechaInicioInscripcionTaller" 
+								value="@bind(vm.fechaInicioInscripcionTaller)" width="200px"/>
+						</cell>
+						<cell>
+							<label value="Culminación de inscripción: "></label>
+						</cell>
+						<cell>
+							<textbox readonly="true"
+								id="fechaCulminacionInscripcionTaller" width="200px"
+								value="@bind(vm.fechaCulminacionInscripcionTaller)" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Inicio de taller:"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" id="fechaInicioTaller"
+								value="@bind(vm.fechaInicioTaller)" width="200px"/>
+						</cell>
+						<cell>
+							<label value="Culminación de taller: "></label>
+						</cell>
+						<cell>
+							<textbox readonly="true"
+								id="fechaCulminacionTaller" width="200px"
+								value="@bind(vm.fechaCulminacionTaller)" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Lugar: "></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" id="lugarInscripcionTaller"
+								value="@bind(vm.lugarInscripcionTaller)" width="200px"/>
+						</cell>
+						<cell>
+							<label value="Cédula de responsable:" />
+						</cell>
+						<cell>
+							<textbox readonly="true" id="cedRespInscripcionTaller" width="200px"
+										value="@bind(vm.cedRespInscripcionTaller)" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre de responsable:" />
+						</cell>
+						<cell>
+							<textbox readonly="true"
+									id="nombreRespInscripcionTaller" width="200px"
+									value="@bind(vm.nombreRespInscripcionTaller)" />
+						</cell>
+						<cell>
+							<label value="Teléfono de responsable:" />
+						</cell>
+						<cell>
+							<textbox readonly="true" width="200px"
+								id="contactoRespInscripcionTaller" value="@bind(vm.telfResponsableTaller)" />
+						</cell>											
+					</row>				
+				</rows>
+			</grid>
+
+		</groupbox>
+				<tabbox>
+					<tabs>
+						<tab label="Inscribir Estudiantes"/>
+						<tab label="Retirar Estudiantes"/>
+					</tabs>
+					<tabpanels>
+						<tabpanel height="210px">
+	<groupbox height="150px">
+						<button label="Seleccionar Estudiantes" image="/images/iconos/16x16/buscar.png" 
+								style="margin-left:6px; margin-bottom:8px;"
+						 		height="20px;" onClick="@command('MostrarCatalogoEstudiante')" />
+					
+				
+			<listbox model="@bind(vm.modeloEstudiantesInscribir)" width="100%" height="80px" vflex="true"
+			 emptyMessage="No se han seleccionado estudiantes a inscribir">
+				
+				<listhead>
+					<listheader label="Cédula" width="20%"/>
+					<listheader label="Nombre" width="20%"/>
+					<listheader label="Apellido" width="25%"/>
+					<listheader label="Dirección de Programa" width="15%"/>
+					<listheader label="" width="10%"/>
+					
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="@bind(each.estudianteCedula)" />
+						<listcell label="@bind(each.estudianteNombre)" />
+						<listcell label="@bind(each.estudianteApellido)" />
+						<listcell label="@bind(each.direccionProgramae.direccionNombre)" />
+					    <listcell>
+					    	<button onClick="@command('eliminarEstudianteLista',parametro=self)" 
+					    			image="/images/iconos/16x16/eliminar.png">
+					    		<custom-attributes idboton="${each.estudianteCedula}"/> 
+					    	</button>
+					    </listcell>
+					</listitem>
+				</template>
+			</listbox>
+			</groupbox>
+          <hbox width="100%" pack="end" align="center">
+			<button id="guardarIncripcionTaller" label="Guardar"
+					image="/images/iconos/16x16/guardar.png" sclass="button"
+					onClick="@command('guardarEstudiantesTaller')"/>
+			<button label="Cancelar"  sclass="button"
+					image="/images/iconos/16x16/cancelar.png" onClick="@command('cancelar')"/>
+			<button label="Salir" onClick="@command('cerrarVentana')" sclass="button"
+					image="/images/iconos/16x16/salir.png" />
+		</hbox>
+		</tabpanel>
+		<tabpanel height="210px">
+		<groupbox height="150px">
+			<caption sclass="text" label="Datos de Retiro de Estudiantes"></caption>
+			<listbox model="@bind(vm.modeloEstudiantesAEliminar)" 
+				emptyMessage="No hay estudiantes para eliminar en el taller" height="90px" width="100%" vflex="true" >
+				
+				<listhead>
+					<listheader label="Cédula" width="20%"/>
+					<listheader label="Nombre" width="20%"/>
+					<listheader label="Apellido" width="25%"/>
+					<listheader label="Dirección de Programa" width="15%"/>
+					<listheader label="" width="10%"/>				
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="@bind(each.estudianteCedula)" />
+						<listcell label="@bind(each.estudianteNombre)" />
+						<listcell label="@bind(each.estudianteApellido)" />
+						<listcell label="@bind(each.direccionProgramae.direccionNombre)" />
+					    <listcell>
+					    	<button onClick="@command('eliminarEstudianteTaller',parametro=self)" 
+					    			image="/images/iconos/16x16/eliminar.png">
+					    	<custom-attributes idboton="${each.estudianteCedula}"/> 
+					    	</button>
+					    </listcell>
+					</listitem>
+				</template>
+			</listbox>
+     </groupbox>
+     <div align="right">
+			<button label="Cancelar"  sclass="button"
+					image="/images/iconos/16x16/cancelar.png" onClick="@command('cancelar')"/>
+			<button label="Salir" onClick="@command('cerrarVentana')" sclass="button"
+					image="/images/iconos/16x16/salir.png" />
+		</div>
+		</tabpanel>
+		</tabpanels>
+		</tabbox>
+		
+
+	</window>
+</zk>

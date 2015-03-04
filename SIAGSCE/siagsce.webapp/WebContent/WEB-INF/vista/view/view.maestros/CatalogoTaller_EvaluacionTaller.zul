@@ -1,0 +1,67 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoEvaluacionTaller"  title="" border="normal"
+		width="580px">
+
+		<grid id="grdEvaluacionTaller" width="560px">
+			<auxhead>
+				<auxheader colspan="4" label="Catalogo de Talleres"
+					align="center" />
+			</auxhead>
+			<auxhead>
+				<auxheader colspan="4">
+					<textbox value="Filtro" />
+				</auxheader>
+			</auxhead>
+			<columns>
+				<column label="Codigo" width="140px"></column>
+				<column label="Nombre" width="140px"></column>
+				<column label="Fecha Inicio" width="140px"></column>
+				<column label="Fecha Culminacion" width="140px">
+				</column>
+			</columns>
+			<rows>
+				<row>
+					<label value="001" />
+					<label value="RC-Inf-2013" />
+					<label value="27/09/2013" />
+					<label value="27/10/2013" />
+				</row>
+				<row>
+					<label value="002" />
+					<label value="RC-Ads-2013" />
+					<label value="27/09/2013" />
+					<label value="27/10/2013" />
+				</row>
+				<row>
+					<label value="003" />
+					<label value="RC-Prod-2013" />
+					<label value="27/09/2013" />
+					<label value="27/10/2013" />
+				</row>
+				<row>
+					<label value="004" />
+					<label value="RC-Mat-2013" />
+					<label value="27/09/2013" />
+					<label value="27/10/2013" />
+				</row>
+
+			</rows>
+		</grid>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnAceptarEvaluacionTaller"  label="Aceptar" image="/iconos/aceptar.png"
+				orient="vertical" width="70px" height="50px" />
+			<button id="btnSalirEvaluacionTaller" label="Salir" image="/iconos/salir.png"
+				orient="vertical" width="70px" height="50px" />
+		</hbox>
+
+	</window>
+</zk>

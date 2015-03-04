@@ -1,0 +1,82 @@
+<!--Siagsce - Desarrollado por Iterator-->
+<!--Autor:  Iterator-->
+<!--Interfaz: Consulta el promedio de estudiantes por unidades aprobadas-->
+<!--Ultima modificación: 09/03/2014-->
+
+<?page title="Reportes Estadísticos" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winPromedioEstudiantesas"
+		title="Estudiantes por U.C Aprobadas"
+		border="normal" width="100%" height="520px"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.estadisticos.VMPromedioEstudiantesPorUnidad')">
+		<groupbox>
+			<caption sclass="text" label="Criterios de Búsqueda"></caption>
+			<listbox id="lbxDatos">
+				<listhead>
+					<listheader width="18%" />
+					<listheader width="22%" />
+					<listheader width="25%" />
+					<listheader width="22%" />
+					<listheader width="25%" />
+					<listheader width="20%" />
+				</listhead>
+				<listitem>
+					<listcell></listcell>
+					<listcell label="Dirección de Programa:"></listcell>
+					<listcell>
+						<combobox readonly="true" id="idstatu"
+							placeholder="Seleccione un Programa..." mold="rounded"
+							model="@load(vm.modeloPrograma)" width="100%"
+							selectedItem="@bind(vm.selectedPrograma)"
+							onSelect="@command('showReport')">
+							<template name="model">
+								<comboitem
+									label="${each.direccionNombre}" />
+							</template>
+						</combobox>
+					</listcell>
+					<listcell label="Desde:"></listcell>
+					<listcell>
+						<datebox id="dtbFechaInicio"
+							constraint="no empty" format="dd-MM-yyyy" width="100%"
+							tooltiptext="Ingrese la fecha inicio"
+							onBlur="@command('validarFechaCulminacion')"
+							onChange="@command('showReport')" value="@bind(vm.fechaInicio)" />
+					</listcell>
+					<listcell></listcell>
+				</listitem>
+				<listitem>
+					<listcell></listcell>
+					<listcell label="Hasta:"></listcell>
+					<listcell>
+						<datebox id="dtbFechaCulminacion"
+							constraint="no empty" format="dd-MM-yyyy"
+							tooltiptext="Ingrese la fecha final"
+							onBlur="@command('validarFechaInicio')" width="100%"
+							onChange="@command('showReport')"
+							value="@bind(vm.fechaCulminacion)" />
+					</listcell>
+					<listcell></listcell>
+					<listcell label=""></listcell>
+					<listcell></listcell>
+				</listitem>
+			</listbox>
+		</groupbox>
+		<grid height="310px">
+			<rows>
+				<row>
+					<jasperreport id="report" height="290px"
+						src="@load(vm.reportConfig.source, after='showReport')"
+						parameters="@load(vm.reportConfig.parameters, after='showReport')"
+						type="@load(vm.reportConfig.type.value, after='showReport')"
+						datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+				</row>
+			</rows>
+		</grid>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnSalir" label="Salir" sclass="button"
+				image="images/iconos/16x16/salir.png" onClick="@command('cerrar')" />
+		</hbox>
+	</window>
+</zk>

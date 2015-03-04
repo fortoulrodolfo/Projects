@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/993/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales
+END
+VMReporteActividadesAsignadasEstudiantes.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/970/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteActividadesAsignadasEstudiantes.java
+END
+VMReporteConsultarHistorialEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/988/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteConsultarHistorialEstudiante.java
+END
+VMReporteEstudiantesInscritosProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/970/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteEstudiantesInscritosProyecto.java
+END
+VMReporteEstudianteInscritoPorTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/962/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteEstudianteInscritoPorTaller.java
+END
+VMConsultarHistorial.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/897/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMConsultarHistorial.java
+END
+EstatusEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/730/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/EstatusEstudiante.java
+END
+VMReporteEstudiantesPreInscritosProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/970/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteEstudiantesPreInscritosProyecto.java
+END
+VMReporteActividadesCumplidasEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/993/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteActividadesCumplidasEstudiante.java
+END
+VMReporteEstudianteRetiradoProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/970/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMReporteEstudianteRetiradoProyecto.java
+END
+VMConsultadeHorasCumplidasporEstudiantes.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/988/siagsce.webapp/src/siagsce/viewmodel/reportes/especiales/VMConsultadeHorasCumplidasporEstudiantes.java
+END

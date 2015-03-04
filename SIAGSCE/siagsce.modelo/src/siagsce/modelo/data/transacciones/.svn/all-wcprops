@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/973/siagsce.modelo/src/siagsce/modelo/data/transacciones
+END
+ActividadEjecutada.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/714/siagsce.modelo/src/siagsce/modelo/data/transacciones/ActividadEjecutada.java
+END
+InscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/transacciones/InscripcionProyecto.java
+END
+ActividadAsignada.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/transacciones/ActividadAsignada.java
+END
+ListadoEstudiantesRegistrarEjecucion.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/data/transacciones/ListadoEstudiantesRegistrarEjecucion.java
+END
+ListadoEstudiantesProyectoCulminado.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/973/siagsce.modelo/src/siagsce/modelo/data/transacciones/ListadoEstudiantesProyectoCulminado.java
+END
+PreInscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/562/siagsce.modelo/src/siagsce/modelo/data/transacciones/PreInscripcionProyecto.java
+END
+ListadoPreinscripto.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/942/siagsce.modelo/src/siagsce/modelo/data/transacciones/ListadoPreinscripto.java
+END
+PopUpAsignarHoras.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/data/transacciones/PopUpAsignarHoras.java
+END
+ListadoEstudiantesActividadAsignada.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/88/siagsce.modelo/src/siagsce/modelo/data/transacciones/ListadoEstudiantesActividadAsignada.java
+END

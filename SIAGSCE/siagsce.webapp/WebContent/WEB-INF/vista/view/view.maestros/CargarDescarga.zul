@@ -1,0 +1,85 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaciï¿½n: 02/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCargarDescarga"  title="Configurar Descargas"
+		 border="normal" width="100%" height="498px" sclass="fondo_arbol1"
+		apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('cerrarVentana')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCargarDescarga')">
+		
+		<groupbox >
+			<caption sclass="text" label="Datos Descarga"></caption>
+			<grid >
+				<columns>
+					<column width="20%" />
+					<column  />
+				</columns>
+				<rows>
+					<row>
+						<label value="Nombre:" />
+						<textbox id="txtnombre" width="200px"
+							value="@bind(vm.nombreDocumento)"  />
+					</row>
+					<row>
+						<label value="Archivo:" />
+						<cell><textbox  width="200px"
+							value="@bind(vm.descargaNombreArchivo)" style="margin-right:8px;" readonly="true" /><button id="cargarDescarga" label="Cargar" sclass="button"  upload="true,maxsize=1000"
+         onUpload="@command('uploadFile',upload=event)">
+						</button></cell>
+					</row>
+					<row>
+						<label value="Tipo:" />
+						<cell><textbox readonly="true"  width="200px"
+							value="@bind(vm.tipoDocumento)" style="margin-right:8px;"/><button label="Guardar" sclass="button" image="images/iconos/16x16/guardar.png"
+				onClick="@command('guardar')"  /></cell>
+							
+					</row>
+				</rows>
+				</grid>
+		</groupbox>
+		<groupbox>
+		<caption sclass="text" label="Descargas en el Sistema"></caption>
+		<listbox height="170px" vflex="true"
+			model="@bind(vm.modeloDescarga)"
+			emptyMessage="No hay documentos para descargas"
+			>
+			
+		<listhead>
+			<listheader label="Nombre" width="20%"/>
+			<listheader label="Nombre Archivo" width="45%"/>
+			<listheader label="Tipo" width="25%"/>
+			<listheader label="" width="10%"/>
+		</listhead>
+		
+		<template name="model">
+			<listitem>	
+				<listcell label="${each.descargaNombre}"></listcell>
+				<listcell label="${each.descargaNombreArchivo}"></listcell>
+				<listcell label="${each.descargaTipo}"></listcell>
+				
+				<listcell><button image="images/iconos/16x16/eliminar.png" onClick="@command('eliminar',parametro=self)">
+					<custom-attributes codigo="${each.descargaCodigo}"/></button></listcell>
+			</listitem>
+		</template>
+		
+	</listbox>
+	</groupbox>
+
+		<hbox width="100%" pack="end" align="center">
+			
+			<button label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							onClick="@command('cancelar')" sclass="button" />
+			<button label="Salir" sclass="button" image="images/iconos/16x16/salir.png"
+				onClick="@command('cerrarVentana')"  />
+		</hbox>
+
+	</window>
+</zk>

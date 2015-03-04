@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1026/siagsce.modelo/src/siagsce/modelo/general
+END
+StatusProfesorParticipante.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusProfesorParticipante.java
+END
+StatusTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusTaller.java
+END
+Archivo.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/106/siagsce.modelo/src/siagsce/modelo/general/Archivo.java
+END
+UtilidadesSiagsce.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/general/UtilidadesSiagsce.java
+END
+StatusRepresentanteProfesoral.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusRepresentanteProfesoral.java
+END
+StatusCoordinadorSce.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusCoordinadorSce.java
+END
+StatusEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/88/siagsce.modelo/src/siagsce/modelo/general/StatusEstudiante.java
+END
+EnviarCorreo.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1026/siagsce.modelo/src/siagsce/modelo/general/EnviarCorreo.java
+END
+StatusProfesorResponsable.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusProfesorResponsable.java
+END
+StatusPreinscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/88/siagsce.modelo/src/siagsce/modelo/general/StatusPreinscripcionProyecto.java
+END
+StatusProfesor.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusProfesor.java
+END
+StatusInscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/1018/siagsce.modelo/src/siagsce/modelo/general/StatusInscripcionProyecto.java
+END
+StatusDirectorPrograma.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusDirectorPrograma.java
+END
+StatusProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/957/siagsce.modelo/src/siagsce/modelo/general/StatusProyecto.java
+END
+StatusRetiro.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/9/siagsce.modelo/src/siagsce/modelo/general/StatusRetiro.java
+END
+DataGenerica.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/general/DataGenerica.java
+END
+Documento.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/3/siagsce.modelo/src/siagsce/modelo/general/Documento.java
+END
+StatusInscripcionTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/50/siagsce.modelo/src/siagsce/modelo/general/StatusInscripcionTaller.java
+END

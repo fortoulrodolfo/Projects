@@ -1,0 +1,38 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win1" mode="modal"  border="normal" width="580px" minimizable="false"
+        maximizable="false" closable="true"
+        action="hide: slideUp" apply="org.zkoss.bind.BindComposer"
+        onCancel="@command('cerrarVentana')" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoProf_DirectorPrograma')">
+ 
+    <listbox height="160px" model="@bind(vm.modeloProfesor)" emptyMessage="No hay profesores registrados"
+    selectedItem="@bind(vm.selectedProfesor)" style="margin-top:10px">
+        <listhead>
+            <listheader label="cedula" />
+            <listheader label="nombre" />
+            <listheader label="apellido" width="20%"/>
+             <listheader label="telefono" />
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="@bind(each.profesorCedula)"></listcell>
+                <listcell label="@bind(each.profesorNombre)"></listcell>
+                <listcell label="@bind(each.profesorApellido)"></listcell>
+                <listcell label="@bind(each.profesorTelefono)"></listcell>
+            </listitem>
+        </template>
+    </listbox>
+					 <hbox width="100%" pack="end" align="center" >
+	<button label="Aceptar"  image="images/iconos/24x24/aceptar.png" onClick="@command('save')" orient="vertical" width="70px" height="50px"/>
+  	<button label="Salir" image="images/iconos/24x24/salir.png" onClick="@command('cerrarVentana')" orient="vertical" width="70px" height="50px"/>
+</hbox>
+
+</window>
+</zk>

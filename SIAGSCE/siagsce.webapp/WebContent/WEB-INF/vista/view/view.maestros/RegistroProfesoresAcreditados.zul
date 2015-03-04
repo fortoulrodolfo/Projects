@@ -1,0 +1,234 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+
+<?page title="Registro Profesores Acreditados" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winRegistroProfesorAcreditado"
+		title="Acreditar Profesor" border="normal" position="center"  width="100%" height="498px"
+		 apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMRegistrarProfesorAcreditado')">
+
+
+		<div style="text-align: left;"></div>
+		<separator></separator>
+
+
+		<groupbox id="gbxRegistroProfesoresAcreditados">
+			<caption label="Datos del Profesor" sclass="text"></caption>
+			<tabbox>
+				<tabs>
+					<tab onClick="@command('cancelar2')" label="Acreditación" />
+					<tab onClick="@command('cancelar1')" label="Revertir Acreditación" />
+				</tabs>
+				<tabpanels>
+					<tabpanel>
+						<grid>
+							<columns>
+								<column label="" width="15%" />
+								<column label="" width="35%" />
+								<column label="" width="15%" />
+								<column label="" width="" />
+
+							</columns>
+							<rows>
+								<row>
+									<cell>
+										<label value="Cédula:"></label>
+									</cell>
+									<cell>
+										<hbox align="center">
+											<textbox id="txtCedula"
+												value="@bind(vm.profesorCedula)" width="200px"
+												readonly="true">
+											</textbox>
+											<button
+												image="/images/iconos/16x16/buscar.png"
+												onClick="@command('mostrarCatalogoProfesorApto')" />
+										</hbox>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label value="Nombre:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtNombre"
+											value="@bind(vm.profesorNombre)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+									<cell>
+										<label value="Apellido:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtApellido"
+											value="@bind(vm.profesorApellido)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+
+								<row>
+									<cell>
+										<label value="E-mail:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtEmail"
+											value="@bind(vm.profesorEmail)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+									<cell>
+										<label value="Teléfono:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtTelefono"
+											value="@bind(vm.profesorTelefono)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+
+								<row>
+									<cell>
+										<label value="Dirección:"></label>
+									</cell>
+									<cell colspan="3">
+										<textbox id="txtDireccion"
+											value="@bind(vm.profesorDireccion)" width="85%"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+							</rows>
+						</grid>
+		
+		<separator>
+
+		</separator>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnGuardarProfeAcreditado" label="Guardar"
+				sclass="button" image="images/iconos/16x16/guardar.png"
+				onClick="@command('guardarProfesorApto')" />
+			<button id="btnCancelarProfeAcreditado" label="Cancelar"
+				image="images/iconos/16x16/cancelar.png" sclass="button"
+				onClick="@command('cancelar1')" />
+			<button id="btnSalirProfeAcreditado" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button"
+				onClick="@command('cerrarVentana')" />
+		</hbox>
+		</tabpanel>
+		<tabpanel>
+						<grid>
+							<columns>
+								<column label="" width="15%" />
+								<column label="" width="35%" />
+								<column label="" width="15%" />
+								<column label="" width="" />
+
+							</columns>
+							<rows>
+								<row>
+									<cell>
+										<label value="Cédula:"></label>
+									</cell>
+									<cell>
+										<hbox align="center">
+											<textbox id="txtCedulaDes"
+												value="@bind(vm.profesorCedulaDes)" width="200px"
+												readonly="true">
+											</textbox>
+											<button
+												image="/images/iconos/16x16/buscar.png"
+												onClick="@command('mostrarCatalogoProfesorAcreditado2')" />
+										</hbox>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label value="Nombre:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtNombreDes"
+											value="@bind(vm.profesorNombreDes)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+									<cell>
+										<label value="Apellido:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtApellidoDes"
+											value="@bind(vm.profesorApellidoDes)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+
+								<row>
+									<cell>
+										<label value="E-mail:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtEmailDes"
+											value="@bind(vm.profesorEmailDes)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+									<cell>
+										<label value="Teléfono:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtTelefonoDes"
+											value="@bind(vm.profesorTelefonoDes)" width="200px"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+
+								<row>
+									<cell >
+										<label value="Dirección:"></label>
+									</cell>
+									<cell colspan="3">
+										<textbox id="txtDireccionDes"
+											value="@bind(vm.profesorDireccionDes)" width="85%"
+											readonly="true">
+										</textbox>
+									</cell>
+
+								</row>
+							</rows>
+						</grid>
+		
+		<separator>
+
+		</separator>
+		<hbox width="100%" pack="end" align="center">
+				<button id="btnGuardarProfeDesacreditado" label="Guardar"
+				sclass="button" image="images/iconos/16x16/guardar.png"
+				onClick="@command('guardarProfesorDesacreditado')" />
+			<button id="btnCancelarProfeDesacreditado" label="Cancelar"
+				image="images/iconos/16x16/cancelar.png" sclass="button"
+				onClick="@command('cancelar2')" />
+			<button id="btnSalirProfeDesacreditad" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button"
+				onClick="@command('cerrarVentana')" />
+		</hbox>
+		</tabpanel>
+		</tabpanels>
+		</tabbox>
+		</groupbox>
+	</window>
+</zk>

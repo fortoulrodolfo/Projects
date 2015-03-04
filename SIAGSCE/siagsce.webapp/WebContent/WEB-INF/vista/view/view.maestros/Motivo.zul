@@ -1,0 +1,101 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Registro de Motivo" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window sclass="fondo_arbol1"  title="Registro de Motivo"
+		border="normal" apply="org.zkoss.bind.BindComposer" width="100%"
+		height="498px"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMMotivo')">
+
+
+		<groupbox id="gbxRegistroMotivos">
+			<caption label="Datos Del Motivo" sclass="text"></caption>
+
+			<grid id="grdEditar">
+
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+
+				<rows>
+					<row>
+						<cell>
+							<label id="lblnombre" value="Nombre:">
+							</label>
+
+						</cell>
+						<cell>
+							<hbox>
+								<textbox id="txtnombre" width="200px"
+									value="@bind(vm.nombre)" readonly="@bind(vm.nombreMotivo)" />
+								<button id="btnbuscar" label=""
+									width="35px" height="25px"
+									image="images/iconos/16x16/buscar.png"
+									onClick="@command('mostrarCatalogoMotivos')" />
+							</hbox>
+						</cell>
+						<cell>
+							<label value="Tipo:"></label>
+						</cell>
+						<cell>
+							<combobox value="@bind(vm.causa)"
+								model="@bind(vm.modeloCausa)"
+								selectedItem="@bind(vm.selectedCausa)" width="200px"
+								readonly="true" 
+								disabled="@bind(vm.descripcionMotivo)" >
+								<template name="model">
+									<comboitem
+										label="@bind(each.causaNombre)" width="200px" />
+								</template>
+							</combobox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label id="lbldescripcion"
+								value="Descripción:">
+							</label>
+						</cell>
+						<cell colspan="3">
+							<textbox id="txtdescripcion" width="85%"
+								multiline="true" rows="2" value="@bind(vm.descripcion)"
+								readonly="@bind(vm.descripcionMotivo)" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+
+			<hbox width="100%" pack="end" align="center">
+				<button id="btnguardarMotivo" label="Guardar"
+					sclass="button" image="images/iconos/16x16/guardar.png"
+					onClick="@command('guardarMotivo')"
+					disabled="@bind(vm.btnGuardarMotivo)" />
+				<button id="btnEditar" label="Editar" sclass="button"
+					onClick="@command('modificarMotivo')"
+					image="images/iconos/16x16/editar.png"
+					disabled="@bind(vm.btnmodificar)" />
+				<button id="btnEliminar" label="Eliminar"
+					image="/images/iconos/16x16/eliminar.png" sclass="button"
+					onClick="@command('eliminarMotivo')"
+					disabled="@bind(vm.btnEliminarMotivo)" />
+				<button id="btncancelar" label="Cancelar"
+					sclass="button" image="images/iconos/16x16/cancelar.png"
+					onClick="@command('cancelar')" />
+				<button id="btnsalir" label="Salir" sclass="button"
+					image="images/iconos/16x16/salir.png" onClick="@command('salir')" />
+			</hbox>
+
+		</groupbox>
+
+	</window>
+</zk>

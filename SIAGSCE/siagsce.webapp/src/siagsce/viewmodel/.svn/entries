@@ -1,0 +1,40 @@
+10
+
+dir
+1044
+http://proyecto-si-siagsce.googlecode.com/svn/siagsce.webapp/src/siagsce/viewmodel
+http://proyecto-si-siagsce.googlecode.com/svn
+
+
+
+2014-05-15T01:48:22.241317Z
+1040
+mffr22@gmail.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c78c3701-3cce-06dd-ca66-9e8f8177b5ec
+
+maestros
+dir
+
+reportes
+dir
+
+seguridad
+dir
+
+transacciones
+dir
+

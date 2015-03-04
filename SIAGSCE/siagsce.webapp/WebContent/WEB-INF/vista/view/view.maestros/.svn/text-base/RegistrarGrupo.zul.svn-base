@@ -1,0 +1,85 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<window id="demoWindowRegistrarGrupo"   apply="org.zkoss.bind.BindComposer"
+    sclass="fondo_arbol1" viewModel="@id('vm') @init('siagsce.viewmodel.seguridad.VMRegistrarGrupo')" border="normal" title="Registrar Grupo " width="100%" height="498px">
+    <style>
+    .h-inline-block {
+        display: inline-block;
+        _display: inline;
+    }
+    
+    </style>
+    	<groupbox id="gbxDatosGrupo">
+			<caption sclass="text" label="Datos del Grupo"></caption>
+			<grid id="grdDatosGrupo">
+				<columns>
+				<column width="15%"/>
+				<column  width="35%"/>
+				<column  width="15%"/>
+				<column  width="35%"/>
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							Nombre:
+							</cell>
+						<cell> 
+							<textbox id="txtNombreRegistrarGrupo" value="@bind(vm.nombre)"  onBlur="@command('cargarGrupo')" width="200px"/>
+							<button image="images/iconos/16x16/buscar.png" height="25px" width="40px"
+								onClick="@command('mostrarCatalogoGrupos')" style="margin-top:-7px;" />
+						</cell>
+						
+					</row>
+					<row>	
+						<cell>
+						Descripción:
+					</cell>
+					<cell  colspan="3"> 
+							<textbox id="txtDescripcionRegistrarGrupo" value="@bind(vm.descripcion)" rows="2"  width="80%"/>
+					</cell>
+						
+					</row>
+				
+				</rows>
+			</grid>
+		</groupbox>
+		<space/>
+		<grid height="250px">
+		<columns>
+			<column  width="45%"/>
+			<column  width="45%"/>
+		</columns>
+		<rows>
+			<row>
+			<tree id="tree"  rows="6" >
+        <treecols>
+            <treecol label="Menú Principal"/>       
+        </treecols>
+           </tree>
+    	<tree id="tree2" rows="6">
+        <treecols >
+            <treecol label="Menú del Grupo"/>       
+        </treecols>
+    </tree>
+			</row>
+		</rows>
+	</grid>
+	<space/>
+		<div align="right" height="40px">
+			<button id="btnGuardarRegistrarGrupo" label="Guardar"
+				image="images/iconos/16x16/guardar.png" onClick="@command('guardarGrupo')" sclass="button"/>
+			<button id="btnGuardarModificarGrupo" label="Modificar"
+				image="images/iconos/16x16/editar.png" onClick="@command('guardarGrupo')" sclass="button"/>
+			<button id="btnCancelarRegistrarGrupo" label="Cancelar"
+				image="images/iconos/16x16/cancelar.png" onClick="@command('cancelar')" sclass="button"/>
+			<button id="btnSalirRegistrarGrupo" label="Salir" onClick="demoWindowRegistrarGrupo.detach()"
+				image="images/iconos/16x16/salir.png" width="70" height="50"/>
+		</div>
+   
+</window>

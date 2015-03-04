@@ -1,0 +1,317 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1023/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros
+END
+ConsultarEstudiantesAcreditados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarEstudiantesAcreditados.zul
+END
+CatalogoProfesoresAcreditadosCoordinacion.zul
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesoresAcreditadosCoordinacion.zul
+END
+CatalogoProfesor.zul
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesor.zul
+END
+CatalogoProfesorAcreditado2.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/679/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesorAcreditado2.zul
+END
+CargarDescarga.zul
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/794/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CargarDescarga.zul
+END
+IntegrantesSce.zul
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1023/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/IntegrantesSce.zul
+END
+CatalogoEstudianteExonerado.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudianteExonerado.zul
+END
+CatalogoEstudiantesTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/678/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudiantesTaller.zul
+END
+ConsultarProyectosOfertados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarProyectosOfertados.zul
+END
+Exonerados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/Exonerados.zul
+END
+ConfigurarOpcionesUsuario.zul
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/892/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConfigurarOpcionesUsuario.zul
+END
+CatalogoProfesorApto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesorApto.zul
+END
+CatalogoEstudiantes.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/678/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudiantes.zul
+END
+RegistrarRepresentanteProfesoral.zul
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/682/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarRepresentanteProfesoral.zul
+END
+InscripcionAlTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/931/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/InscripcionAlTaller.zul
+END
+RecuperarContrasena.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/775/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RecuperarContrasena.zul
+END
+ProyectoCulminado.zul
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1021/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ProyectoCulminado.zul
+END
+Motivo.zul
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/Motivo.zul
+END
+RegistrarProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/831/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarProyecto.zul
+END
+CatalogoGrupo.zul
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/892/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoGrupo.zul
+END
+CatalogoProfesoresAcreditados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/883/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesoresAcreditados.zul
+END
+CatalogoDireccionPrograma.zul
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoDireccionPrograma.zul
+END
+EvaluacionDelTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/EvaluacionDelTaller.zul
+END
+ConsultarFechaTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarFechaTaller.zul
+END
+ConsultarResultadosTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarResultadosTaller.zul
+END
+AgregarActividad.zul
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/851/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/AgregarActividad.zul
+END
+PlanificacionDelTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/PlanificacionDelTaller.zul
+END
+RegistrarDireccionDePrograma.zul
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarDireccionDePrograma.zul
+END
+CatalogoEstudiantesInscritos.zul
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudiantesInscritos.zul
+END
+CargarNoticia.zul
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/797/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CargarNoticia.zul
+END
+RegistrarProfesores.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/682/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarProfesores.zul
+END
+CatalogoMotivo.zul
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoMotivo.zul
+END
+CatalogoActividad.zul
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/676/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoActividad.zul
+END
+EditarPerfil.zul
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/751/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/EditarPerfil.zul
+END
+ConsultarNoticia.zul
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarNoticia.zul
+END
+RegistrarEstudianteApto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/682/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarEstudianteApto.zul
+END
+CatalogoEstudianteAExonerar.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/678/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudianteAExonerar.zul
+END
+DireccionPrograma.zul
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/943/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/DireccionPrograma.zul
+END
+CatalogoTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoTaller.zul
+END
+CatalogoProfesoresAptosNoSonDirectores.zul
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProfesoresAptosNoSonDirectores.zul
+END
+CatalogoParametros.zul
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoParametros.zul
+END
+CatalogoEstudianteApto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoEstudianteApto.zul
+END
+EstudiantesCulminado.zul
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/EstudiantesCulminado.zul
+END
+RegistrarCoordinadorGeneral.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarCoordinadorGeneral.zul
+END
+RegistroProfesoresAcreditados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/682/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistroProfesoresAcreditados.zul
+END
+CatalogoTaller_EvaluacionTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/681/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoTaller_EvaluacionTaller.zul
+END
+CatalogoProyectos.zul
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/972/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProyectos.zul
+END
+Parametro.zul
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/892/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/Parametro.zul
+END
+CatalogoProf_DirectorPrograma.zul
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/679/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoProf_DirectorPrograma.zul
+END
+ConsultarDescargas.zul
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/1004/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/ConsultarDescargas.zul
+END
+RegistrarGrupo.zul
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/933/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/RegistrarGrupo.zul
+END
+CatalogoDireccionProgramas.zul
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/676/siagsce.webapp/WebContent/WEB-INF/vista/view/view.maestros/CatalogoDireccionProgramas.zul
+END

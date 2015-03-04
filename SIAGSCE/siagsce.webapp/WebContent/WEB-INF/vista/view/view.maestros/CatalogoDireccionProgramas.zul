@@ -1,0 +1,46 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+
+
+<?page title="Catalogo Direcciones Programas" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoDireccionPrograma"  mode="modal"
+		border="normal" width="40%" height="60%" closable="true"
+		sclass="fondo_arbol1" title="Catalogo de Direcciones de Programa"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoDireccionProgramas')">
+
+		<listbox height="300px" vflex="true"
+			model="@bind(vm.modeloDireccionPrograma)"
+			emptyMessage="No hay direcciones de programa registradas"
+			selectedItems="@bind(vm.selectedDireccionPrograma)" checkmark="true" multiple="true">
+			<listhead>
+				<listheader label="Código" />
+				<listheader label="Nombre" />
+				<listheader label="Unidades de Crédito" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@bind(each.direccionCodigo)" />
+					<listcell label="@bind(each.direccionNombre)" />
+					<listcell
+						label="@bind(each.direccionUnidadesCredito)" />
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar"
+				image="images/iconos/24x24/aceptar.png"
+				onClick="@command('aceptar')" sclass="button" />
+			<button label="Salir" image="images/iconos/24x24/salir.png"
+				onClick="@command('cerrarVentana')" sclass="button" />
+		</hbox>
+
+	</window>
+</zk>

@@ -1,0 +1,141 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winPreinscripcionProyecto"
+		title="Pre-Inscripción a Proyecto" mode="modal" sclass="fondo_arbol1"
+		border="normal" width="70%" height="80%"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMPreInscripcionProyecto')">
+
+		<groupbox >
+			<caption label="Datos del estudiante" sclass="text"></caption>
+			<grid id="grdPreinscripcionProyecto">
+				<columns>
+					<column width="15%"/>
+					<column width="30%"/>
+					<column width="15%"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Cédula:"></label>
+						</cell>
+						<cell>
+							<hbox>
+								<textbox id="txtCedulaPreinscripcionProyecto" value="@bind(vm.estudianteCedula)" 
+										width="180px"></textbox>
+								<button id="btnBuscarPreinscripcionProyecto" onClick="@command('buscarEstudiante')"
+										image="/images/iconos/16x16/buscar.png" width="40px" height="25px" />
+							</hbox>
+						</cell>
+						<cell>
+							<label value="Programa:"></label>
+						</cell>
+						<cell>
+							<textbox id="txtProgramaPreinscripcionProyecto" value="@bind(vm.estudiantePrograma)" 
+									readonly="true" width="200px"></textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre:"></label>
+						</cell>
+						<cell>
+							<textbox id="txtNombrePreinscripcionProyecto" value="@bind(vm.estudianteNombre)" 
+									readonly="true" width="180px"></textbox>
+						</cell>
+						<cell>
+							<label value="Apellido:"></label>
+						</cell>
+						<cell>
+							<textbox id="txtApellidoPreinscripcionProyecto" value="@bind(vm.estudianteApellido)" 
+									readonly="true" width="200px"></textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+		</groupbox>
+
+		<groupbox>
+			<caption label="Proyectos ofertados" sclass="text"></caption>
+
+			<listbox 
+		model="@bind(vm.modeloProyecto)"
+		emptyMessage="No hay proyectos ofertados activos" checkmark="true"
+		selectedItem="@bind(vm.selectedProyecto)" vflex="true" height="260px;">
+						<auxhead>
+								<auxheader colspan="5">
+									<hbox><image src="images/iconos/16x16/Filter.png"/>
+										<textbox id="txtFiltroProyecto"
+											placeholder="nombre " value="@bind(vm.texto)"
+											onChange="@command('filtrarProyecto')" instant="true" />
+											<combobutton label=""
+															image="images/iconos/16x16/buscar.png">
+															<popup id="popOpciones">
+																<listbox
+																	id=" lbxSeleccionParametro" width="180px"
+																	model="@bind(vm.valores)"
+																	selectedItem="@bind(vm.seleccion)"
+																	onSelect="@command('seleccionFiltro')">
+																	<listhead>
+																		<listheader />
+																	</listhead>
+																	<template
+																		name="model">
+																		<listitem
+																			label="@bind(each)" />
+																	</template>
+																</listbox>
+															</popup>
+														</combobutton>
+											
+									</hbox>
+								</auxheader>
+							</auxhead>
+			<listhead>
+				<listheader label="" width="3%" />
+				<listheader label="Código" width="15%" />
+				<listheader label="Nombre" width="32%" />
+				<listheader label="Descripción" width="50%" />
+				<listheader label="Programa" width="20%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+					<listcell />
+					<listcell label="@bind(each.proyectoCodigo)" />
+					<listcell label="@bind(each.proyectoNombre)" />
+					<listcell label="@bind(each.proyectoDescripcion)" />
+					<listcell label="@bind(each.getProgramaString())" />
+
+				</listitem>
+			</template>
+
+		</listbox>
+
+		</groupbox>
+
+		<hbox width="100%" pack="end" align="center" sclass="button" >
+			<button id="btnGuardarPreinscripcionProyecto" sclass="button" 
+					label="Guardar" image="images/iconos/16x16/guardar.png"
+					 onClick="@command('registrarPreInscripcion')" />
+			<button id="btnCancelarPreinscripcionProyecto" label="Cancelar" 
+					image="images/iconos/16x16/cancelar.png"
+					sclass="button"  width="97px;" onClick="@command('cancelar')" />
+			<button id="btnSalirPreinscripcionProyecto" sclass="button"
+					label="Salir" onClick="@command('cerrarVentana')" 
+					image="images/iconos/16x16/salir.png"/>
+		</hbox>
+
+	</window>
+</zk>

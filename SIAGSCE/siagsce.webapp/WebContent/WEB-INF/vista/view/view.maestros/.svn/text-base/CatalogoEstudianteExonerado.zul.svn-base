@@ -1,0 +1,87 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Estudiantes Exonerados" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" mode="modal" border="normal"  width="60%" height="60%" title="Estudiantes Exonerados"
+		minimizable="false" maximizable="false" 
+		action="hide: slideUp" apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('salir')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoEstudianteExonerado')" >
+
+		<listbox height="300px"  vflex="true"
+			model="@bind(vm.modeloExonerado)"
+			emptyMessage="No hay estudiantes exonerados" 
+			selectedItem="@bind(vm.selectedExonerados)"
+			checkmark="true">
+			
+			<auxhead>
+				<auxheader colspan="7">
+					<hbox><image src="images/iconos/16x16/Filter.png"/>
+						<textbox id="txtFiltroEstudiante"
+							placeholder="Nombre " value="@bind(vm.texto)"
+							onChange="@command('filtrarEstudiante')" instant="true" />
+							<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+							
+					</hbox>
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="" width="3%" />
+				<listheader label="Cédula" width="9%" />
+				<listheader label="Nombre" width="10%" />
+				<listheader label="Apellido" width="12%" />
+				<listheader label="Dirección" width="18%" />
+				<listheader label="Teléfono" width="12%"/>
+				<listheader label="Programa" width="20%" />
+				<listheader label="Motivo" width="23%" />
+				
+
+			</listhead>
+			<template name="model">
+
+				<listitem>
+					<listcell label="" />
+					<listcell label="@bind(each.estudianteExonerado.estudianteCedula)" />
+					<listcell label="@bind(each.estudianteExonerado.estudianteNombre)" />
+					<listcell label="@bind(each.estudianteExonerado.estudianteApellido)" />
+					<listcell label="@bind(each.estudianteExonerado.estudianteDireccion)" />
+					<listcell label="@bind(each.estudianteExonerado.estudianteTelefono)" />
+					<listcell label="@bind(each.estudianteExonerado.direccionProgramae.direccionNombre)" />
+					<listcell label="@bind(each.motivoExonerado.motivoNombre)" /> 
+					
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button sclass="button" id="btnGuardarExonerados" label="Aceptar"
+				image="images/iconos/16x16/aceptar.png" onClick="@command('guardar')"  />
+			<button sclass="button" id="btnSalirExonerados" label="Salir"
+				image="images/iconos/16x16/salir.png" onClick="@command('salir')" />
+		</hbox>
+
+	</window>
+</zk>

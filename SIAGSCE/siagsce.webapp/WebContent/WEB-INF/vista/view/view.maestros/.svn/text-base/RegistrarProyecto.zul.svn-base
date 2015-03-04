@@ -1,0 +1,448 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Registrar Proyecto" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winRegistrarProyecto" title="Registrar Proyecto"
+		border="normal"  apply="org.zkoss.bind.BindComposer"
+		style="overflow: auto" vflex="true" sclass="fondo_arbol1" width="100%"
+		height="498px"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMRegistrarProyecto')" >
+
+
+		<tabbox>
+			<tabs>
+				<tab label="Registrar Proyecto" />
+				<tab label="Actualizar Proyecto" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+
+
+					<tabbox id="tbxDatosProyecto">
+						<tabs>
+							<tab id="tbProyecto" label="Proyecto" />
+							<tab id="tbActividades" label="Actividades" />
+							<tab id="tbprogramas" label="Programas" />
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+								<groupbox id="gbxDatosProyecto"
+									height="160px" closable="false">
+									<caption sclass="text"
+										label="Datos Proyecto">
+									</caption>
+									<grid id="grdDatosProyecto">
+										<columns>
+											<column width="15%" />
+											<column width="30%" />
+											<column width="15%" />
+											<column width="30%" />
+
+										</columns>
+										<rows height="100px">
+											<row>
+
+
+												<label value="Código:" />
+												<textbox
+													id="txtCodigoRegistrarProyecto" width="200px"
+													value="@bind(vm.codigoProyecto)" />
+												<label value="Nombre:" />
+												<textbox
+													id="txtNombreRegistrarProyecto" width="200px"
+													value="@bind(vm.nombreProyecto)" />
+											</row>
+											<row>
+
+												<label
+													value="Descripción:" />
+												<textbox
+													id="txtDescripcionRegistrarProyecto"
+													value="@bind(vm.descripcionProyecto)" rows="2"
+													width="200px" />
+
+												<label
+													value="Responsables:" />
+												<cell>
+													<textbox
+														readonly="true" id="txtResponsableRegistrarProyecto"
+														value="@bind(vm.responsables)" width="200px" rows="2" />
+													<button
+														id="btnCatalogoProfesores1"
+														image="images/iconos/16x16/buscar.png" orient="horizontal"
+														width="30px" height="25px" label=""
+														onClick="@command('mostrarCatalogoProfAcreditadosR')" />
+												</cell>
+											</row>
+										</rows>
+									</grid>
+								</groupbox>
+							</tabpanel>
+							<tabpanel height="300px">
+
+
+								<grid id="grdDatosActividad"
+									height="110px">
+									<columns>
+										<column width="13%" />
+										<column width="28%" />
+										<column width="13%" />
+										<column width="28%" />
+										<column width="20%" />
+
+									</columns>
+									<rows height="100px">
+										<row>
+
+											<label value="Nombre:" />
+											<textbox width="200px"
+												id="txtNombreRegistrarActividad"
+												value="@bind(vm.nombreActividad)" />
+
+											<label
+												value="Duración (Horas):" />
+											<intbox width="200px"
+												id="txtDuracionRegistrarActividad"
+												value="@bind(vm.duracionActividad)" />
+											<cell>
+												<button
+													id="btnAgregarActividad" label="Agregar"
+													image="images/iconos/16x16/agregar.png"
+													onClick="@command('agregarActividad')" sclass="button" />
+
+											</cell>
+										</row>
+										<row>
+											<label value="Descripción:" />
+											<textbox
+												id="txtDescripcionRegistrarActividad"
+												value="@bind(vm.descripcionActividad)" rows="2"
+												width="200px" />
+
+
+
+											<label
+												value="Participantes:" />
+											<cell>
+												<hbox>
+													<textbox
+														readonly="true" id="txtParticipantesRegistrarProyecto"
+														value="@bind(vm.participantes)" width="200px" rows="2" />
+													<button
+														id="btnParticipantes1"
+														image="images/iconos/16x16/buscar.png" orient="horizontal"
+														width="40px" height="25px"
+														onClick="@command('mostrarCatalogoProfAcreditadosP')" />
+
+												</hbox>
+											</cell>
+											<cell>
+												<vbox>
+													<button
+														id="btnlimpiarActividad" label="Cancelar"
+														image="images/iconos/16x16/limpiar.png"
+														onClick="@command('limpiarActividad')" sclass="button" />
+
+												</vbox>
+
+											</cell>
+										</row>
+									</rows>
+								</grid>
+
+
+
+								<grid id="grdActividadAgregadaMo"
+									model="@bind(vm.modeloActividadAg)"
+									emptyMessage="No hay actividades asignadas" vflex="true"
+									height="200px">
+									<columns>
+										<column label="Nombre" width="18%"></column>
+										<column label="Descripción" width="35%">
+										</column>
+										<column label="Horas" width="5%"></column>
+										<column
+											label="Prof. Participantes" width="35%">
+										</column>
+										<column label="Eliminar" />
+									</columns>
+									<template name="model">
+										<row>
+											<label
+												value="@bind(each.actividadNombre)" />
+											<label
+												value="@bind(each.actividadDescripcion)" />
+											<label
+												value="@bind(each.actividadCantidadHoras)" />
+											<label
+												value="@bind(each.actividadString)" />
+												<button
+											image="images/iconos/16x16/eliminar.png"
+											onClick="@command('eliminarActividadAgregada', Actividad=each)" />
+											
+										</row>
+									</template>
+								</grid>
+
+							</tabpanel>
+
+
+							<tabpanel height="280px" vflex="true">
+								<div align="center">
+									<vbox id="vbxPrograma">
+										<hbox>
+											<label value="Programa:" />
+											<combobox id="cmbPrograma" width="200px"
+												model="@bind(vm.modeloPrograma)"
+												selectedItem="@bind(vm.selectedPrograma)" readonly="true">
+												<template
+													name="model">
+													<comboitem
+														label=" @bind(each.direccionNombre)" />
+												</template>
+											</combobox>
+											<button
+												id="btnAgregarPrograma" label="Agregar"
+												image="images/iconos/16x16/agregar.png"
+												onClick="@command('agregarPrograma')"/>
+										</hbox>
+										<grid id="grdProgramaAsig"
+											model="@bind(vm.modeloProgramaAsig)" vflex="true"
+											height="180px">
+											<columns>
+												<column label="Código"
+													width="18%">
+												</column>
+												<column
+													label="Nombre">
+												</column>
+											</columns>
+											<template name="model">
+												<row>
+													<label
+														value="@bind(each.direccionCodigo)" />
+													<label
+														value="@bind(each.direccionNombre)" />
+												</row>
+											</template>
+										</grid>
+										<div align="right">
+											<button
+												id="btnlimpiarprograma" label="Limpiar"
+												image="images/iconos/16x16/limpiar.png"
+												onClick="@command('limpiarPrograma')" />
+										</div>
+									</vbox>
+								</div>
+							</tabpanel>
+						</tabpanels>
+					</tabbox>
+					<div align="right">
+						<button id="btnGuardarRegistrarProyecto"
+							label="Guardar" image="images/iconos/16x16/guardar.png"
+							onClick="@command('guardarProyecto')" sclass="button" />
+						<button id="btnCancelarRegistrarProyecto"
+							label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							onClick="@command('limpiarProyecto')" sclass="button" />
+						<button id="btnEliminarRegistrarProyecto"
+							label="Salir" image="images/iconos/16x16/salir.png"
+							onClick="@command('cerrar')" sclass="button" />
+					</div>
+				</tabpanel>
+
+				<tabpanel>
+					<groupbox id="gbxDatosProyectoMo"
+						closable="false">
+						<caption sclass="text"
+							label="Datos del Proyecto">
+						</caption>
+						<grid id="grdDatosProyectoMo">
+							<columns>
+								<column width="15%" />
+								<column width="35%" />
+								<column width="15%" />
+								<column  />
+
+							</columns>
+							<rows>
+								<row>
+									<cell>
+										<label value="Código:" />
+									</cell>
+									<cell>
+										<hbox>
+
+											<textbox width="200px"
+												id="txtCodigoRegistrarProyectoMo"
+												value="@bind(vm.codigoProyectoMo)" />
+											<button
+												id="btnCatalogoProyectoMo"
+												image="images/iconos/16x16/buscar.png" orient="horizontal"
+												width="30px" height="25px" label=""
+												onClick="@command('mostrarProyecto')" />
+										</hbox>
+									</cell>
+
+								</row>
+								<row>
+									<cell>
+										<label value="Nombre:" />
+									</cell>
+									<cell>
+										<textbox width="200px"
+											id="txtNombreRegistrarProyectoMo"
+											value="@bind(vm.nombreProyectoMo)" />
+									</cell>
+									<cell>
+										<label value="Programas:" />
+									</cell>
+									<cell>
+										<hbox>
+
+											<textbox
+												id="txtCodigoRegistrarProgramaMo" value="@bind(vm.programa)"
+												rows="2" width="200px" />
+											<button
+												id="btnCatalogoProgramaMo"
+												image="images/iconos/16x16/buscar.png" orient="horizontal"
+												width="30px" height="25px" label=""
+												onClick="@command('mostrarProgramaMo')" />
+										</hbox>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label value="Descripción:" />
+									</cell>
+									<cell>
+										<textbox
+											id="txtDescripcionRegistrarProyectoMo"
+											value="@bind(vm.descripcionProyectoMo)" rows="2"
+											width="200px" />
+									</cell>
+									<cell>
+										<label value="Responsables:" />
+									</cell>
+									<cell>
+										<textbox readonly="true"
+											id="txtResponsableRegistrarProyectoMo"
+											value="@bind(vm.responsablesMo)" width="200px" rows="2"
+											multiline="true" />
+										<button
+											id="btnCatalogoResponsableMo"
+											image="images/iconos/16x16/buscar.png" orient="horizontal"
+											width="30px" height="25px" label=""
+											onClick="@command('mostrarCatalogoProfAcreditadosRMo')" />
+
+									</cell>
+								</row>
+
+
+							</rows>
+						</grid>
+					</groupbox>
+					<vbox>
+						<div align="right">
+							<button id="btnIncluirActividad" width="150px"
+								label="Incluir Actividad" image="images/iconos/16x16/agregar.png"
+								onClick="@command('mostrarActividadNueva')" />
+						</div>
+
+						<groupbox id="gbxActividadesMO" height="154px"
+							closable="false">
+							<caption>
+								<label sclass="text"
+									value="Actividades" />
+							</caption>
+							<grid id="grdActividad"
+								model="@bind(vm.modeloActividadMoEstatus) @template((vm.opcion and each.estatus) ? 'editable' : 'noeditable')"
+								emptyMessage="No hay actividades asignadas" vflex="true">
+								<columns>
+									<column label="Nombre" width="18%"></column>
+									<column label="Descripción" width="30%"></column>
+									<column label="Horas" width="5%"></column>
+									<column
+										label="Prof. Participantes" width="25%">
+									</column>
+									<column label="Modificar" width="12%"
+										visible="@load(vm.opcion)" />
+									<column label="Eliminar" width="10%"
+										visible="@load(vm.opcion)" />
+								</columns>
+								<template name="editable">
+									<row>
+										<textbox
+											value="@load(each.actividad.actividadNombre) @save(each.actividad.actividadNombre, before='confirmar')" width="145px" constraint="no empty" />
+										<textbox
+											value="@load(each.actividad.actividadDescripcion) @save(each.actividad.actividadDescripcion, before='confirmar')" width="260px" constraint="no empty" />
+										<intbox
+											value="@load(each.actividad.actividadCantidadHoras) @save(each.actividad.actividadCantidadHoras, before='confirmar')" width="35px" constraint="no empty"/>
+										<hbox>
+											<textbox
+												value="@load(each.actividad.actividadString)" constraint="no empty" readonly="true"/>
+											<button
+												image="images/iconos/16x16/buscar.png" orient="horizontal"
+												width="30px" height="25px" label=""
+												onClick="@command('mostrarCatalogoProfAcreditadosPMo', Actividad=each)" />
+										</hbox>
+
+										<div>
+											<button
+												image="images/iconos/16x16/aceptar.png"
+												onClick="@command('confirmar', Actividad=each)" />
+											<button
+												image="images/iconos/16x16/remover.png"
+												onClick="@command('cambiarValor', Actividad=each)" />
+										</div>
+										<button
+											image="images/iconos/16x16/eliminar.png"
+											onClick="@command('eliminarActividad', Actividad=each)" />
+									</row>
+								</template>
+								<template name="noeditable">
+									<row>
+										<label
+											value="@bind(each.actividad.actividadNombre)" />
+										<label
+											value="@bind(each.actividad.actividadDescripcion)" />
+										<label
+											value="@bind(each.actividad.actividadCantidadHoras)" />
+										<label
+											value="@bind(each.actividad.actividadString)" />
+										<button
+											image="images/iconos/16x16/editar.png"
+											onClick="@command('cambiarValor', Actividad=each)" />
+										<button
+											image="images/iconos/16x16/eliminar.png"
+											onClick="@command('eliminarActividad', Actividad=each)" />
+									</row>
+								</template>
+							</grid>
+						</groupbox>
+					</vbox>
+					<div align="right">
+						<button id="btnGuardarRegistrarProyectoMo"
+							label="Guardar" image="images/iconos/16x16/guardar.png"
+							onClick="@command('modificarProyecto')" sclass="button" />
+						<button id="btnEditarProyecto" label="Modificar"
+							image="images/iconos/16x16/editar.png"
+							onClick="@command('editarProyecto')" sclass="button" />
+						<button id="btnCancelarRegistrarProyectoMo"
+							label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							onClick="@command('cancelarMo')" sclass="button" />
+						<button id="btnEliminarRegistrarProyectoMo"
+							label="Salir" image="images/iconos/16x16/salir.png"
+							onClick="@command('cerrar')" sclass="button" />
+					</div>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+
+	</window>
+</zk>

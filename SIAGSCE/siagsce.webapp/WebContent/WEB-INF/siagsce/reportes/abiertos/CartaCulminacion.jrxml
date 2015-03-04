@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CartaCulminacion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fba19bfc-bcf7-476e-bc57-84454170cd7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="302"/>
+	<parameter name="apellido" class="java.lang.String"/>
+	<parameter name="nombre" class="java.lang.String"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="encabezado" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="220" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="6aca07f6-4f33-479d-ab42-360678a4aa69" x="25" y="33" width="522" height="86"/>
+				<imageExpression><![CDATA[$P{encabezado}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="5cd16fd9-4b78-43a6-af5b-76adda252611" x="32" y="181" width="522" height="30"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSTANCIA DE CULMINACIÓN DEL SERVICIO COMUNITARIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="178" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="90548d37-17e0-43fa-a77d-8e2938a9b191" x="41" y="0" width="492" height="50"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[           Quienes suscriben hacen constar la finalización del servicio comunitario del estudiante en nuestra comunidad, como requisito de la Ley de Servicio Comunitario para el Estudiante de Educación Superior (LSCEES).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f3d6229d-f599-466f-8b0a-05b5cea2772b" x="41" y="71" width="492" height="78"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[         Igualmente, certificamos que realizaron de forma exitosa un total de 120 horas de actividades, según  plan de trabajo y metas previamente acordados entre el mes de Mayo de 2014 y el mes de Julio de 2014; dejando productos y experiencias útiles para nuestra comunidad y a los voceros con las cuales tuvieron la oportunidad de compartir los siguientes estudiantes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89c5b807-3ad7-405d-bef7-7ea795ca4594" x="100" y="157" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89c5b807-3ad7-405d-bef7-7ea795ca4594" x="239" y="158" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89c5b807-3ad7-405d-bef7-7ea795ca4594" x="373" y="158" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="250">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement uuid="146d5784-e2fd-4b39-9e16-195c4e11262f" x="290" y="230" width="110" height="20"/>
+				<textElement>
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f6b4d373-5ed9-405d-adfe-c17d6b7b3aa6" x="200" y="230" width="90" height="20"/>
+				<textElement>
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Barquisimeto,]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="59b5d854-a803-450c-aa77-9a2789102b0b" x="127" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4b89dbcf-16d9-453b-808e-2343c031510d" x="273" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="18691ce8-118d-4f8d-b326-24140a8915cb" x="401" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{apellido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f31374cc-a0ef-4f20-94f6-3169abdd7bce" x="41" y="40" width="492" height="60"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[         Hacemos votos para que el trabajo continúe en pro del desarrollo de nuestra Nación y agradecemos la oportunidad de participar de esta iniciativa. Sin más a qué hacer referencia y esperando más y mejores frutos de esta alianza. Se despiden los abajo firmantes,
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40facd07-9382-4859-a8b0-c7f06fa32500" x="86" y="194" width="486" height="20"/>
+				<textElement>
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Representante por la Comunidad            Docente Responsable del Proyecto]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="58e005ee-ef37-4783-8032-8658b30b32ae" x="84" y="178" width="174" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="58e005ee-ef37-4783-8032-8658b30b32ae" x="311" y="177" width="174" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

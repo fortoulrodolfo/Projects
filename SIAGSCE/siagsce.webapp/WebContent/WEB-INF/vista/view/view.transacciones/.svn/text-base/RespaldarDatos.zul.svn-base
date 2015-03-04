@@ -1,0 +1,154 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+ <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./backupsListbox"?>
+<zk>
+<window id="winRespaldarDatos"  title="Respaldar Datos" border="normal" width="100%" height="498px"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.seguridad.VMRespaldarBaseDatos')" >
+    <zscript>
+   <![CDATA[
+		import java.io.File;
+		import siagsce.modelo.general.UtilidadesSiagsce;
+		String ruta = UtilidadesSiagsce.obtenerDirectorio();
+		Component comp;
+		public String generarTamanho(String archivo){
+			File archivoEliminado = new File(ruta+"Siagsce.webapp/WebContent/WEB-INF/siagsce/administracionBaseDatos/respaldosBD/"+archivo);
+			return String.valueOf(archivoEliminado.length());
+		}
+		int i = -1;
+	]]>
+	</zscript>	
+			<div width="100%" height="180px">
+				<groupbox id="grbContenedor1" width="100%" mold="3d" >
+					<caption sclass="text"
+						label="Destino del Respaldo" />
+				 <grid id="grdColumns" width="100%">
+						<columns>
+							   	<column label="" width="15%" />
+                				<column label="" width="65%"  />
+						</columns>
+					<rows>
+							<row>
+								<label id="lblDescripcion" value="Descripción: "/>
+								<textbox id= "txtdescripcion" value="@bind(vm.descripcion)"  tabindex="2" width="300px"
+								placeholder="Ingrese la descripción del backup"
+								cols="32" />	
+							</row>
+					</rows>
+				</grid>		
+					<grid id="grdColumn" width="100%" style="border:none;">
+						<columns>
+							<column label="" width="100%"/>
+						</columns>
+						<rows>
+							<row>
+								<radiogroup id="rgDestino"
+									onCheck="choice.value = self.selectedItem.label" selectedItem="@bind(vm.selected)">
+									<grid id="grdRadioButtons ">
+										<rows>
+											<row>
+											<cell width="40%">
+												<hbox>
+													<radio id="rbLocal" onCheck="@command('deshabilitarGroupBoxDispositivo',groupboxDispositivo=grbDispositivo)" value="local">
+													</radio>
+													<label id="lblLocal" value="Local" />
+												</hbox>
+											</cell>
+										    <cell>	
+												<hbox>
+													<radio id="rbDispositivo" onCheck="@command('habilitarGroupBoxDispositivo',groupboxDispositivo=grbDispositivo)" value="dispositivo">
+													</radio>
+													<label id="lblDispositivoExterno" value="Dispositivo Externo" />
+													<groupbox  width="100%" mold="3d" height="45px"
+					id="grbDispositivo" visible="false">
+					<grid id="grdRuta" style="border:none">
+						<rows>
+							<row>
+								<hbox>
+									<textbox id="txtRuta" width="300px" value="@bind(vm.txtRuta)" readonly="true" />
+									<button label="Examinar" id="btnExaminar" image="/images/iconos/16x16/buscar.png" onClick="@command('seleccionarRuta')">
+									</button>
+								</hbox>
+							</row>
+						</rows>
+							
+				</grid>
+				</groupbox>
+												</hbox>
+												</cell>
+											</row>
+										</rows>
+									</grid>
+								</radiogroup>
+								<label value="@bind(vm.selected)"/>
+							</row>
+						</rows>
+					</grid>
+					
+				</groupbox>
+				<div  align="right">
+				<button label="Guardar" id="btnGuardar" image="/images/iconos/16x16/guardar.png" mold="trendy" width="auto" sclass="button"
+				height="auto" orient="horizontal" onClick="@command('guardarRespaldo',groupboxDispositivo=grbDispositivo,aplication=application)">
+					</button>
+					<button label="Limpiar" id="btnCancelar" mold="trendy"
+						image="/images/iconos/16x16/limpiar.png" width="auto" height="auto" sclass="button"
+						orient="horizontal" onClick="@command('limpiar',groupboxDispositivo=grbDispositivo)">
+					</button>
+					
+					<button label="Salir" id="btnCerrar"
+   							image="/images/iconos/16x16/salir.png" mold="trendy" width="auto" sclass="button"
+   							height="auto" orient="horizontal" onClick="@command('cerrarVentana',ventana=winRespaldarDatos)">
+   						</button>
+   						</div>		
+			
+						
+		</div>
+		<div width="100%" height="250px">   		
+   		<groupbox id="grbListaBackups" height="auto" width="100%">
+   		<caption sclass="text" label="Respaldos de Base de Datos"/>
+   		<div id="divListBackups">
+   		<listbox id="backupsListbox" vflex="true" height="200px" width="100%"  emptyMessage="No hay backups realizados"
+   		 mold="paging" model="@bind(vm.listaDirectorio1)" multiple="false">
+			<listhead sizable="true">
+				<listheader label="Descripción" align="center" />
+				<listheader label="Tamaño de Archivo" align="center"/>
+			</listhead>	
+			<template name="model">
+					<listitem selected="false">
+						<listcell
+							label="${each}">
+							<custom-attributes nombreBackup="${each}"/>
+						</listcell>
+						<listcell><label> 
+	            		<attribute name="value">
+					    <zscript>
+					    	i = i + 1;
+					    	String tamanhoKbs = String.valueOf(Math.round((new File(ruta+"Siagsce.webapp/WebContent/WEB-INF/siagsce/administracionBaseDatos/respaldosBD/"+backupsListbox.getModel().getElementAt(i).toString()).length()/1024)));
+					    	tamanhoKbs = tamanhoKbs + " Kbs";
+					    	if(i==backupsListbox.getModel().getSize()-1)
+					    	 	i = -1;
+    					</zscript>
+            			</attribute>
+            			${tamanhoKbs}
+						</label>
+						</listcell>
+					</listitem>
+			</template>
+		</listbox>
+		<!-- refresca el contenido del listbox cada 17 segundos para que actualizen los tamaños de los backups al ser creados completamente-->
+    	<timer id="timer" delay="6800" repeats="true"> 
+    	<attribute name="onTimer">
+			   backupsListbox.setModel(backupsListbox.getModel());  
+		</attribute>
+		</timer>
+		</div>
+			<space />
+		</groupbox>
+		</div>
+</window>
+</zk>

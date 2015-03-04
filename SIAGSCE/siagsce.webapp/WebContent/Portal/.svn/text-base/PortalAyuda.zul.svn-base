@@ -1,0 +1,186 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Bienvenido" contentType="text/html;charset=UTF-8" ?>
+<zk>
+<window id="winPortal"
+		border="0"
+		apply="org.zkoss.bind.BindComposer" sclass="principal" height="100%" width="100%"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMPortal')">
+		
+<?meta name="viewport" content="width=device-width, initial-scale=1.0" ?>
+<style src="/css/style2.css" />
+<style src="/css/navbar.css" />
+
+     <borderlayout sclass="principal" height="100%" width="100%" >
+    
+			   <north height="20%">
+					 <borderlayout >
+			<!-- Inicio del Encabezado-->        
+			         	<north sclass="banner" flex="true" size="75%" >
+			       			 <div >
+								<a href="../Portal.zul"><image src="/images/logo/SIAGSCE.png"  height="100%" width="160px" zindex="2" style="margin-left:15px;"/></a>
+								<image src="/images/logo/LogoDCyT.png" height="100%" zindex="2" align="right"/>
+							 </div>
+						</north>
+			<!-- Fin del encabezado-->
+			
+			<!-- Inicio del Menu-->
+						<south size="40%" border="0" flex="true" collapsible="false" sclass="fondo_arbol1">
+			             <include src="pruebaBanner.zul"> </include>
+						 </south>
+			<!--Fin del Menu-->
+			        </borderlayout>
+			    </north>
+			    
+			    <center border="0" sclass="body">
+			    	<borderlayout style="margin-top:10px; margin-right:5px; margin-left:5px;">
+			    	
+			    	  <center  id="bordercenter" border="normal" sclass="marca_agua"  margins="12,12,12,12"  > 
+			 	      <window id="windowAyuda1"  title="¿Quiénes pueden ingresar a nuestro sistema?" sclass="fondo_arbol1" visible="false" height="100%" width="100%" border="normal">
+			 	      	<vlayout>
+			    		<label value="@bind(vm.contenidoAyuda)" sclass="text2" width="100%" style="margin-top:50px; margin-right:5px; margin-left:5px; padding: 0 80px;" />
+			    		</vlayout>
+			 	      </window>
+					</center>
+		    		<west size="22%" sclass="arbol" border="normal" margins="12,12,12,12">
+					<tree id="tree" rows="10" vflex="1" >
+				        <treecols sizable="true">
+				            <treecol hflex="1" label="Preguntas Frecuentes"  sclass="fondo_arbol1" style="color:white;"/>       
+				        </treecols>
+				        <treechildren>
+				         <treeitem>
+		                	<treerow>
+			                    <treecell label="¿Quiénes pueden ingresar a nuestro sistema?" onClick="@command('mostrarAyuda', window=windowAyuda1, parametro=self)"><custom-attributes titulo="¿Quiénes pueden ingresar a nuestro sistema?" contenido="
+			                    El sistema cuenta con un portal web, constituido por una serie de módulos, a través de
+									los cuales se publican noticias e información referentes a los proyectos ofertados por la Dirección 	
+									de cada Programa, acceso a descargas de los diferentes formatos de la Gestión de Servicio 
+									Comunitario Estudiantil; así como también información institucional, con el objeto de dar a 
+									conocer la razón de ser de la Organización. 
+								
+									SIAGSCE contempla dos tipos de usuarios, los usuarios externos quienes pueden ingresar a dicha 
+									página mediante el uso de un navegador web para visualizar información general del Programa 
+									y los usuarios internos quienes tienen acceso a las diferentes funcionalidades del sistema de 
+									acuerdo a las responsabilidades que ejerza en la organización. 
+									
+									Sólo se permite el ingreso al sistema interno a usuarios previamente registrados.
+			                    "/>
+			                   </treecell>
+			                </treerow>
+			            </treeitem>
+			             <treeitem>
+		                	<treerow>
+			                    <treecell label="¿Cómo ingresar a nuestro sistema?" onClick="@command('mostrarAyuda', window=windowAyuda1, parametro=self)"><custom-attributes titulo="¿Cómo ingresar a nuestro sistema?" contenido="
+			                    
+			                    Para que un usuario pueda ingresar a las funcionalidades de la aplicación Web, debe seguir los 
+								siguientes pasos:	
+								1. Abrir el Navegador de Internet de su preferencia; en este caso, Mozilla Firefox o Google 								
+								Chrome. 								
+								2. Introducir en la barra de direcciones del navegador, lo siguiente: http://localhost:8080/								
+								siagsce.webapp/Portal.zul y presionar la tecla “Enter” del teclado. 							
+								3. Una vez suministrada la dirección se muestra la página principal del sistema; en la cual se 								
+								puede visualizar información general acerca del portal Web.						
+								4. Para Ingresar al sistema, debe ubicarse en la opción: “Iniciar Sesión” ubicada en la 							
+								parte superior derecha. Nuestro esquema de seguridad, exige un usuario y contraseña. 							
+								Introducir estos datos y pulsar en el botón “Ingresar” .								
+								5. Al iniciar sesión, el sistema muestra el nombre y una imagen del usuario. Dependiendo, 							
+								de los permisos que éste posea se cargará el menú funcional del sistema.
+											                    
+			                    "/>
+			                    </treecell>
+			                </treerow>
+			            </treeitem>
+			             <treeitem>
+		                	<treerow>
+			                    <treecell label="¿Qué requisitos necesito para realizar el Taller de Inducción a la Realidad
+Comunitaria?" onClick="@command('mostrarAyuda', window=windowAyuda1, parametro=self)"><custom-attributes titulo="¿Qué requisitos necesito para realizar el Taller de Inducción a la Realidad
+Comunitaria?" contenido="
+			                    
+			                    1. Revisa tu horario y disponibilidad de tiempo, para que selecciones el taller de 
+
+								inducción al cual puedas asistir (En el área Taller de Inducción del portal web, 
+								
+								podrá ver las fechas de los talleres disponibles).
+								
+								2. Enviar correo a la Coordinación General de SCE o dirigirte hasta la misma para 
+								
+								que seas inscrito en el Taller antes mencionado.
+								
+								3. Asiste a todas las sesiones o reuniones del taller.
+			                    
+			                    "/>
+			                    </treecell>
+			                </treerow>
+			            </treeitem>
+			             <treeitem>
+		                	<treerow>
+			                    <treecell label="¿Qué requisitos necesito para prestar el SCE?" onClick="@command('mostrarAyuda', window=windowAyuda1, parametro=self)"><custom-attributes titulo="¿Qué requisitos necesito para prestar el SCE?" contenido="
+			                    1. Haber cursado y aprobado el 50 % de la carga académica de la carrera que 
+
+								cursas.
+								
+								2. Haber cursado y aprobado el Taller de Inducción a la Realidad Comunitaria.
+			                    "/>
+			                    </treecell>
+			                </treerow>
+			            </treeitem>
+			             <treeitem>
+		                	<treerow>
+			                    <treecell label="¿Qué pasos debo seguir para prestar el SCE?" onClick="@command('mostrarAyuda', window=windowAyuda1, parametro=self)"><custom-attributes titulo="¿Qué pasos debo seguir para prestar el SCE?" contenido="
+			                    1. Primera reunión formal con el docente responsable y los prestadores 
+
+								del SCE.
+								
+								- Revisa el plan de trabajo formulado en el proyecto comunitario.
+								
+								- Precisar las tareas que debes cumplir para ejecutar el proyecto en 
+								
+								el cual te inscribiste.
+								
+								2. El plan de trabajo debe cubrir mínimo 120 horas y cumplirse en un 
+								
+								periodo no menor de 03 meses (Articulo 14).
+								
+								3. Precisa día, hora y lugar de reunión con la comunidad donde realizarás 
+								
+								el SCE.
+								
+								4. Descarga en el área Descargas del portal web, la planilla del Informe 
+								
+								de Avances de Actividades ejecutadas que debes consignar durante 
+								
+								la prestación del Servicio Comunitario, así como al finalizar la misma 
+								
+								(f08). 
+								
+								5. Precisa que identificación usarás (carta de presentación, carnet o 
+								
+								franela) en la comunidad donde ejecutarás el SCE.
+			                    "/>
+			                    </treecell>
+			                </treerow>
+			            </treeitem>
+			            </treechildren>
+			       </tree>		
+					</west>
+			           <south vflex="1" flex="true" >
+						         <div sclass="footer">
+						             <label  style="padding-left:35%;" value="© 2014 Desarrollado por Iterator- Todos los derechos reservados.">
+						   	     	</label>
+						   	      </div>
+					
+		</south>
+					</borderlayout>
+					
+				</center>
+				
+		</borderlayout>
+</window>
+   
+</zk>

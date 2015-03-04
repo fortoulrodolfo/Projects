@@ -1,0 +1,87 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window mode="modal"  title="Catálogo Proyectos Ofertados" border="normal" width="60%" height="60%"
+	minimizable="false" maximizable="false" closable="false"
+		action="hide: slideUp" apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('cerrarVentana')"
+		sclass="fondo_arbol1" 
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoProyectos')">
+
+		<listbox width="100%" vflex="true"
+		model="@bind(vm.modeloProyecto)"
+		emptyMessage="No hay proyectos registrados"
+		selectedItem="@bind(vm.selectedProyecto)" checkmark="true">
+			<auxhead>
+								<auxheader colspan="6">
+									<hbox>
+										<image
+											src="images/iconos/16x16/Filter.png" />
+										<textbox id="txtFiltroProyecto"
+											value="@bind(vm.texto)"
+											onChange="@command('filtrarProyecto')" instant="true" />
+										<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpcionesProyecto">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+									</hbox>
+								</auxheader>
+							</auxhead>
+			<listhead>
+				<listheader label="" width="3%" />
+				<listheader label="Código" width="15%" />
+				<listheader label="Nombre" width="20%" />
+				<listheader label="Descripción" width="35%" />
+				<listheader label="Prof. Responsables" width="30%" />
+				
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+					<listcell label="" />
+					<listcell label="@bind(each.proyectoCodigo)" />
+					<listcell label="@bind(each.proyectoNombre)" />
+					<listcell label="@bind(each.proyectoDescripcion)" />
+					<listcell label="@bind(each.responsableString)" />
+					
+					
+
+				</listitem>
+			</template>
+
+		</listbox>
+
+		<hbox width="100%" pack="end" align="center">	
+				
+				
+			<button id="btnAceptar" label="Aceptar" image="images/iconos/16x16/aceptar.png"
+				  sclass="button" onClick="@command('save')" />
+			<button id="btnSalir" label="Salir" image="/images/iconos/16x16//salir.png"
+				sclass="button" onClick="@command('cerrarVentana')" />
+		</hbox>
+
+	</window>
+</zk>

@@ -1,0 +1,180 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<zk xmlns:c="client">
+<window id="winEditarPerfil" width="700px"  title="Editar Perfil" border="normal" apply="org.zkoss.bind.BindComposer" 
+        viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMEditarPerfil')" >
+	<style>
+		.meter {
+			font-size: 1px;
+			height: 3px;
+		}
+		.meter-inner {
+			width: 0px;
+			height: 3px;
+		}
+		.meter-red .meter-inner{
+			background: red;
+		}
+		.meter-orange .meter-inner{
+			background: orange;
+		}
+		.meter-green .meter-inner{
+			background: green;
+		}
+	  </style>
+
+<vbox>
+
+
+<grid id="grdEditar">
+						
+						<columns>
+							<column hflex="1" />
+			                 <column hflex="2" />
+						</columns>
+						<rows>
+						
+						<row>	
+						<cell colspan="2"> 
+						<label value="Datos del Profesor:"></label>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lblcedula" value="Cedula:" ></label>
+						</cell>
+						<cell> 
+						<hbox>
+						<textbox id="txtcedula" readonly="true" value="@bind(vm.cedula)"/>
+						</hbox>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lblnombre" value="Nombre:"></label>
+						</cell>
+						<cell> 
+						<textbox id="txtnombre"  value="@bind(vm.nombre)" readonly="true"/>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lblapeliido" value="Apellido:"></label>
+						</cell>
+						<cell> 
+						<textbox id="txtapellido" value="@bind(vm.apellido)" readonly="true"/>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lbltelefono" value="Telefono:"></label>
+						</cell>
+						<cell> 
+						<textbox id="txttelefono" value="@bind(vm.telefono)"/>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lbldireccion" value="Direccion:"></label>
+						</cell>
+						<cell> 
+						<textbox id="txtdireccion" value="@bind(vm.direccion)"/>
+						</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lblemail" value="E-mail:"></label>
+						</cell>
+						<cell> 
+						<textbox id="txtemail" constraint="/.+@.+\.[a-z]+/: Por favor introduzca un correo" value="@bind(vm.email)"/>
+						</cell>
+						</row>
+							
+						<row>
+						<button label="Editar Foto" id="btnImagen" upload="true" onUpload="@command('cargarImagen',upload=event)"></button>
+					    <image id="imgImagen" height="100px" width="100px" content="@bind(vm.imagen)"/>
+						</row>
+						<row>
+						 <checkbox id="checkcambiarClave" label="Cambiar Clave?"  onCheck="@command('cambiarClave')" />
+				    </row>
+					</rows>
+					</grid>
+				<groupbox id="groupboxCambiarClave" visible="false">
+				<caption
+				label="Cambiar Clave" sclass="text">
+				</caption>
+					<grid id="grdEditarClave">
+						
+						<columns>
+						<column hflex="1" />
+			            <column hflex="2" />
+						</columns>
+						
+						<rows>
+						<row>	
+							<cell> 
+							<label id="lblpassword" value="Password:"> </label>
+							</cell>
+							<cell> 
+							<textbox id="txtpassword" value="@bind(vm.password)" />
+							</cell>
+						</row>
+						
+						<row>	
+						<cell> 
+						<label id="lblpassword2" value="Nuevo Password:"> </label>
+						</cell>
+								<cell> 
+								<textbox id="txtpassword2" value="@bind(vm.password2)"  c:onChanging="meterUpdate(event)"/>
+								</cell>
+								</row>
+								
+								<row>	
+								<cell> 
+								<label id="lblpassword3" value="Repite Password:"> </label>
+								</cell>
+								<cell> 
+								<textbox id="txtpassword3" value="@bind(vm.password3)" />
+								</cell>
+								</row>
+								
+								<row>
+						        <cell> 
+								<label id="lblnivel" value=""> </label>
+								</cell>
+								<vlayout>
+					            <div id="meter" sclass="meter" width="340px">
+						        <div sclass="meter-inner"></div>
+					            </div>
+					            <label id="msg"/>
+				                </vlayout>
+				                </row>
+							
+			        </rows>
+					</grid>
+					<script src="/widgets/client_side/password_strength/pwd_str.js" ></script>				
+</groupbox>
+ <hbox width="100%" pack="end" align="center" >
+			     <button id="btnguardar" label="Guardar" image="images/iconos/16x16/guardar.png" onClick="@command('guardarPerfil')" 
+			             sclass="button"/>
+ 	             <button id="btncancelar" label="Cancelar" image="images/iconos/16x16/cancelar.png" onClick="@command('cancelar')"  
+ 	                     sclass="button"/>
+  	             <button id="btnsalir" label="Salir" image="images/iconos/16x16/salir.png" onClick="@command('salir')" 
+  	                    sclass="button"/>
+				 </hbox>
+</vbox>
+
+</window>
+</zk>

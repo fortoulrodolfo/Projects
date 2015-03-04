@@ -1,0 +1,58 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" width="400px"  mode="modal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMPopUpAsignarHoras')">
+
+		<groupbox>
+			<caption
+				label="Asignar Horas Ejecutadas y Fecha de ejecucion al Estudiante">
+			</caption>
+			<grid>
+				<columns>
+					<column label="" width="125px" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Horas Ejecutadas:" />
+						</cell>
+						<cell>
+							<textbox width="35px" value="@bind(vm.hora)"></textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Fecha de Ejecucion:" />
+						</cell>
+						<cell>
+							<datebox value="@bind(vm.fecha)" format="yyyy/MM/dd" width="95px" ></datebox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnGuardarRegistrarPrestacion" label="Guardar"
+				image="images/iconos/24x24/guardar.png" orient="vertical"
+				width="70px" height="50px"  onClick="@command('aceptar')"/>
+			<button id="btnCancelarRegistrarPrestacion" label="Cancelar"
+				image="images/iconos/24x24/cancelar.png" orient="vertical"
+				width="70px" height="50px" />
+			<button id="btnSalirRegistrarPrestacion" label="Salir"
+				image="images/iconos/24x24/salir.png" orient="vertical" width="70px"
+				height="50px" onClick="" />
+		</hbox>
+
+	</window>
+</zk>

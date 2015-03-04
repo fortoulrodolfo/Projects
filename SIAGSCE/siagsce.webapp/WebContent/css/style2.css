@@ -1,0 +1,139 @@
+a:link   
+{   
+ text-decoration:none;   
+}
+
+.grid {
+     background: -moz-linear-gradient(-90deg, #003471, #448CCB);
+	 background: -webkit-gradient(linear, left top, left bottom, from(#003471), to(#448CCB));
+	
+}
+
+.marca_agua{
+	background:url('LogoSIAGSCE2.jpg');
+	background-size:100% 100%;
+	
+}
+
+
+.arbol .z-treecell-cnt {
+            white-space: nowrap;
+            overflow: hidden;
+            height: 30px;
+            font-family: "Arial Rounded MT Bold";
+            font-size: 1.00em;
+            color:#003471;
+}
+
+.banner{
+	
+	background:url('banner.jpg');
+	background-size:100% 100%;
+}
+
+.body{
+	background-color:#fff;
+	background-size:100% 100%;
+}
+
+.body_left_login{
+	background-color:#fff;
+	font-size: 20px;
+}
+
+
+.button {
+		margin-top:10px;
+		margin-bottom:10px;
+		margin-right:10px;
+		width: 91px;
+		height: 30px;
+/* 		font-size: 16px; */
+/* 		font-style: bold; */
+/*         border-radius: 5px; */
+/*         background: linear-gradient(to bottom, #f0f9ff 0%,#a1dbff 100%); */
+    }
+
+
+.children{
+background:url('../banner2.png');
+background-repeat:no-repeat;
+background-size:100% 100%;
+color:white;
+}
+
+.enlace{
+	background-color:#66CCFF;
+		
+}
+
+.fisheyeDemo { 
+		margin : 5px 40px; 
+		position : relative;
+		padding-left: 20%;
+
+  }
+
+.fondo_arbol1{
+	 background: -moz-linear-gradient(-90deg, #003471, #448CCB);
+	 background: -webkit-gradient(linear, left top, left bottom, from(#003471), to(#448CCB));
+}
+
+.fondo_arbol{
+	 background: -moz-linear-gradient(-90deg, #abadb3, #eeeeef);
+	 background: -webkit-gradient(linear, left top, left bottom, from(#abadb3), to(#eeeeef));
+}
+
+.footer{
+	color: #003471;
+	font-family:'Arial Rounded MT Bold';
+	background:url('fondo.jpg');
+	background-size:100% 100%;
+
+}
+
+.z-messagebox2{
+	color:#003471;
+}
+
+.header{
+	background-color:#fff;
+/*background-image:url('/public/images/encabezado');*/
+}
+
+.header-text{
+	font-size: 26px;
+	font-style: bold;
+}
+
+.label{
+	font-color: #003471;
+}
+
+
+.panel{
+	background-color:#fff;
+	font-size: 26px;
+	font-style: bold;
+	height:80px;
+	width:80px;
+}
+
+.principal{
+		position: relative;
+		min-width:1300px;
+		min-height:680px;	
+}
+
+ 
+   
+.text{
+	color: #003471;	
+}
+
+.text2{
+	color: #003471;
+	font-family:'Arial Rounded MT Bold';
+	margin-top:30px;
+	margin-left:200px;
+}

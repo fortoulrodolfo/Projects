@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/1036/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales
+END
+ReporteEstudianteInscritosProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/989/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteEstudianteInscritosProyecto.zul
+END
+ReporteEstudiantesRetirados.zul
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/989/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteEstudiantesRetirados.zul
+END
+ReporteEstudiantePreInscritosProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/1032/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteEstudiantePreInscritosProyecto.zul
+END
+ConsultarHistorial.zul
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/900/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ConsultarHistorial.zul
+END
+EstudianteInscritoPorTaller.zul
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/989/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/EstudianteInscritoPorTaller.zul
+END
+ReporteConsultarHistorialEstudiante.zul
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1032/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteConsultarHistorialEstudiante.zul
+END
+ListadoActividadesCulminadasEstudiantes.zul
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/1036/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ListadoActividadesCulminadasEstudiantes.zul
+END
+ReporteActividadesAsignadasEstudiantes.zul
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/1032/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteActividadesAsignadasEstudiantes.zul
+END
+ReporteConsultadeHorascumplidasporEstudiantes.zul
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/986/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.especiales/ReporteConsultadeHorascumplidasporEstudiantes.zul
+END

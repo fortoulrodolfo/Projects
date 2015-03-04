@@ -1,0 +1,106 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winRegistrarRepresentanteProfesor"
+		title="Registrar Representante Profesoral de SCE"  border="normal">
+
+
+		<vbox>
+			<grid id="grdRepresentanteProfesor">
+				<columns>
+					<column width="70px" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<cell colspan="2" align="center">
+							<label
+								value="Datos del Representante Profesoral SCE:">
+							</label>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Cedula:"></label>
+						</cell>
+						<cell>
+							<hbox>
+								<textbox
+									id="txtCedulaProfesorAcreditado">
+								</textbox>
+								<button id="btnBuscarProfesorAcreditado"
+									label="Buscar" onClick="" />
+							</hbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre:"></label>
+						</cell>
+						<cell>
+							<textbox id="txtNombreProfesorAcreditado"></textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Apellido:"></label>
+						</cell>
+						<cell>
+							<textbox
+								id="txtApellidoProfesorAcreditado">
+							</textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Telefono:"></label>
+						</cell>
+						<cell>
+							<textbox
+								id="txtTelefonoProfesorAcreditado">
+							</textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Direccion:"></label>
+						</cell>
+						<cell>
+							<combobox id="cmbDireccionPrograma">
+								<comboitem id="cmiInformatica"
+									label="Informatica" />
+								<comboitem id="cmiAnalisis"
+									label="Analisis de sistemas" />
+								<comboitem id="cmiProduccion"
+									label="Produccion" />
+								<comboitem id="cmiMatematica"
+									label="Matematica" />
+							</combobox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+			<hbox width="100%" pack="end" align="center">
+				<button id="btnGuardarRepresentanteProfesoral"
+					label="Guardar" image="/iconos/guardar.png" orient="vertical"
+					width="70px" height="50px" />
+				<button id="btnCancelarRepresentanteProfesoral"
+					label="Cancelar" image="/iconos/cancelar.png" orient="vertical"
+					width="70px" height="50px" />
+				<button id="btnSalirRepresentanteProfesoral"
+					label="Salir" image="/iconos/salir.png" orient="vertical"
+					width="70px" height="50px" />
+			</hbox>
+
+		</vbox>
+
+	</window>
+</zk>

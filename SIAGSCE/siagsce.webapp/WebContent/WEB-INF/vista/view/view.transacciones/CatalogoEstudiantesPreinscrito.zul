@@ -1,0 +1,59 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoEstudiantePreinscrito"  mode="modal" border="normal" width="750px"
+		minimizable="false" maximizable="false" closable="true"
+		action="hide: slideUp" apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('cerrarVentana')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VmCatalogoEstudiantes')">
+
+		<listbox height="160px" checkmark="true"
+			model="@bind(vm.modeloEstudiante)"
+			emptyMessage="No hay estudiantes registrados"
+			selectedItems="@bind(vm.selectedEstudiantes)">
+			<auxhead>
+				<auxheader label="Estudiantes"/>
+			</auxhead>
+			<listhead>
+				<listheader label="seleccionar" />
+				<listheader label="cedula" />
+				<listheader label="nombre" />
+				<listheader label="apellido" width="20%" />
+				<listheader label="direccion" />
+				<listheader label="telefono" />
+				<listheader label="programa" />
+
+			</listhead>
+			<template name="model">
+
+				<listitem>
+					<listcell label="" />	
+					<listcell label="@bind(each.estudianteCedula)" />
+					<listcell label="@bind(each.estudianteNombre)" />
+					<listcell label="@bind(each.estudianteApellido)" />
+					<listcell label="@bind(each.estudianteDireccion)" />
+					<listcell label="@bind(each.estudianteTelefono)" />
+					
+
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar" image="/iconos/aceptar.png"
+				onClick="@command('save2')" orient="vertical" width="70px"
+				height="50px" />
+			<button label="Salir" image="/iconos/salir.png"
+				onClick="@command('cerrarVentana')" orient="vertical" width="70px"
+				height="50px" />
+		</hbox>
+
+	</window>
+</zk>

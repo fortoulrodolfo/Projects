@@ -1,0 +1,300 @@
+<!--************************************************************************************
+	* SIAGSCE - Desarrollado por Iterator
+	*Autor: Iterator
+	*Ultima modificaci�n: 09/03/2014
+	
+	***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winAsignarActividades" sclass="fondo_arbol1" width="100%"
+		height="525px" title="Asignar Actividades a los Prestadores de SCE"
+		border="normal" apply="org.zkoss.bind.BindComposer" contentStyle="overflow:auto"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMAsignarActividades')">
+		<groupbox>
+			<caption sclass="text" label="Datos del proyecto"></caption>
+			<grid id="grdRegistrarEjecucion2">
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Proyecto:"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" width="200px"
+								value="@bind(vm.nombreProyecto)" />
+							<button id="btnbuscar" width="40px"
+								height="25px" image="/images/iconos/16x16/buscar.png"
+								onClick="@command('mostrarProyecto')" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Responsable"></label>
+						</cell>
+						<cell>
+							<hbox spacing="5px">
+								<textbox readonly="true"
+									value="@bind(vm.responsableProyecto)" width="250px" />
+
+							</hbox>
+						</cell>
+						<cell>
+							<label value="Descripción:"></label>
+						</cell>
+						<cell>
+							<textbox width="250px" readonly="true"
+								value="@bind(vm.descripcionProyecto)">
+							</textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<groupbox>
+			<caption sclass="text" label="Datos de la Actividad"></caption>
+			<grid id="grdRegistrarEjecucion">
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Actividad:"></label>
+						</cell>
+						<cell>
+							<combobox id="cmbActividad" width="250px"
+								readonly="true" model="@bind(vm.modeloActividad)"
+								placeholder="Seleccione una Actividad"
+								selectedItem="@bind(vm.selectedActividad)"
+								onSelect="@command('filtrarEstudiantesNoAsignadoActividad')">
+								<template name="model">
+									<comboitem
+										label="@bind(each.actividadNombre)" />
+								</template>
+							</combobox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Cantidad de Horas"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" width="250px"
+								value="@bind(vm.cantHorasActividad)">
+							</textbox>
+						</cell>
+						<cell>
+							<label value="Descripción:"></label>
+						</cell>
+						<cell>
+							<textbox width="250px" readonly="true"
+								value="@bind(vm.descripcionActividad)">
+							</textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Fecha de Inicio:"></label>
+						</cell>
+						<cell>
+							<datebox id="dtbFechaInicio"
+								constraint="no past,no empty" format="dd-MM-yyyy"
+								onChange="@command('validarFechaCulminacion')" width="250px"
+								value="@bind(vm.fechaInicio)" />
+						</cell>
+						<label value="Fecha de Culminación:"></label>
+						<cell>
+							<datebox id="dtbFechaCulminacion"
+								constraint="no past,no empty" format="dd-MM-yyyy" width="250px"
+								onChange="@command('validarFechaInicio')"
+								value="@bind(vm.fechaCulminacion)" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<separator></separator>
+		<tabbox>
+					<tabs>
+						<tab label="Asignar Actividad a Estudiantes"/>
+						<tab label="Retirar Actividad a Estudiantes"/>
+					</tabs>
+					<tabpanels>
+						<tabpanel height="210px">
+		<hbox height="200px">
+			<listbox id="lbxAlumnos" height="85px" vflex="true"
+				model="@bind(vm.modeloEstudianteInscrito)"
+				emptyMessage="Seleccione una actividad para ver estudiantes"
+				multiple="true" checkmark="true"
+				selectedItems="@bind(vm.selectedEstudiantes)">
+				<auxhead>
+					<auxheader colspan="4" label="Estudiantes"
+						align="center" />
+				</auxhead>
+				<auxhead>
+					<auxheader colspan="4">
+						<hbox>
+							<image src="images/iconos/16x16/Filter.png" />
+							<textbox id="txtFiltroInscritos"
+								placeholder="Nombre " value="@bind(vm.texto)"
+								onChange="@command('filtrarEstudiante')" instant="true" />
+							<combobutton label=""
+								image="images/iconos/16x16/buscar.png">
+								<popup id="popOpcionesInscritos">
+									<listbox id=" lbxSeleccionParametro"
+										width="180px" model="@bind(vm.valores)"
+										selectedItem="@bind(vm.seleccion)"
+										onSelect="@command('seleccionFiltro')">
+										<listhead>
+											<listheader />
+										</listhead>
+										<template name="model">
+											<listitem
+												label="@bind(each)" />
+										</template>
+									</listbox>
+								</popup>
+							</combobutton>
+
+						</hbox>
+					</auxheader>
+				</auxhead>
+
+				<listhead>
+					<listheader label="" />
+					<listheader label="Cédula" sort="auto" />
+					<listheader label="Nombre" sort="auto" />
+					<listheader label="Apellido" sort="auto" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteCedula)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteNombre)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteApellido)" />
+					</listitem>
+				</template>
+			</listbox>
+			<vbox>
+				<button id="btnAtras4" label=""
+					image="images/iconos/16x16/siguiente.png"
+					onClick="@command('asignarInscritos')" />
+				<button id="btnAdelante4" label=""
+					image="images/iconos/16x16/atras.png"
+					onClick="@command('sacarInscritos')" />
+			</vbox>
+
+			<listbox id="lbxAlumnosAsig" height="85px" vflex="true"
+				model="@bind(vm.modeloEstudianteInscriptoAsig)"
+				emptyMessage="No hay estudiantes inscritos" multiple="true"
+				checkmark="true"
+				selectedItems="@bind(vm.selectedEstudiantesAsig)">
+				<auxhead>
+					<auxheader colspan="4"
+						label="Estudiantes inscritos asignados" align="center" />
+				</auxhead>
+				<listhead>
+					<listheader label="" />
+					<listheader label="Cédula" sort="auto" />
+					<listheader label="Nombre" sort="auto" />
+					<listheader label="Apellido" sort="auto" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteCedula)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteNombre)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteApellido)" />
+					</listitem>
+				</template>
+			</listbox>
+		</hbox>
+		</tabpanel>
+		<tabpanel height="210px">
+			<listbox id="lbxEstudiantesRetirarEstudiantes" height="85px" vflex="true"
+				model="@bind(vm.modeloEstudianteInscritoRetirarActividad)"
+				emptyMessage="Seleccione una actividad para ver estudiantes">
+				<auxhead>
+					<auxheader colspan="5">
+						<hbox>
+							<image src="images/iconos/16x16/Filter.png" />
+							<textbox id="txtFiltroInscritos2"
+								placeholder="Nombre " value="@bind(vm.texto)"
+								onChange="@command('filtrarEstudiante')" instant="true" />
+							<combobutton label=""
+								image="images/iconos/16x16/buscar.png">
+								<popup id="popOpcionesInscritos2">
+									<listbox id=" lbxSeleccionParametro2"
+										width="180px" model="@bind(vm.valores)"
+										selectedItem="@bind(vm.seleccion)"
+										onSelect="@command('seleccionFiltro')">
+										<listhead>
+											<listheader />
+										</listhead>
+										<template name="model">
+											<listitem
+												label="@bind(each)" />
+										</template>
+									</listbox>
+								</popup>
+							</combobutton>
+
+						</hbox>
+					</auxheader>
+				</auxhead>
+
+				<listhead>
+					<listheader label="Cédula" width="30%" />
+					<listheader label="Nombre" width="30%" />
+					<listheader label="Apellido" width="30%" />
+					<listheader label="" width="10%"/>
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteCedula)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteNombre)" />
+						<listcell
+							label="@bind(each.preInscripcion.estudiante.estudianteApellido)" />
+							 <listcell>
+					    	<button onClick="@command('retirarEstudianteActividad',parametro=self)" 
+					    			image="/images/iconos/16x16/eliminar.png">
+					    		<custom-attributes idboton="${each.preInscripcion.estudiante.estudianteCedula}"/> 
+					    	</button>
+					    </listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</tabpanel>
+		</tabpanels>
+	</tabbox>
+		<hbox width="100%" pack="end" align="center" height="35px">
+			<button id="btnGuardar" label="Guardar"
+				image="images/iconos/16x16/guardar.png" sclass="button"
+				onClick="@command('registrarActividadAsignada')" />
+			<button id="btnCancelar" label="Cancelar"
+				image="images/iconos/16x16/cancelar.png" sclass="button"
+				onClick="@command('cancelar')" />
+			<button id="btnSalir" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button"
+				onClick="@command('salir')" />
+		</hbox>
+	</window>
+</zk>

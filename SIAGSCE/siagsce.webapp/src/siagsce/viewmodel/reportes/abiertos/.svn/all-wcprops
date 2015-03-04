@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/1002/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos
+END
+VMReporteProyectosActivos.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/961/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteProyectosActivos.java
+END
+VMReporteProfesorResponsableProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/969/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteProfesorResponsableProyecto.java
+END
+ReportType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/717/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/ReportType.java
+END
+VMReporteProfesorParticipanteProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/969/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteProfesorParticipanteProyecto.java
+END
+VMReporteProfesorPorEstatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/961/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteProfesorPorEstatus.java
+END
+VMReporteEstudiantes.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/961/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteEstudiantes.java
+END
+VMReporteConsultadeEstatusdeProyectos.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/959/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteConsultadeEstatusdeProyectos.java
+END
+ReportConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/717/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/ReportConfig.java
+END
+VMReporteEstudiantesAprobados.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/961/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteEstudiantesAprobados.java
+END
+VMReporteProyectoProfResponsable.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/961/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteProyectoProfResponsable.java
+END
+ReportConfigCartaCulminacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/717/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/ReportConfigCartaCulminacion.java
+END
+VMReporteTalleres.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1002/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/VMReporteTalleres.java
+END
+EstatusTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/922/siagsce.webapp/src/siagsce/viewmodel/reportes/abiertos/EstatusTaller.java
+END

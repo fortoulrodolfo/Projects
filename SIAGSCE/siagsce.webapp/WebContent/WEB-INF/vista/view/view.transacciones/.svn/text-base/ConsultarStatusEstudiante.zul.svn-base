@@ -1,0 +1,168 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winEstadoEstudiante"
+		title="Estado del Estudiante" mode="modal" sclass="fondo_arbol1"
+		border="normal" width="50%" height="97%" contentStyle="overflow:auto;"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMConsultarStatusEstudiante')">
+
+		<groupbox>
+			<caption label="Datos del Estudiante" sclass="text"></caption>
+			<grid id="grdPreinscripcionProyecto">
+				<columns>
+					<column label="" width="140px" />
+					<column label="" width="180px" />
+					<column label="" width="140px" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Cédula:"></label>
+						</cell>
+						<cell>
+							<hbox>
+								<textbox  value="@bind(vm.estudianteCedula)" readonly="true"></textbox>
+							</hbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre:"></label>
+						</cell>
+						<cell>
+							<textbox  value="@bind(vm.estudianteNombre)" readonly="true"></textbox>
+						</cell>
+						<cell>
+							<label value="Apellido:"></label>
+						</cell>
+						<cell>
+							<textbox value="@bind(vm.estudianteApellido)" readonly="true"></textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Programa:"></label>
+						</cell>
+						<cell>
+							<textbox  value="@bind(vm.estudiantePrograma)" readonly="true"></textbox>
+						</cell>
+						<cell>
+							<label value="Estatus en SCE:"></label>
+						</cell>
+						<cell>
+							<textbox  value="@bind(vm.estudianteStatus)" readonly="true"></textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Horas Ejecutadas:"></label>
+						</cell>
+						<cell>
+							<textbox  value="@bind(vm.estudianteHorasAcum)" readonly="true"></textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+		</groupbox>
+
+		<groupbox style="margin-top:2px;">
+			<caption label="Historial del Estudiate" sclass="text"></caption>
+			<groupbox>
+			<caption label="Taller" sclass="text"></caption>
+			<listbox model="@bind(vm.modeloTaller)" emptyMessage="No esta inscrito en ningun Taller" >
+			
+			<listhead>
+				<listheader label="Fecha" width="20%" />
+				<listheader label="Nombre" width="50%" />
+				<listheader label="Estatus" width="30%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+				
+					<listcell label="@bind(each.inscripcionTallerFecha)" />
+					<listcell label="@bind(each.taller.getTallerNombre())" />
+					<listcell label="@bind(each.inscripcionTallerStatus)" />
+				</listitem>
+			</template>
+
+		</listbox>
+			</groupbox>
+			
+			 <groupbox style="margin-top:2px;">
+			<caption label="Pre-Inscripcion Proyecto" sclass="text"></caption>
+			<listbox 
+		model="@bind(vm.modeloPreInscripcion)"
+	    emptyMessage="No esta pre-inscrito en ningún Proyecto" >
+			
+			<listhead>
+				<listheader label="Fecha" width="20%" />
+				<listheader label="Descripción" width="50%" />
+				<listheader label="Estatus" width="30%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+					
+					<listcell label="@bind(each.preinscripcionProyectoFecha)" />
+					<listcell label="@bind(each.proyectop.getProyectoNombre())" />
+					<listcell label="@bind(each.preinscripcionStatus)" />
+					
+				</listitem>
+			</template>
+
+		</listbox>
+		</groupbox>
+		
+		<groupbox style="margin-top:2px;">
+			<caption label="Proyecto" sclass="text"></caption>
+		
+			<listbox 
+		model="@bind(vm.modeloProyecto)" 
+		selectedItem="@bind(vm.selectedProyecto)" onSelect="@command('mostrarActividadesProyecto')" emptyMessage="No esta inscrito en ningun Proyecto">
+			
+			<listhead>
+				<listheader label="Fecha" width="20%" />
+				<listheader label="Descripción" width="50%" />
+				<listheader label="Estatus" width="18%" />
+				<listheader label="Actividades" width="17%" />
+
+			</listhead>
+
+			<template name="model">
+
+				<listitem>
+					
+					<listcell label="@bind(each.inscripcionProyectoFecha)" />
+					<listcell label="@bind(each.proyectoi.getProyectoNombre())" />
+					<listcell label="@bind(each.inscripcionProyectoStatus)" />
+					<listcell><button image="images/iconos/16x16/buscar.png" onClick="@command('mostrarActividadesProyecto',parametro=self)" label="Detalles">
+					<custom-attributes codigo="${each.inscripcionCodigo}"/></button></listcell>
+				</listitem>
+			</template>
+
+		</listbox>
+		</groupbox>
+		
+		</groupbox>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnSalirPreinscripcionProyecto" label="Salir" onClick="@command('cerrarVentana')" image="images/iconos/16x16/salir.png"
+				sclass="button" />
+		</hbox>
+
+	</window>
+</zk>

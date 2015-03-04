@@ -1,0 +1,256 @@
+<!--Siagsce - Desarrollado por Iterator-->
+<!--Autor:  Iterator-->
+<!--Interfaz: Consulta el desempeño del estudiante en SCE,-->
+<!--Ultima modificación: 05/03/2014-->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winEstadoEstudiante" title="Estado del Estudiante en SCE" 
+		mode="modal" sclass="fondo_arbol1" border="normal" width="50%"
+		height="97%" contentStyle="overflow:auto;"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.especiales.VMConsultarHistorial')">
+
+		<groupbox>
+			<caption label="Datos del Estudiante" sclass="text"></caption>
+			<grid id="grdPreinscripcionProyecto">
+				<columns>
+					<column label="" width="140px" />
+					<column label="" width="180px" />
+					<column label="" width="140px" />
+					<column label="" />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Cédula:"></label>
+						</cell>
+						<cell>
+							<hbox>
+								<textbox
+									value="@bind(vm.estudianteCedula)" readonly="true">
+								</textbox>
+							</hbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre:"></label>
+						</cell>
+						<cell>
+							<textbox value="@bind(vm.estudianteNombre)"
+								readonly="true">
+							</textbox>
+						</cell>
+						<cell>
+							<label value="Apellido:"></label>
+						</cell>
+						<cell>
+							<textbox
+								value="@bind(vm.estudianteApellido)" readonly="true">
+							</textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Dirección de Programa:"></label>
+						</cell>
+						<cell>
+							<textbox
+								value="@bind(vm.estudiantePrograma)" readonly="true">
+							</textbox>
+						</cell>
+						<cell>
+							<label value="Estatus en SCE:"></label>
+						</cell>
+						<cell>
+							<textbox value="@bind(vm.estudianteStatus)"
+								readonly="true">
+							</textbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Horas Ejecutadas:"></label>
+						</cell>
+						<cell>
+							<textbox
+								value="@bind(vm.estudianteHorasAcum)" readonly="true">
+							</textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+
+		</groupbox>
+		<grid>
+			<rows>
+				<row>
+					<tabbox id="tab" height="100%">
+						<tabs id="tabs">
+							<tab id="pestana1" label="Estudiante"
+								closable="false" />
+							<tab id="pestana2"
+								label="Historial" closable="false"
+								visible="false" />
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+								<groupbox style="margin-top:2px;">
+									<caption
+										label="Historial del Estudiante" sclass="text">
+									</caption>
+									<groupbox>
+										<caption label="Taller"
+											sclass="text">
+										</caption>
+										<listbox
+											model="@bind(vm.modeloTaller)"
+											emptyMessage="No está inscrito en ningún Taller">
+
+											<listhead>
+												<listheader
+													label="Fecha" width="20%" />
+												<listheader
+													label="Nombre" width="50%" />
+												<listheader
+													label="Estatus" width="30%" />
+
+											</listhead>
+
+											<template name="model">
+
+												<listitem>
+
+													<listcell
+														label="@bind(each.inscripcionTallerFecha)" />
+													<listcell
+														label="@bind(each.taller.getTallerNombre())" />
+													<listcell
+														label="@bind(each.inscripcionTallerStatus)" />
+												</listitem>
+											</template>
+
+										</listbox>
+									</groupbox>
+
+									<groupbox style="margin-top:2px;">
+										<caption
+											label="Pre-Inscripción Proyecto" sclass="text">
+										</caption>
+										<listbox
+											model="@bind(vm.modeloPreInscripcion)"
+											emptyMessage="No está pre-inscrito en ningún Proyecto">
+
+											<listhead>
+												<listheader
+													label="Fecha" width="20%" />
+												<listheader
+													label="Descripción" width="50%" />
+												<listheader
+													label="Estatus" width="30%" />
+
+											</listhead>
+
+											<template name="model">
+
+												<listitem>
+
+													<listcell
+														label="@bind(each.preinscripcionProyectoFecha)" />
+													<listcell
+														label="@bind(each.proyectop.getProyectoNombre())" />
+													<listcell
+														label="@bind(each.preinscripcionStatus)" />
+
+												</listitem>
+											</template>
+
+										</listbox>
+									</groupbox>
+
+									<groupbox style="margin-top:2px;">
+										<caption label="Proyecto"
+											sclass="text">
+										</caption>
+
+										<listbox
+											model="@bind(vm.modeloProyecto)"
+											selectedItem="@bind(vm.selectedProyecto)"
+											onSelect="@command('mostrarActividadesProyecto')"
+											emptyMessage="No está inscrito en ningún Proyecto">
+
+											<listhead>
+												<listheader
+													label="Fecha" width="20%" />
+												<listheader
+													label="Descripción" width="50%" />
+												<listheader
+													label="Estatus" width="18%" />
+												<listheader
+													label="Actividades" width="17%" />
+
+											</listhead>
+
+											<template name="model">
+
+												<listitem>
+
+													<listcell
+														label="@bind(each.inscripcionProyectoFecha)" />
+													<listcell
+														label="@bind(each.proyectoi.getProyectoNombre())" />
+													<listcell
+														label="@bind(each.inscripcionProyectoStatus)" />
+													<listcell>
+														<button
+															image="images/iconos/16x16/buscar.png"
+															onClick="@command('mostrarActividadesProyecto',parametro=self)"
+															label="Detalles">
+															<custom-attributes
+																codigo="${each.inscripcionCodigo}" />
+														</button>
+													</listcell>
+												</listitem>
+											</template>
+											<auxhead>
+												<auxheader
+													colspan="6">
+													<hbox>
+
+													</hbox>
+												</auxheader>
+											</auxhead>
+
+										</listbox>
+									</groupbox>
+
+								</groupbox>
+							</tabpanel>
+							<tabpanel>
+								<jasperreport id="report" width="100%" height="360px" 
+									src="@load(vm.reportConfig.source, after='showReport')"
+									parameters="@load(vm.reportConfig.parameters, after='showReport')"
+									type="@load(vm.reportConfig.type.value, after='showReport')"
+									datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+							</tabpanel>
+						</tabpanels>
+					</tabbox>
+				</row>
+			</rows>
+		</grid>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnExportar" label="Exportar" sclass="button"
+				onClick="@command('showReport')"
+				image="/images/iconos/16x16/reporteabierto.png">
+			</button>
+
+
+			<button id="btnSalirPreinscripcionProyecto" label="Salir"
+				onClick="@command('cerrarVentana')"
+				image="images/iconos/16x16/salir.png" sclass="button" />
+		</hbox>
+
+
+	</window>
+</zk>

@@ -1,0 +1,150 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<window id="demoWindowConfigurarOpcionesUsuario"   apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('siagsce.viewmodel.seguridad.VMConfiguraOpcionesUsuario')" border="normal" title="Configurar Opciones de Usuario " width="100%" height="498px">
+    <style>
+    .h-inline-block {
+        display: inline-block;
+        _display: inline;
+    }
+   
+    </style>
+    	<groupbox id="gbxDatosUsuario">
+			<caption sclass="text" label="Datos Usuario"></caption>
+			<grid id="grdDatosUsuario">
+				<columns>
+				<column width="15%"/>
+				<column  width="35%"/>
+				<column  width="15%"/>
+				<column  width="35%"/>
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							Cédula: 
+						</cell>
+						<cell> 
+							<textbox id="txtCedulaUsuario" value="@bind(vm.cedulaUsuario)" onBlur="@command('cargarOpciones')" width="200px"/>
+							<button id="btnBuscarRegistrarGrupo" 
+								image="images/iconos/16x16/buscar.png" onClick="@command('buscarUsuario')" width="40px" height="25px"/>
+						</cell>
+						
+			           <cell>
+						Teléfono:
+					</cell>
+					<cell> 
+							<textbox id="txtContacto" value="@bind(vm.telefono)" readonly="true" width="200px"/>
+					</cell>
+					</row>
+					<row>
+						<cell>
+							Nombre:
+							</cell>
+						<cell> 
+							<textbox id="txtNombreConfigurarOpciones" readonly="true" value="@bind(vm.nombre)"  width="200px"/>
+						</cell>
+						
+						 <cell>
+						E-mail:
+					</cell>
+					<cell> 
+							<textbox id="txtEmail" value="@bind(vm.email)" readonly="true" width="200px"/>
+					</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<groupbox>
+			<hbox>
+				<listbox id="lbxGrupos" vflex="true" height="100px"
+					model="@bind(vm.modeloGruposNoPertenece)"
+					emptyMessage="No hay grupos para asociar al usuario" multiple="true"
+					checkmark="true" selectedItems="@bind(vm.selectedGruposNoPertenece)">
+					<auxhead>
+						<auxheader colspan="3" label="Grupos No Asociados al Usuario"
+							align="center" />
+					</auxhead>
+
+					<listhead>
+						<listheader label="" width="6%"/>
+						<listheader label="Código" sort="auto" width="15%" />
+						<listheader label="Nombre" sort="auto" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="" />
+							<listcell
+								label="@bind(each.idGrupo)" />
+							<listcell
+								label="@bind(each.nombre)" />
+						</listitem>
+					</template>
+				</listbox>
+				<vbox>
+					<button id="btnAtras4" label=""
+						image="images/iconos/16x16/siguiente.png"
+						onClick="@command('asignarGrupos')" />
+					<button id="btnAdelante4" label=""
+						image="images/iconos/16x16/atras.png"
+						onClick="@command('sacarGrupos')" />
+				</vbox>
+
+				<listbox id="lbxGrupoAsignados" height="100px" vflex="true"
+					model="@bind(vm.modeloGruposPertenece)"
+					emptyMessage="No hay grupos asociados al usuario" multiple="true"
+					checkmark="true"
+					selectedItems="@bind(vm.selectedGruposPertenece)">
+					<auxhead>
+						<auxheader colspan="3" label="Grupos Asociados al Usuario"
+							align="center" />
+					</auxhead>
+					<listhead>
+						<listheader label="" width="6%" />
+						<listheader label="Código" sort="auto" width="15%"/>
+						<listheader label="Nombre" sort="auto" />
+					</listhead>
+					<template name="model">
+						<listitem>
+							<listcell label="" />
+							<listcell
+								label="@bind(each.idGrupo)" />
+							<listcell
+								label="@bind(each.nombre)" />
+						</listitem>
+					</template>
+				</listbox>
+			</hbox>
+		</groupbox>
+		<grid  height="180px">
+		<columns>
+			<column  width="25%"/>
+			<column  width="50%"/>
+			<column  width="25%"/>
+		</columns>
+		<rows>
+			<row>
+			<cell></cell>
+			<tree id="tree" rows="4">
+        <treecols>
+            <treecol label="Opciones del Usuario"/>       
+        </treecols>
+           </tree>
+           <cell></cell>
+			</row>
+		</rows>
+	</grid>
+		<div align="right" height="35px">
+			<button id="btnGuardarRegistrarGrupo" label="Actualizar"  sclass="button"
+				image="images/iconos/16x16/editar.png" onClick="@command('actualizarOpciones')" />
+			<button id="btnCancelarRegistrarGrupo" label="Cancelar"  sclass="button"
+				image="images/iconos/16x16/cancelar.png" onClick="@command('cancelar')" />
+			<button id="btnSalirRegistrarGrupo" label="Salir" onClick="demoWindowConfigurarOpcionesUsuario.detach()"
+				image="images/iconos/16x16/salir.png" sclass="button"/>
+		</div>
+   
+</window>

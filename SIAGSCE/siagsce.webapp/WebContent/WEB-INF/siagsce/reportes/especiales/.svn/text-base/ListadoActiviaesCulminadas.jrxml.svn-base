@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListadoPersonalizado" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="46c03f12-760e-4357-8f36-7675099a565b">
+	<property name="ireport.zoom" value="1.1"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ICON_LEFT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_FOOTER" class="java.lang.String"/>
+	<parameter name="ICON_RIGHT_HEADER" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="horasCumplidas" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="127" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="f8351f69-eda3-4096-9dad-0952486c7052" x="89" y="83" width="413" height="23"/>
+			</rectangle>
+			<line>
+				<reportElement uuid="9d46bdb1-0e65-4d90-bc73-9dab6c88ccdc" x="2" y="121" width="569" height="3" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="e38a0bf8-8ac4-426e-8477-6dd6823b42b4" x="4" y="2" width="97" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_LEFT_HEADER}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="e36f645e-b984-4d91-9812-e51760a8f038" x="468" y="2" width="100" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_RIGHT_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="75027b34-50b8-4557-a4ec-d9d9c77e7cc2" x="124" y="6" width="322" height="64" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTROCCIDENTAL “LISANDRO ALVARADO”
+ DECANATO DE CIENCIAS Y TECNOLOGIA
+COORDINACION SERVICIO COMUNITARIO ESTUDIANTIL
+BARQUISIMETO
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bbb6fffa-62be-40f9-bb1c-fd41409db012" x="392" y="108" width="99" height="16" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a02a1ec-40c4-45d2-8b8e-195e491aed95" x="124" y="84" width="344" height="23" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Listado de Estudiantes por actividades cumplidas]]></text>
+			</staticText>
+			<textField pattern="d/M/yyyy">
+				<reportElement uuid="7dc7f291-1e91-48ea-b7f8-c5c847b7d946" x="480" y="108" width="92" height="12" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0c43a9ef-142c-4806-b608-6cc8b6a036c9" mode="Transparent" x="0" y="1" width="100" height="20" forecolor="#000000" backcolor="#9999FF"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="307c5bdc-3da6-4da3-9d7d-a14079fd4ddd" mode="Transparent" x="258" y="0" width="100" height="20" forecolor="#000000" backcolor="#9999FF"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17a2a402-a318-4dbb-a898-050e3628b40a" mode="Transparent" x="121" y="1" width="100" height="20" forecolor="#000000" backcolor="#9999FF"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="67e2d4fd-0058-43ec-9e19-2fff365a9b08" mode="Transparent" x="470" y="0" width="100" height="20" forecolor="#000000" backcolor="#9999FF"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9bc85b45-40da-4284-968d-2cef0e1c90e8" mode="Transparent" x="392" y="0" width="57" height="20" forecolor="#000000" backcolor="#9999FF"/>
+				<textElement>
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="960900e5-0485-429d-9e1a-5ee9307cfd3a" x="1" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="28c47953-4541-4826-a0fd-b6668bd4f0b4" x="258" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a19c85d8-9688-4fdd-b8bd-ecf8688dd385" x="121" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="63f0f23f-a394-4518-877d-365df811f6a6" x="392" y="0" width="30" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{horasCumplidas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5484efc5-ea3c-4b0a-8dea-63873231ba13" x="470" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="838d1c15-b59c-4c16-aedc-c6103014eccc" x="154" y="8" width="251" height="20" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<box rightPadding="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avenida Las Industrias, Núcleo Obelisco]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="1af46cbc-4adf-4963-8fbc-011067d938b8" x="173" y="28" width="193" height="26"/>
+				<imageExpression><![CDATA[$P{ICON_FOOTER}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="e1bfd0fb-7fba-4025-bace-f183adb84d51" mode="Opaque" x="468" y="6" width="98" height="13" forecolor="#0B68C3" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="0d4ba353-a6a8-4b18-a5a1-aa43743ce752" x="2" y="2" width="569" height="1" forecolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

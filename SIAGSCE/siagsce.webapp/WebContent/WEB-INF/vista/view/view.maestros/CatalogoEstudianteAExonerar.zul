@@ -1,0 +1,59 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="" mode="modal" border="normal"  width="60%" height="60%" title="Estudiantes Aptos"
+		minimizable="false" maximizable="false" closable="true"
+		action="hide: slideUp" apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('cerrarVentana')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoEstudianteAExonerar')">
+
+		<listbox height="300px"  vflex="true"
+			model="@bind(vm.modeloEstudiante)"
+			emptyMessage="No hay estudiantes registrados" 
+			selectedItem="@bind(vm.selectedEstudiantes)"
+			>
+			
+			<auxhead>
+				<auxheader colspan="6">
+					<textbox placeholder="Nombre estudiante" value="@bind(vm.texto)"
+							onChange="@command('filtrarEstudiante')" instant="true"/>
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="Cédula" />
+				<listheader label="Nombre" />
+				<listheader label="Apellido" width="20%" />
+				<listheader label="Dirección" />
+				<listheader label="Teléfono" />
+				<listheader label="Programa" />
+
+			</listhead>
+			<template name="model">
+
+				<listitem>
+					<listcell label="@bind(each.estudianteCedula)" />
+					<listcell label="@bind(each.estudianteNombre)" />
+					<listcell label="@bind(each.estudianteApellido)" />
+					<listcell label="@bind(each.estudianteDireccion)" />
+					<listcell label="@bind(each.estudianteTelefono)" />
+					<listcell label="@bind(each.direccionProgramae.direccionNombre)" />
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button sclass="button" id="btnGuardarExonerados" label="Aceptar"
+				image="images/iconos/16x16/aceptar.png" onClick="@command('guardar')"  />
+			<button sclass="button" id="btnSalirExonerados" label="Salir"
+				image="images/iconos/16x16/salir.png" onClick="@command('salir')" />
+		</hbox>
+
+	</window>
+</zk>

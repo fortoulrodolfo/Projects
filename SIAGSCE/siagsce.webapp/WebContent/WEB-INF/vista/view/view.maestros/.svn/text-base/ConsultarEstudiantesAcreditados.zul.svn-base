@@ -1,0 +1,53 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Consultar estudiantes acreditados"  border="normal" 
+		id="winConsultarEstudiantesAcreditados" mode="modal" width="650px" 
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMConsultarEstudiantesAcreditados')">
+	
+	<groupbox>
+		<caption label="Listado de estudiantes acreditados" sclass="text"></caption>
+			<listbox id="lbxConsultarEstudiantesAcreditados" width="100%" height="20%"
+					model="@bind(vm.modeloEstudianteAcreditado)">
+<!-- 				<auxhead> -->
+<!-- 					<auxheader colspan="5" -->
+<!-- 						label="Datos de los estudiantes acreditados" -->
+<!-- 						align="center"  width="100%"/> -->
+<!-- 				</auxhead> -->
+	
+				<listhead>
+					<listheader label="Cédula" width="20%" sort="auto" />
+					<listheader label="Nombre" width="20%" sort="auto" />
+					<listheader label="Apellido" width="20%" sort="auto" />
+					<listheader label="Programa" width="20%" sort="auto" />
+					<listheader label="Estatus" width="16%" sort="auto" />
+				</listhead>
+				
+				<template name="model">
+					<listitem>
+						<listcell label="@bind(each.estudianteCedula)" />
+						<listcell label="@bind(each.estudianteNombre)" />
+						<listcell label="@bind(each.estudianteApellido)" />
+						<listcell label="@bind(each.direccionProgramae.direccionNombre)" />
+						<listcell label="@bind(each.estudianteStatus)" />
+					</listitem>
+				</template>
+
+			</listbox>			
+		
+		
+		<hbox width="100%" pack="end" align="center">
+			<button label="Salir" sclass="button"
+					image="/images/iconos/16x16/salir.png" 
+					onClick="@command('cerrarVentana')" />
+		</hbox>
+	</groupbox>
+
+</window>
+</zk>

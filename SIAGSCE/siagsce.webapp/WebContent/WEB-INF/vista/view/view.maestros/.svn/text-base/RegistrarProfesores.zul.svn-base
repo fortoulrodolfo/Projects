@@ -1,0 +1,211 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Registrar Profesores" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winRegistrarProfesores"  title="Registrar Profesores"
+		minimizable="false"  maximizable="false" border="normal"
+		sclass="fondo_arbol1" width="100%" height="500px" vflex="false"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel=" @id('vm') @init('siagsce.viewmodel.maestros.VMRegistrarProfesores')">
+		<tabbox>
+			<tabs>
+				<tab label="Registrar Profesor" />
+				<tab label="Eliminar Profesor" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<box height="400px">
+						<hbox sclass="text" style="margin-top:20px;">
+							<button label="Actualizar profesores"
+								image="images/iconos/24x24/cargar.png" height="40px"
+								onClick="@command('carga')" style="margin-top:-7px;" />
+						</hbox>
+
+						<listbox id="lbxProfesores" vflex="true" height="150px"
+							model="@bind(vm.profesorModel)"
+							emptyMessage="No hay profesores por registrar">
+
+							<auxhead>
+								<auxheader colspan="8">
+									<hbox>
+										<image
+											src="images/iconos/16x16/Filter.png" />
+										<textbox id="txtFiltroProfesor"
+											value="@bind(vm.nombre)"
+											onChange="@command('filtrarProfesor')" instant="true"
+											placeholder="Nombre" width="100px" />
+										<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+									</hbox>
+								</auxheader>
+							</auxhead>
+							<listhead>
+								<listheader label="Cédula" width="10%"
+									sort="auto" />
+								<listheader label="Nombre" width="15%"
+									sort="auto" />
+								<listheader label="Apellido" width="15%"
+									sort="auto" />
+								<listheader label="E-mail" width="30%"
+									sort="auto" />
+								<listheader label="Teléfono" width="10%"
+									sort="auto" />
+								<listheader label="Dirección"
+									width="20%" sort="auto" />
+
+
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="@bind(each.profesorCedula)" />
+									<listcell
+										label="@bind(each.profesorNombre)" />
+									<listcell
+										label="@bind(each.profesorApellido)" />
+									<listcell
+										label="@bind(each.profesorEmail)" />
+									<listcell
+										label="@bind(each.profesorTelefono)" />
+									<listcell
+										label="@bind(each.profesorDireccion)" />
+								</listitem>
+							</template>
+
+						</listbox>
+
+						<hbox width="100%" pack="end" align="center">
+							<button id="btnGuardarProfesores"
+								label="Guardar" image="images/iconos/16x16/guardar.png"
+								sclass="button" onClick="@command('guardar')" />
+							<button id="btnCancelarProfesores2"
+								label="Cancelar" image="images/iconos/16x16/cancelar.png"
+								sclass="button" onClick="@command('cancelar')" />
+							<button id="btnSalirProfesores2"
+								label="Salir" image="images/iconos/16x16/salir.png"
+								sclass="button" onClick="@command('salir')" />
+						</hbox>
+					</box>
+
+				</tabpanel>
+				<tabpanel>
+					<box width="500" align="center">
+						<grid width="300">
+							<columns>
+								
+								<column width="15%" />
+								<column width="30%" />
+								<column width="15%" />
+								<column />
+							</columns>
+							<rows>
+								<row>
+									
+									<cell>
+										<label value="Cédula:" />
+									</cell>
+									<cell>
+										<hbox>
+											<textbox
+												id="txtCedulaProfesor" width="200px"
+												value="@bind(vm.cedula)" readonly="true"/>
+											<button
+												id="btnBuscarProfesor"
+												image="images/iconos/16x16/buscar.png"
+												onClick="@command('MostrarCatalogoProfesor')" />
+										</hbox>
+									</cell>
+								</row>
+								<row>
+									
+									<cell>
+										<label value="Nombre:" />
+									</cell>
+									<cell>
+										<textbox
+											value="@bind(vm.nombre)" width="200px"
+											id="txtNombreProfesor" readonly="true"/>
+									</cell>
+									<cell>
+										<label value="Apellido:" />
+									</cell>
+									<cell>
+										<textbox
+											id="txtApellidoProfesor" width="200px"
+											value="@bind(vm.apellido)" readonly="true"/>
+									</cell>
+								</row>
+								<row>
+									
+									<cell>
+										<label value="E-mail:" />
+									</cell>
+									<cell>
+										<textbox id="txtEmailProfesor"
+											width="200px" value="@bind(vm.email)" readonly="true"/>
+									</cell>
+									<cell>
+										<label value="Teléfono:" />
+									</cell>
+									<cell>
+										<textbox
+											id="txtTelefonoProfesor" width="200px"
+											value="@bind(vm.telefono)" readonly="true"/>
+									</cell>
+								</row>
+								<row>
+									
+									<cell>
+										<label value="Dirección:" />
+									</cell>
+									<cell colspan="3">
+										<textbox
+											id="txtDireccionProfesor" width="635px"
+											value="@bind(vm.direccion)" readonly="true"/>
+									</cell>
+								</row>
+							</rows>
+						</grid>
+					</box>
+					<hbox width="100%" pack="end" align="center">
+						<button id="btnEliminarProfesores"
+							label="Eliminar" image="images/iconos/16x16/eliminar.png"
+							sclass="button" onClick="@command('eliminarProfesor')" />
+						<button id="btnCancelarProfesores"
+							label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							sclass="button" onClick="@command('cancelar2')" />
+						<button id="btnSalirProfesores" label="Salir"
+							image="images/iconos/16x16/salir.png" sclass="button"
+							onClick="@command('salir')" />
+					</hbox>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+
+
+
+	</window>
+</zk>

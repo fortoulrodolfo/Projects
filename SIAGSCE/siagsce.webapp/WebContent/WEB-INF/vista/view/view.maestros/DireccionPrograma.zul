@@ -1,0 +1,304 @@
+<!--************************************************************************************
+	* SIAGSCE - Desarrollado por Iterator
+	*Autor: Iterator
+	*Ultima modificaci�n: 09/03/2014
+	
+	***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winDireccionPrograma" title="Dirección de Programa"
+		sclass="fondo_arbol1" border="normal"
+		apply="org.zkoss.bind.BindComposer" width="100%" height="498px"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMDireccionPrograma')">
+
+		<vbox spacing="10px">
+			<groupbox>
+				<caption sclass="text" label="Dirección de Programa"></caption>
+				<vbox spacing="10px">
+
+
+
+					<tabbox>
+						<tabs>
+							<tab label="Dirección de Programa" />
+							<tab label="Director de Programa" />
+							<tab
+								label="Historial de Directores de Programa"
+								/>
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+
+								<grid>
+
+									<columns>
+										<column width="15%" />
+										<column />
+									</columns>
+									<rows>
+
+
+
+
+										<row>
+											<cell>
+												<label
+													value="Nombre:">
+												</label>
+											</cell>
+											<cell>
+												<hbox align="center">
+													<textbox
+														value="@bind(vm.nombre)" width="200px"
+														readonly="@bind(vm.mostrarNombre)">
+													</textbox>
+													<button
+														image="/images/iconos/16x16/buscar.png" width="40px"
+														height="25px"
+														onClick="@command('MostrarCatalogoDireccionPrograma')" />
+												</hbox>
+											</cell>
+										</row>
+										<row>
+											<cell>
+												<label
+													value="Unidades de Crédito:" />
+											</cell>
+											<cell>
+
+												<intbox 
+													value="@bind(vm.unidadesCredito)" 
+													width="200px"
+													readonly="@bind(vm.mostrarUnidades)"
+													constraint="no negative,no empty"/>
+
+											
+											</cell>
+										</row>
+
+
+									</rows>
+								</grid>
+								<hbox width="100%" pack="end"
+									align="center">
+									<button label="Guardar"
+										image="/images/iconos/16x16/guardar.png" sclass="button"
+										onClick="@command('guardar')"
+										disabled="@bind(vm.btnGuardarDireccion)" />
+									<button id="btnEditar"
+										label="Editar" sclass="button"
+										image="/images/iconos/16x16/editar.png"
+										onClick="@command('editarDireccion')"
+										disabled="@bind(vm.btnEditarDireccion)" />
+									<button sclass="button"
+										id="btnEliminarDireccion" label="Eliminar"
+										image="images/iconos/16x16/eliminar.png"
+										onClick="@command('eliminarDireccion')"
+										disabled="@bind(vm.btnEditarDireccion)" />
+									<button label="Cancelar"
+										sclass="button" image="/images/iconos/16x16/cancelar.png"
+										onClick="@command('cancelar')" />
+									<button label="Salir"
+										sclass="button" image="/images/iconos/16x16/salir.png"
+										onClick="@command('cerrarVentana')" />
+								</hbox>
+
+							</tabpanel>
+							<tabpanel>
+							
+
+								<grid>
+
+									
+
+									<columns>
+										<column width="15%" />
+										<column width="35%" />
+										<column width="15%" />
+										<column />
+									</columns>
+									<rows>
+										<row>
+											<cell>
+												<label
+													value="Cédula:">
+												</label>
+											</cell>
+											<cell>
+												<hbox align="center">
+													<textbox
+														width="200px" value="@bind(vm.profesorCedula)"
+														readonly="true">
+													</textbox>
+													<button
+														image="/images/iconos/16x16/buscar.png" width="40px"
+														height="25px" disabled="@bind(vm.mostrarBotonProfesores)"
+														onClick="@command('MostrarCatalogoProfesorAsd')" />
+												</hbox>
+											</cell>
+										</row>
+										<row>
+											<cell>
+												<label value="Nombre:" />
+											</cell>
+											<cell>
+												<textbox
+													value="@bind(vm.profesorNombre)" width="200px"
+													readonly="true">
+												</textbox>
+											</cell>
+
+											<cell>
+												<label
+													value="Apellido:">
+												</label>
+											</cell>
+											<cell>
+												<textbox
+													value="@bind(vm.profesorApellido)" width="200px"
+													readonly="true">
+												</textbox>
+											</cell>
+										</row>
+
+									</rows>
+								</grid>
+								<hbox width="100%" pack="end"
+									align="center">
+									<button label="Guardar"
+										image="/images/iconos/16x16/guardar.png" sclass="button"
+										onClick="@command('guardar')"
+										disabled="@bind(vm.btnGuardarDirector)" />
+									<button id="btnCambiar"
+										label="Cambiar" sclass="button"
+										image="/images/iconos/16x16/editar.png"
+										onClick="@command('cambiarDirector')"
+										disabled="@bind(vm.btnCambiarDirector)" />
+
+									<button label="Cancelar"
+										sclass="button" image="/images/iconos/16x16/cancelar.png"
+										onClick="@command('cancelar')" />
+									<button label="Salir"
+										sclass="button" image="/images/iconos/16x16/salir.png"
+										onClick="@command('cerrarVentana')" />
+								</hbox>
+
+							</tabpanel>
+							<tabpanel>
+
+
+
+
+								<listbox
+									emptyMessage="No se han asignado directores de programa"
+									height="330px" model="@bind(vm.modelodirectorhistorial)">
+									
+									
+									<auxhead>
+										<auxheader colspan="6">
+											<hbox>
+											
+											<image
+															src="images/iconos/16x16/Filter.png" />
+														<textbox
+															id="txtFiltroDirector" placeholder="Nombre "
+															value="@bind(vm.textoDirector)"
+															onChange="@command('filtrarDirector')" instant="true" />
+														<combobutton
+															label="" image="images/iconos/16x16/buscar.png">
+															<popup
+																id="popOpcionesDirector">
+																<listbox
+																	id=" lbxSeleccionParametroDirector" width="180px"
+																	model="@bind(vm.valoresDirector)"
+																	selectedItem="@bind(vm.seleccionDirector)"
+																	onSelect="@command('seleccionFiltroDirector')">
+																	<listhead>
+																		<listheader />
+																	</listhead>
+																	<template
+																		name="model">
+																		<listitem
+																			label="@bind(each)" />
+																	</template>
+																</listbox>
+														</popup>
+														</combobutton>
+																									<hbox>
+
+												<label
+													value="Actuales:" />
+												<checkbox 
+													onCheck="@command('cargarDirectoresActuales')" />
+													
+											</hbox>
+											</hbox>
+											
+
+											
+
+										</auxheader>
+									</auxhead>
+									
+									
+									<listhead>
+										<listheader label="Cédula"
+											width="10%" sort="auto" />
+										<listheader label="Nombre"
+											width="25%" sort="auto" />
+										<listheader label="Apellido"
+											width="20%" sort="auto" />
+										<listheader label="Fecha Inicio"
+											width="10%" sort="auto" />
+										<listheader
+											label="Fecha Culminación" sort="auto" width="15%" />
+										<listheader label="Programa"
+											width="20%" sort="auto" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="@bind(each.profesor.profesorCedula)" />
+											<listcell
+												label="@bind(each.profesor.profesorNombre)" />
+											<listcell
+												label="@bind(each.profesor.profesorApellido)" />
+											<listcell
+												label="@bind(each.directorProgramaFechaInicio)" />
+											<listcell
+												label="@bind(each.directorProgramaFechaCulminacionString)" />
+
+											<listcell
+												label="@bind(each.direccionPrograma.direccionNombre)" />
+										</listitem>
+									</template>
+								</listbox>
+
+								<hbox width="100%" pack="end"
+									align="center">
+
+
+									<button label="Cancelar"
+										sclass="button" image="/images/iconos/16x16/cancelar.png"
+										onClick="@command('cancelar')" />
+									<button label="Salir"
+										sclass="button" image="/images/iconos/16x16/salir.png"
+										onClick="@command('cerrarVentana')" />
+								</hbox>
+
+							</tabpanel>
+						</tabpanels>
+					</tabbox>
+
+				</vbox>
+
+			</groupbox>
+
+
+		</vbox>
+
+
+	</window>
+</zk>

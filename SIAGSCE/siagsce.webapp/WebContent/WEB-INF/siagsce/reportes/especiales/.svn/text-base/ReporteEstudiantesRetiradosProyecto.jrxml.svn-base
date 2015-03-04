@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEstudiantesPreincritosProyecto" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96f55756-df97-42ae-bc21-364ff05a7599">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ICON_RIGHT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_FOOTER" class="java.lang.String"/>
+	<parameter name="ICON_LEFT_HEADER" class="java.lang.String"/>
+	<parameter name="proyecto" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="147" splitType="Stretch">
+			<textField pattern="d/M/yyyy">
+				<reportElement uuid="c03ad256-390b-4d55-a382-8f3dfda1f35e" x="489" y="127" width="92" height="12" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="cd0e5f4b-dc7b-4a89-b964-e36f1f2cd61a" x="2" y="140" width="569" height="3" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement uuid="a2d94a03-1828-4f8d-a138-3856d79c00d1" x="107" y="78" width="353" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="7cc848e4-e4bb-404e-99f4-8a0da5cc01d8" x="407" y="127" width="99" height="16" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="3559724d-f052-46ce-a6dd-fd7d5fc4903d" x="468" y="2" width="100" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_RIGHT_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ab26a669-e095-4009-bb29-abcb8f8a6f5e" x="124" y="6" width="322" height="64" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTROCCIDENTAL “LISANDRO ALVARADO”
+ DECANATO DE CIENCIAS Y TECNOLOGIA
+COORDINACION SERVICIO COMUNITARIO ESTUDIANTIL
+BARQUISIMETO
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="14e2ab87-cc47-49f7-980c-5758f221f7ab" x="146" y="81" width="276" height="23" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Estudiantes Retirado por Proyecto]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="4f415e21-8051-4b0e-8e46-0b6945308f26" x="4" y="2" width="97" height="79"/>
+				<imageExpression><![CDATA[$P{ICON_LEFT_HEADER}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="56b8a22e-1294-487c-9504-a37d0f56439a" mode="Transparent" x="289" y="0" width="180" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c43a9ef-142c-4806-b608-6cc8b6a036c9" mode="Transparent" x="3" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3db64a2e-682a-494d-9452-550b8b179693" mode="Transparent" x="469" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="307c5bdc-3da6-4da3-9d7d-a14079fd4ddd" mode="Transparent" x="88" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17a2a402-a318-4dbb-a898-050e3628b40a" mode="Transparent" x="189" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement uuid="960900e5-0485-429d-9e1a-5ee9307cfd3a" x="3" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="28c47953-4541-4826-a0fd-b6668bd4f0b4" x="88" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a19c85d8-9688-4fdd-b8bd-ecf8688dd385" x="189" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d2591f3e-a51f-4193-a2b1-bd3ee87b5819" x="289" y="0" width="180" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b3163cf2-93d6-4674-aac3-61ec94eb379a" x="469" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement uuid="a3bd6e51-8093-46b7-b526-d513d8ee2137" x="176" y="29" width="193" height="26"/>
+				<imageExpression><![CDATA[$P{ICON_FOOTER}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="f18a2268-1891-487a-829e-44b6f594efbc" x="5" y="3" width="569" height="1" forecolor="#0B68C3"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="c77bdca9-34a1-47f2-95d5-70f5f566ddbb" x="157" y="9" width="251" height="20" forecolor="#0B68C3" backcolor="#0B68C3"/>
+				<box rightPadding="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avenida Las Industrias, Núcleo Obelisco]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="83a5f50b-75dc-4771-9eab-4bb5353109da" mode="Opaque" x="537" y="7" width="27" height="13" forecolor="#0B68C3" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="12" splitType="Stretch"/>
+	</summary>
+</jasperReport>

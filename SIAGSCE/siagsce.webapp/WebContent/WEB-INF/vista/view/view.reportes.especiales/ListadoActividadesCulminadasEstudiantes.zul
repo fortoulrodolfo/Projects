@@ -1,0 +1,222 @@
+<!-- Siagsce - Desarrollado por Iterator -->
+<!-- Autor: Iterator -->
+<!--Interfaz: Consulta las actividades cumplidas por los estudiantes en SCE-->
+<!-- Ultima modificación: 09/04/2014 -->
+
+<?page title="Reportes Especiales" contentType="text/html;charset=UTF-8"?>
+<?style href="css/style2.css" type="text/css" ?>
+
+<zk>
+
+	<window id="winListadoActividadesCulminadas" 
+		title="Consulta de Estudiantes por Actividades Cumplidas" border="normal" width="100%"
+		height="520px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.especiales.VMReporteActividadesCumplidasEstudiante')">
+		
+<groupbox>
+			<caption sclass="text" label="Criterios de Búsqueda"></caption>
+			<listbox id="lbxDatos">
+				<listhead>
+					<listheader width="3%" />
+					<listheader width="15%" />
+					<listheader width="20%" />
+					<listheader width="10%" />
+					<listheader width="20%" />
+					<listheader width="12%" />
+					<listheader width="20%" />
+					<listheader width="3%" />
+						
+				</listhead>
+				<listitem>
+					<listcell></listcell>
+					<listcell label="Dirección de Programa:"></listcell>
+					<listcell>
+						<combobox readonly="true" id="cmbPrograma"
+							placeholder="Seleccione un Programa" width="100%" mold="rounded"
+							model="@load(vm.modeloPrograma)"
+							selectedItem="@bind(vm.selectedPrograma)"
+							onSelect="@command('cargarProyecto')">
+							<template name="model">
+								<comboitem
+									label="${each.direccionNombre}" />
+							</template>
+						</combobox>
+					</listcell>
+					<listcell label="Proyecto:"></listcell>
+					<listcell>
+						<combobox readonly="true" id="cmbProyectos"
+							placeholder="Seleccione un Proyecto" width="100%" mold="rounded"
+							model="@load(vm.modeloProyecto)"
+							selectedItem="@bind(vm.selectedProyecto)"
+							onSelect="@command('cargarActividad')">
+							<template name="model">
+								<comboitem
+									label="${each.proyectoNombre}" />
+							</template>
+						</combobox>
+						</listcell>
+					<listcell label="Actividad:"></listcell>
+					<listcell>
+						<combobox readonly="true" id="cmbActividad"
+							placeholder="Seleccione una Actividad" width="100%" mold="rounded"
+							model="@bind(vm.modeloActividad)"
+							selectedItem="@bind(vm.selectedActividad)"
+							onSelect="@command('llenarListaDinamica')">
+							<template name="model">
+								<comboitem
+									label="@bind(each.actividadNombre)" />
+							</template>
+						</combobox>
+					</listcell>
+					<listcell></listcell>
+				</listitem>
+									
+					<listitem>
+						<listcell></listcell>			
+					<listcell id="idfechaini" label="Desde:"></listcell>
+					<listcell>
+						<datebox id="dtbfechaIni" 
+						    format="dd-MM-yyyy" placeholder="dd-MM-yyyy"
+							value="@bind(vm.fechaInicio)" width="100%"
+							tooltiptext="Ingrese la Fecha Inicio"
+							onChange='@command("llenarListaDinamica")'>
+						</datebox>
+					</listcell>
+					<listcell id="idfechafin" label="Hasta:"></listcell>
+					<listcell>
+						<datebox id="dtbfechaFin" 
+						    format="dd-MM-yyyy" placeholder="dd-MM-yyyy"
+							value="@bind(vm.fechaFin)" width="100%"
+							tooltiptext="Ingrese la Fecha Final"
+							onChange='@command("llenarListaDinamica")'>
+						</datebox>
+					</listcell>
+					<listcell></listcell>
+					<listcell></listcell>
+					<listcell></listcell>
+				</listitem>
+			</listbox>
+		</groupbox>
+		<grid height="315px">
+			<rows>
+				<row>
+					<tabbox id="tab" height="300px">
+						<tabs id="tabs">
+							<tab id="pestana1" label="Estudiantes"
+								closable="false" />
+							<tab id="pestana2" label="Reporte Exportado"
+								closable="false" visible="false" />
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+							<listbox height="255px"
+										model="@bind(vm.modeloActividadesCumplidasEstudiantes)"
+										emptyMessage="Seleccione el criterio de búsqueda">
+											<auxhead>
+											<auxheader colspan="5">
+											<hbox>
+												<image
+													src="images/iconos/16x16/Filter.png" />
+												<textbox
+													id="txtFiltro" placeholder="Nombre"
+													value="@bind(vm.texto)"
+													onChange="@command('llenarListaDinamica')" instant="true" />
+												<combobutton label=""
+													image="images/iconos/16x16/buscar.png">
+													<popup
+														id="popOpciones">
+														<listbox
+															id=" lbxSeleccionParametro" width="180px"
+															model="@bind(vm.valores)"
+															selectedItem="@bind(vm.seleccion)"
+															onSelect="@command('seleccionFiltro')">
+															<listhead>
+																<listheader />
+															</listhead>
+															<template
+																name="model">
+																<listitem
+																	label="@bind(each)" />
+															</template>
+														</listbox>
+													</popup>
+												</combobutton>
+
+											</hbox>
+								</auxheader>
+										</auxhead>
+									
+										<listhead>
+											<listheader label="Cédula" width="20%"  align="center"/>
+											<listheader label="Nombre" width="20%"  align="center"/>
+											<listheader label="Apellido" width="20%"  align="center"/>
+											<listheader label="Horas Cumplidas" width="20%"  align="center"/>
+											<listheader label="Fechas Culminación" width="20%"  align="center"/>
+										</listhead>
+										<template name="model">
+											<listitem>
+												<listcell
+													label="@bind(each.cedula)" />
+												<listcell
+													label="@bind(each.nombre)" />
+												<listcell
+													label="@bind(each.apellido)" />
+												<listcell
+													label="@bind(each.horasCumplidas)" />
+												<listcell
+													label="@bind(each.fecha)" />
+											</listitem>
+										</template>
+									</listbox>
+							</tabpanel>
+							<tabpanel>
+								Otro Formato :
+								<listbox id="lbxFormat" mold="select"
+									model="@load(vm.reportTypesModel)"
+									selectedItem="@bind(vm.reportType)"
+									onSelect='@command("showReport")'>
+									<template name="model">
+										<listitem value="@load(each)"
+											label="@load(each.label)">
+										</listitem>
+									</template>
+								</listbox>
+								<jasperreport id="report" height="255px"
+									src="@load(vm.reportConfig.source, after='showReport')"
+									parameters="@load(vm.reportConfig.parameters, after='showReport')"
+									type="@load(vm.reportConfig.type.value, after='showReport')"
+									datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+							</tabpanel>
+						</tabpanels>
+					</tabbox>
+				</row>
+			</rows>
+		</grid>
+				<hbox width="100%" pack="end" align="center">
+						<button label="Exportar" id="btnExportar"
+							sclass="button" onClick="@command('showReport')"
+							image="/images/iconos/16x16/reporteabierto.png"
+							disabled="true">
+							<attribute name = "onClick">
+							<![CDATA[
+	pestana2.setSelected(true);
+	pestana2.setVisible(true);
+]]>
+						  </attribute>
+						</button>
+						<button id="btnCancelar" sclass="button" disabled="true"
+							label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							onClick="@command('cancelar')" />
+						<attribute name = "onClick">
+							<![CDATA[
+	pestana1.setSelected(true);
+	pestana2.setVisible(false);
+]]>
+	</attribute>					
+						<button id="btnEliminar"
+							label="Salir" sclass="button"
+							image="images/iconos/16x16/salir.png"
+							onClick="@command('cerrar')" />
+					</hbox>
+	</window>
+</zk>

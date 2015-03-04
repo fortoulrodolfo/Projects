@@ -1,0 +1,13 @@
+
+
+<html>
+<div width="100%" height="100%" sclass="fondo_arbol1">
+<ul id="list-nav" width="100%" height="100%">
+  <li width="25%"><a href="../Portal.zul">Inicio</a></li>
+  <li width="25%"><a href="PortalQuienesSomos.zul">Quienes Somos</a></li>
+  <li width="25%"><a href="PortalContacto.zul">Contacto</a></li>
+  <li width="25%"><a href="PortalAyuda.zul">Ayuda</a></li>
+</ul>
+</div>
+
+</html>

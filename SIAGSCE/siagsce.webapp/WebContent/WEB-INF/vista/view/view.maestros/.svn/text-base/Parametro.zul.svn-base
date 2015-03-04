@@ -1,0 +1,85 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Registro de Motivo" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window sclass="fondo_arbol1"  title="Registrar Parámetros"
+		border="normal" width="100%" height="498px"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMParametro')">
+
+
+		<groupbox id="gbxRegistroParametro">
+			<caption label="Datos del Parámetro" sclass="text"></caption>
+
+			<grid id="grdParametro">
+
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+
+				<rows>
+					<row>
+						<cell>
+							<label id="lblnombre" value="Nombre:">
+							</label>
+						</cell>
+						<cell>
+							<hbox>
+								<textbox id="txtNombre" width="200px"
+									value="@bind(vm.nombre)" />
+								<button id="btnbuscar" width="35px"
+									height="25px" image="images/iconos/16x16/buscar.png"
+									onClick="@command('MostrarCatalogoParametros')" />
+							</hbox>
+						</cell>
+						<cell>
+							<label id="lblvalor" value="Valor:"></label>
+						</cell>
+						<cell>
+							<textbox id="txtValor" width="200px"
+								value="@bind(vm.valor)" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label id="lbldescripcion"
+								value="Descripción:">
+							</label>
+						</cell>
+						<cell colspan="3">
+							<textbox id="txtDescripcion" width="85%"
+								multiline="true" rows="2" value="@bind(vm.descripcion)" />
+						</cell>
+						
+
+					</row>
+				</rows>
+			</grid>
+
+			<hbox width="100%" pack="end" align="center">
+				<button id="btnGuardar" label="Guardar" sclass="button"
+					image="images/iconos/16x16/guardar.png"
+					onClick="@command('guardar')" />
+				<button id="btnEditar" label="Editar" sclass="button"
+					onClick="@command('Editar')"
+					image="images/iconos/16x16/editar.png" />
+				<button id="btnCancelar" label="Cancelar"
+					sclass="button" image="images/iconos/16x16/cancelar.png"
+					onClick="@command('limpiar')" />
+				<button id="btnSalir" label="Salir" sclass="button"
+					image="images/iconos/16x16/salir.png" onClick="@command('salir')" />
+			</hbox>
+
+		</groupbox>
+
+	</window>
+</zk>

@@ -1,0 +1,114 @@
+<!-- Siagsce - Desarrollado por Iterator -->
+<!-- Autor: Iterator -->
+<!--Interfaz: Consulta de proyectos por profesor responsable-->
+<!-- Ultima modificación: 26/02/2014 -->
+
+<?page title="Reportes Abiertos" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winReporteProyectoProfResponsable" 
+		title="Consulta Proyectos por Profesor Responsable" border="normal"
+		width="100%" height="520px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.abiertos.VMReporteProyectoProfResponsable')">
+
+		<grid>
+			<columns>
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<cell width="25%">
+						<label id="idprofesor" value="Profesor: "
+							width="100%" />
+					</cell>
+					<cell>
+						<listbox id="idprofe" mold="select"
+							model="@bind(vm.modeloProfesor)"
+							selectedItem="@bind(vm.selectedProfesor)"
+							onSelect='@command("llenarListaDinamica")'>
+
+							<template name="model">
+								<listitem
+									label="@bind(each.profesorNombre)">
+								</listitem>
+							</template>
+						</listbox>
+					</cell>
+				</row>
+			</rows>
+		</grid>
+		<grid height="380px">
+		<rows>
+			<row>
+				<tabbox id="tab" >
+					<tabs id="tabs" height="350px">
+						<tab id="pestana1" label="Proyectos"
+							closable="false" />
+						<tab id="pestana2" label="Reporte Exportado"
+							closable="false" visible="false" />
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+								<listbox height="315px"
+									model="@bind(vm.modeloProyectoProfResponsable)"
+									emptyMessage="Seleccione el criterio de busqueda">
+									<auxhead>
+										<auxheader
+											label="Proyectos por Profesor Responsable" colspan="3" />
+									</auxhead>
+									<listhead>
+										<listheader label="Codigo" />
+										<listheader label="Nombre" />
+										<listheader label="Descripción" />
+									</listhead>
+									<template name="model">
+										<listitem>
+											<listcell
+												label="@bind(each.codigo)" />
+											<listcell
+												label="@bind(each.nombre)" />
+											<listcell
+												label="@bind(each.descripcion)" />
+										</listitem>
+									</template>
+								</listbox>
+						</tabpanel>
+						<tabpanel>
+							Otro Formato :
+							<listbox id="format" mold="select"
+								model="@load(vm.reportTypesModel)"
+								selectedItem="@bind(vm.reportType)"
+								onSelect='@command("showReport")'>
+								<template name="model">
+									<listitem value="@load(each)"
+										label="@load(each.label)">
+									</listitem>
+								</template>
+							</listbox>
+							<jasperreport id="report" height="360px"
+								src="@load(vm.reportConfig.source, after='showReport')"
+								parameters="@load(vm.reportConfig.parameters, after='showReport')"
+								type="@load(vm.reportConfig.type.value, after='showReport')"
+								datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</row>
+			</rows>
+		</grid>
+<hbox width="100%" pack="end" align="center">
+					<button label="Exportar" sclass="button"
+						onClick="@command('showReport')"
+						image="/images/iconos/16x16/reporteabierto.png">
+						<attribute name = "onClick">
+												  <![CDATA[
+	pestana2.setSelected(true);
+	pestana2.setVisible(true);
+]]>
+						  </attribute>
+					</button>
+					<button id="btnEliminarRegistrarProyecto" sclass="button"
+						label="Salir" image="images/iconos/16x16/salir.png"
+						onClick="@command('cerrar')" />
+				</hbox>
+	</window>
+</zk>

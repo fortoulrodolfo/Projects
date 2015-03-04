@@ -1,0 +1,50 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaciï¿½n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoParametro"  mode="modal" border="normal"
+		sclass="fondo_arbol1" title="Catálogo de Parámetros" width="60%"
+		height="60%" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoParametros')">
+
+
+		<listbox height="293px" model="@bind(vm.modeloParametro)"
+			emptyMessage="No hay Motivos registrados"
+			selectedItem="@bind(vm.selectedParametro)" checkmark="true">
+			<listhead>
+				<listheader label="" width="5%" />
+				<listheader label="Nombre" width="20%" />
+				<listheader label="Descripción" width="45%" />
+				<listheader label="Valor Numérico" width="15%" />
+				<listheader label="Valor Alfanumérico" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="" />
+					<listcell label="@bind(each.parametroNombre)" />
+					<listcell label="@bind(each.parametroDescripcion)" />
+					<listcell label="@bind(each.parametroInterger)" />
+					<listcell label="@bind(each.parametroString)" />
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar"
+				image="images/iconos/16x16/aceptar.png"
+				onClick="@command('aceptar')" sclass="button" />
+			<button label="Salir" image="images/iconos/16x16/salir.png"
+				onClick="@command('cerrarVentana')" sclass="button" />
+		</hbox>
+
+	</window>
+</zk>
+
+
+
+
+

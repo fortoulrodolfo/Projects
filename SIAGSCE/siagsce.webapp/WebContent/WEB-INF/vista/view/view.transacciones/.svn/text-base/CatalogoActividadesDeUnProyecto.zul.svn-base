@@ -1,0 +1,48 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoDireccionPrograma"  mode="modal"
+		border="normal" width="550px" height="370px"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMCatalogoActividadesDeUnProyecto')">
+
+		<listbox height="300px" model="@bind(vm.modeloActividad)"
+			emptyMessage="No hay actividades registradas en este proyecto" selectedItem="@bind(vm.selectedActividad)">
+			<auxhead>
+				<auxheader label="Catalogo de Actividades del Proyecto"
+					colspan="3" />
+			</auxhead>
+			<listhead>
+				<listheader label="Código" />
+				<listheader label="Nombre" />
+				<listheader label="Descripcion" />
+				<listheader label="Cant Horas" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@bind(each.actividadCodigo)" />
+					<listcell label="@bind(each.actividadNombre)" />
+					<listcell label="@bind(each.actividadDescripcion)" />
+					<listcell label="@bind(each.actividadCantidadHoras)" />
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar"
+				image="images/iconos/24x24/aceptar.png" onClick="@command('aceptar')"
+				orient="vertical" width="70px" height="50px" />
+			<button label="Salir" image="images/iconos/24x24/salir.png"
+				onClick="@command('cerrarVentana')" orient="vertical" width="70px"
+				height="50px"  />
+		</hbox>
+
+	</window>
+</zk>

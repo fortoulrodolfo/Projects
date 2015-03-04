@@ -1,0 +1,160 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winProyectoCulminado" title="Culminar un Proyecto" border="normal" width="100%" height="508px"
+        apply="org.zkoss.bind.BindComposer" sclass="fondo_arbol1"
+		onCancel="@command('cerrarVentana')"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMProyectoCulminado')">
+<style src="css/style2.css" />
+		
+				<groupbox id="gbxDatosProyecto" closable="false">
+						<caption sclass="text" label="Datos del Proyecto">
+						</caption>
+						<grid id="grdDatosProyecto" sclass="text">
+							<columns>
+								<column width="15%" />
+								<column width="35%" />
+								<column width="15%" />
+								<column  />
+
+							</columns>
+							<rows>
+								<row>
+									<cell>
+										<label value="Código:" />
+									</cell>
+									<cell>
+										<hbox>
+
+											<textbox width="200px"
+												id="txtCodigoRegistrarProyecto"
+												value="@bind(vm.codigoProyecto)" readonly="true" />
+											<button
+												id="btnCatalogoProyecto"
+												image="images/iconos/16x16/buscar.png" orient="horizontal"
+												width="30px" height="25px" label=""
+												onClick="@command('mostrarProyecto')" />
+										</hbox>
+									</cell>
+
+								</row>
+								<row>
+									<cell>
+										<label value="Nombre:" />
+									</cell>
+									<cell>
+										<textbox width="200px"
+											id="txtNombreRegistrarProyecto"
+											value="@bind(vm.nombreProyecto)" readonly="true"/>
+									</cell>
+									<cell>
+										<label value="Programas:" />
+									</cell>
+									<cell>
+										<hbox>
+
+											<textbox
+												id="txtCodigoRegistrarPrograma" value="@bind(vm.programa)"
+												rows="2" width="200px" readonly="true"/>
+										</hbox>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label value="Descripción:" />
+									</cell>
+									<cell>
+										<textbox
+											id="txtDescripcionRegistrarProyecto"
+											value="@bind(vm.descripcionProyecto)" rows="2"
+											width="280px" readonly="true" />
+									</cell>
+									<cell>
+										<label value="Responsables:" />
+									</cell>
+									<cell>
+										<textbox
+											id="txtResponsableRegistrarProyecto"
+											value="@bind(vm.responsables)" width="200px" rows="2"
+											multiline="true" readonly="true" />
+
+									</cell>
+								</row>
+
+
+							</rows>
+						</grid>
+					</groupbox>
+					
+		<groupbox id="gbxActividadesProyecto" closable="false">
+		<caption sclass="text" label="Estudiantes con Actividades Asignadas"></caption>
+		
+		<listbox height="190px" vflex="true" 
+			model="@bind(vm.modeloEstudiante)"
+			emptyMessage="No hay estudiantes con Actividades Asignadas">
+			<auxhead>
+				<auxheader colspan="4">
+					<hbox><image src="images/iconos/16x16/Filter.png"/>
+						<textbox id="txtFiltroEstudiante"
+							placeholder="Nombre " value="@bind(vm.texto)"
+							onChange="@command('filtrarEstudiante')" instant="true" />
+							<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+							
+					</hbox>
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="Cédula" width="20%" />
+				<listheader label="Nombre" width="20%" />
+				<listheader label="Apellido" width="20%" />
+				<listheader label="Actividad" width="40%"  />
+
+			</listhead>
+			<template name="model">
+
+				<listitem>
+					<listcell label="@bind(each.cedula)" />
+					<listcell label="@bind(each.nombre)" />
+					<listcell label="@bind(each.apellido)" />
+					<listcell label="@bind(each.nombre_actividad)" />
+					
+
+				</listitem>
+			</template>
+		</listbox>
+		</groupbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Cerrar" image="images/iconos/16x16/aceptar.png"
+				onClick="@command('aceptar')" sclass="button" />
+			<button label="Cancelar" image="images/iconos/16x16/cancelar.png"
+				onClick="@command('cancelar')" sclass="button" />
+			<button label="Salir" image="images/iconos/16x16/salir.png"
+				onClick="@command('cerrarVentana')" sclass="button" />
+		</hbox>
+
+	</window>
+</zk>

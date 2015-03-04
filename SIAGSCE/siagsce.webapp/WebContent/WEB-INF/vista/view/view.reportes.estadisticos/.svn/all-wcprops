@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/1044/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos
+END
+ReportePromedioEstudianteUnidadesAprobadas.zul
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/1044/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos/ReportePromedioEstudianteUnidadesAprobadas.zul
+END
+PorcentajeFinalizaronSCE.zul
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/996/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos/PorcentajeFinalizaronSCE.zul
+END
+TopCincoInscripcionProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/996/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos/TopCincoInscripcionProyecto.zul
+END
+PromedioDuracionEstudianteSce.zul
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/1033/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos/PromedioDuracionEstudianteSce.zul
+END
+ReportePromedioEstudiantes.zul
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1037/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.estadisticos/ReportePromedioEstudiantes.zul
+END

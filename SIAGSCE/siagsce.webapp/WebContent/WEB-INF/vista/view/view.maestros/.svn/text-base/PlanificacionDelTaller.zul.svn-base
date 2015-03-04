@@ -1,0 +1,193 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page id="win2" title="Registro Taller" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="win2" title="Planificacion de Taller"  border="normal"
+		apply="org.zkoss.bind.BindComposer" width="100%" height="498px"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMPlanificacionDelTaller')">
+
+	<vbox spacing="5px">
+		<groupbox>
+			<caption label="Datos del taller" sclass="text"/>
+			<grid>
+				<columns>
+					<column width="15%"></column>
+					<column width="35%"></column>
+					<column width="20%"></column>
+					<column></column>
+				</columns>
+
+				<rows>
+					<row>
+						<cell>
+							<label value="Descripción" width="150px"/>
+						</cell>
+						<cell>
+							<hbox align="center">
+								<textbox id="txtDescripcion"
+									width="200px" value="@bind(vm.descripcion)" multiline="true"
+									rows="2" />
+								<button id="btnbuscar" width="40px" height="25px"
+									image="/images/iconos/16x16/buscar.png"
+									onClick="@command('MostrarCatalogoTaller')" />
+							</hbox>
+						</cell>
+						<cell>
+							<label value="Cantidad de horas:"
+								width="150px" />
+						</cell>
+						<cell>
+							<textbox id="txtCantidadHoras"
+								value="@bind(vm.cantidadHoras)" width="200px" readonly="true" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Fecha Inicio inscripción:"
+								width="150px" />
+						</cell>
+						<cell>
+							<datebox id="dtbInicioInscripcion"
+								width="200px" value="@bind(vm.inicioInscripcion)"
+								onChange="@command('validarFechaInscripcion')" readonly="true" />
+						</cell>
+						<cell>
+							<label
+								value="Fecha Finalización inscripción:" width="150px" />
+						</cell>
+						<cell>
+							<datebox id="dtbFinInscripcion"
+								width="200px" value="@bind(vm.finInscripcion)" onChange="@command('validarFechaInicioTaller')" readonly="true"/>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Fecha Inicio Taller:"
+								width="150px" />
+						</cell>
+						<cell>
+							<datebox id="dtbInicioTaller" width="200px"
+								value="@bind(vm.inicioTaller)"
+								onChange="@command('validarFechaEjecucion')" readonly="true" />
+						</cell>
+						<cell>
+							<label value="Fecha Finalización Taller:"
+								width="150px" />
+						</cell>
+						<cell>
+							<datebox id="dtbFinTaller" width="200px"
+								value="@bind(vm.finTaller)" readonly="true"/>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Modalidad:" width="150px" />
+						</cell>
+						<cell>
+							<combobox id="cmbModalidad" width="200px"
+								value="@bind(vm.modalidad)" readonly="true">
+								<comboitem label="Presencial" />
+								<comboitem label="Virtual" />
+							</combobox>
+						</cell>
+						<cell>
+							<label value="Lugar:" width="150px" />
+						</cell>
+						<cell>
+							<textbox id="txtLugar"
+								value="@bind(vm.lugar)" width="200px" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>	
+
+		<groupbox>
+				<caption label="Datos del profesor responsable"  sclass="text"/>
+				<grid>
+					<columns>
+						<column width="15%"></column>
+						<column width="35%"></column>
+						<column width="20%"></column>
+						<column></column>
+					</columns>		
+					<rows>
+
+					<row>
+						<cell>
+							<label value="Cédula"/>
+						</cell>
+						<cell>
+								<hbox align="center">
+									<textbox id="txtCedulaProfesor"
+										value="@bind(vm.cedulaProfesor)" width="200px" readonly="true"/>
+									<button id="btnBuscarProfesor" width="40px" height="25px"
+										image="/images/iconos/16x16/buscar.png"
+										onClick="@command('MostrarCatalogoProfesorAcreditado')" />
+								</hbox>								
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Nombre"/>
+						</cell>
+						<cell>
+							<textbox id="txtNombreProfesor"
+									value="@bind(vm.nombreProfesor)" width="200px" readonly="true"/>
+						</cell>
+						<cell>
+							<label value="Apellido"/>
+						</cell>	
+						<cell>
+							<textbox id="txtApellidoProfesor"
+									value="@bind(vm.apellidoProfesor)" width="200px" readonly="true"/>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="E-mail"/>
+						</cell>
+						<cell>
+							<textbox id="txtEmailProfesor"
+									value="@bind(vm.emailProfesor)" width="200px" readonly="true"/>
+						</cell>
+						<cell>
+							<label value="Teléfono"/>
+						</cell>	
+						<cell>
+							<textbox id="txtTelefonoProfesor"
+									value="@bind(vm.telefonoProfesor)" width="200px" readonly="true"/>
+						</cell>
+					</row>
+					</rows>
+				</grid>
+			</groupbox>
+			
+
+
+			<hbox width="100%" pack="end" align="center">
+				<button id="btnGuardar" label="Guardar"
+					image="/images/iconos/16x16/guardar.png"
+					onClick="@command('guardar')" sclass="button" />
+				<button id="btnEditar" label="Editar" sclass="button"
+					image="/images/iconos/16x16/editar.png"
+					onClick="@command('edicion')" disabled="true" />
+				<button id="btnEliminar" label="Eliminar"
+					image="/images/iconos/16x16/eliminar.png" sclass="button"
+					onClick="@command('eliminar')" disabled="true" />
+				<button label="Cancelar"
+					image="/images/iconos/16x16/cancelar.png" sclass="button"
+					onClick="@command('limpiar')" />
+				<button label="Salir"
+					image="/images/iconos/16x16/salir.png" sclass="button"
+					onClick="@command('cerrarVentana')" />
+			</hbox>
+		</vbox>
+	</window>
+</zk>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/994/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales
+END
+ListaActividadesCumplidasEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/806/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/ListaActividadesCumplidasEstudiante.java
+END
+ListaConsultadeHorascumplidasporEstudiantes.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/994/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/ListaConsultadeHorascumplidasporEstudiantes.java
+END
+ActividadesEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/646/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/ActividadesEstudiante.java
+END
+ListaEstudianteRetiradoProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/646/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/ListaEstudianteRetiradoProyecto.java
+END
+EstatusEstudiantePorCarreraEstatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/646/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/EstatusEstudiantePorCarreraEstatus.java
+END
+ListaActividadesAsignadasEstudiantes.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/705/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/ListaActividadesAsignadasEstudiantes.java
+END
+EstudianteInscritoPorTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/876/siagsce.modelo/src/siagsce/modelo/data/reportes/especiales/EstudianteInscritoPorTaller.java
+END

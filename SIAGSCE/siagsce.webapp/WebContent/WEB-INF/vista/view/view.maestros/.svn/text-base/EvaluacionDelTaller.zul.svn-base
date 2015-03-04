@@ -1,0 +1,145 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winEvaluacionDelTaller"  title="Evaluación del Taller"
+		border="normal" apply="org.zkoss.bind.BindComposer" sclass="fondo_arbol1" width="100%" height="498px" vflex="false"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMEvaluacionDelTaller')">
+<vbox spacing="8px">
+<vbox spacing="10px">
+		<groupbox closable="false">
+			<caption sclass="text" label="Datos del Taller"></caption>
+			<grid>
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column width="35%" />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Descripción:" />
+						</cell>
+						<cell colspan="2">
+							<hbox align="center">
+								<textbox id="txtDescripcion"
+									width="200px" value="@bind(vm.descripcionTaller)" rows="2"
+									readonly="true"/>
+								<button
+									image="/images/iconos/16x16/buscar.png" width="40px"
+									height="25px" onClick="@command('MostrarCatalogoTaller')" />
+							</hbox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Fecha de inicio:"></label>
+						</cell>
+						<cell>
+							<textbox width="200px"
+								value="@bind(vm.inicioTaller)" readonly="true" />
+						</cell>
+						<cell>
+							<label value="Fecha de culminación:"></label>
+						</cell>
+						<cell>
+							<textbox width="200px"
+								value="@bind(vm.finTaller)" readonly="true" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Cantidad de horas:" />
+						</cell>
+						<cell>
+							<textbox id="txtCantidadHoras"
+								value="@bind(vm.cantidadHorasTaller)" width="200px"
+								readonly="true" />
+						</cell>
+						<cell>
+							<label value="Lugar:" />
+						</cell>
+						<cell>
+							<textbox id="txtLugar"
+								value="@bind(vm.lugar)" width="200px"
+								readonly="true" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Modalidad:" />
+						</cell>
+						<cell>
+							<textbox id="txtModalidad"
+								value="@bind(vm.modalidad)" width="200px"
+								readonly="true" />
+						</cell>
+						<cell>
+							<label value="Responsable:" />
+						</cell>
+						<cell>
+							<textbox id="txtResponsable"
+								value="@bind(vm.responsable)" width="200px"
+								readonly="true" />
+						</cell>
+					</row>
+
+				</rows>
+			</grid>
+
+		</groupbox>
+
+		<groupbox closable="false">
+			<caption sclass="text" label="Estudiantes Inscritos en el Taller"></caption>
+			<listbox id="lbxAlumnos" height="120px" vflex="true" 
+				model="@bind(vm.modeloEstudianteEvaluado)"
+				emptyMessage="No hay estudiantes inscritos">
+				
+				<listhead>
+					<listheader label="Cédula" />
+					<listheader label="Nombre" />
+					<listheader label="Apellido" />
+					<listheader label="Calificación" />
+
+
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.getCedula()}" />
+						<listcell label="${each.getNombre()}" />
+						<listcell label="${each.getApellido()}" />
+						<listcell>
+							<combobox
+								onBlur="@command('asignarHorasAlEstudiante',parametro=self)"
+								readonly="true">
+								<comboitem label="Aprobado" />
+								<comboitem label="Reprobado" />
+								<comboitem label="Retirado" />
+								<custom-attributes
+									cedula="${each.getCedula()}" />
+							</combobox>
+
+						</listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</groupbox>
+</vbox>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnGuardar" label="Guardar" image="/images/iconos/16x16/guardar.png" 
+					sclass="button" onClick="@command('guardar')" />
+			<button label="Cancelar" image="/images/iconos/16x16/cancelar.png"
+					sclass="button" onClick="@command('cancelar')" />
+			<button label="Salir" image="/images/iconos/16x16/salir.png"
+				sclass="button"	onClick="@command('cerrarVentana')" />
+		</hbox>
+</vbox>
+	</window>
+</zk>

@@ -1,0 +1,48 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="" contentType="text/html;charset=UTF-8" ?>
+<zk>
+<window title="@bind(vm.fechaNoticia)" border="normal"  closable="true" sclass="fondo_arbol1"
+		id="winConsultarNoticias" mode="modal" height="60%" width="700px" 
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMConsultarNoticia')">
+										
+<style src="css/style2.css" />
+
+			<borderlayout height="90%" width="90%" style="margin-left:20px;" >
+			    <north height="50%" border="0" >
+			        <borderlayout>
+			            <west border="none" size="25%">
+			                <div >
+			                    <image height="100%" width="100%" content="@bind(vm.imagenNoticia)"/>
+			                </div>
+			            </west>
+			            <center border="none">
+			                <div style="margin-left:20px; margin-top:40px;">
+			                    <label value="@bind(vm.tituloNoticia)" sclass="text"
+			                        style="font-size:30px" />
+			                </div>
+			            </center>
+			        </borderlayout>
+			    </north>
+			    <center border="none" >
+			        <borderlayout> 
+			            <center border="none">
+			                <div style="margin-left:20px; margin-top:40px;">
+			                    <label value="@bind(vm.contenidoNoticia)" sclass="text"
+			                        style="font-size:15px" />
+			                </div>
+			            </center>
+			           
+			        </borderlayout>
+			    </center>
+			</borderlayout>
+	
+
+</window>
+</zk>

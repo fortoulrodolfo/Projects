@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1041/siagsce.modelo/src/siagsce/modelo/repositorio/transacciones
+END
+IInscripcionProyectoRepositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1019/siagsce.modelo/src/siagsce/modelo/repositorio/transacciones/IInscripcionProyectoRepositorio.java
+END
+IActividadEjecutadaRepositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1019/siagsce.modelo/src/siagsce/modelo/repositorio/transacciones/IActividadEjecutadaRepositorio.java
+END
+IPreInscripcionProyectoRepositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/697/siagsce.modelo/src/siagsce/modelo/repositorio/transacciones/IPreInscripcionProyectoRepositorio.java
+END
+IActividadAsignadaRepositorio.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1041/siagsce.modelo/src/siagsce/modelo/repositorio/transacciones/IActividadAsignadaRepositorio.java
+END

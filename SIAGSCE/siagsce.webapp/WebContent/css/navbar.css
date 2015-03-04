@@ -1,0 +1,26 @@
+
+ul#list-nav {
+ height:36px;
+  width:100%;
+}
+
+ul#list-nav li {
+  display:inline
+}
+
+ul#list-nav li a {
+  text-decoration:none;
+  color:#eee;
+  padding:9px 0;
+  width:24.7%;
+  float:left;
+  text-align:center;
+  border-left:1px solid #fff;
+  font-weight:bold;
+}
+
+ul#list-nav li a:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#abadb3), to(#eeeeef));
+  color:#003471;
+}
+

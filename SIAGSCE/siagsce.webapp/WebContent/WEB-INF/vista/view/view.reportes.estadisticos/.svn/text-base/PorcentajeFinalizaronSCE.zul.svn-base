@@ -1,0 +1,70 @@
+<!--Siagsce - Desarrollado por Iterator-->
+<!--Autor:  Iterator-->
+<!--Interfaz: Porcentaje de estudiantes que fianlizaron SCE-->
+<!--Ultima modificación: 11/03/2014-->
+
+<?page title="Reportes Estadísticos" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winPromedioEstudiantes"
+		title="Porcentaje de Estudiantes que Finalizaron SCE"
+		border="normal" width="100%" height="520px"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.estadisticos.VMReportePorcentajeFinalizaronSCE')">
+
+		<groupbox>
+			<caption sclass="text" label="Criterios de Búsqueda"></caption>
+			<listbox id="lbxDatos">
+
+
+				<listhead>
+					<listheader width="3%" />
+					<listheader width="15%" />
+					<listheader width="20%" />
+					<listheader width="10%" />
+					<listheader width="15%" />
+					<listheader width="20%" />
+					<listheader width="3%" />
+				</listhead>
+				<listitem>
+					<listcell></listcell>
+					<listcell label="Desde:"></listcell>
+					<listcell>
+						<datebox id="dtbFechaInicio"
+							constraint="no empty" format="dd-MM-yyyy" width="100%" 
+							mold="rounded" tooltiptext="Ingrese la fecha inicio"
+							onBlur="@command('validarFechaCulminacion')"
+							onChange="@command('showReport')" value="@bind(vm.fechaInicio)" />
+					</listcell>
+					<listcell></listcell>
+					<listcell label="Hasta:"></listcell>
+					<listcell>
+						<datebox id="dtbFechaCulminacion" width="100%" mold="rounded"
+							constraint="no empty" format="dd-MM-yyyy"
+							tooltiptext="Ingrese la fecha final"
+							onBlur="@command('validarFechaInicio')"
+							onChange="@command('showReport')"
+							value="@bind(vm.fechaCulminacion)" />
+					</listcell>
+					<listcell></listcell>
+				</listitem>
+			</listbox>
+		</groupbox>
+		<grid height="345px">
+			<rows>
+				<row>
+					<jasperreport id="report" height="325px"
+						src="@load(vm.reportConfig.source, after='showReport')"
+						parameters="@load(vm.reportConfig.parameters, after='showReport')"
+						type="@load(vm.reportConfig.type.value, after='showReport')"
+						datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+				</row>
+			</rows>
+		</grid>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnSalir" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button"
+				onClick="@command('cerrarVentana')" />
+
+		</hbox>
+	</window>
+</zk>

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1011/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones
+END
+FormalizarInscripcionProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/984/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/FormalizarInscripcionProyecto.zul
+END
+CatalogoEstudiantesPreinscrito.zul
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/CatalogoEstudiantesPreinscrito.zul
+END
+RespaldarDatos.zul
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/1011/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/RespaldarDatos.zul
+END
+ConsultarStatusEstudiante.zul
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/ConsultarStatusEstudiante.zul
+END
+RestaurarInformacion.zul
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1011/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/RestaurarInformacion.zul
+END
+RegistrarPrestacionSCE.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/983/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/RegistrarPrestacionSCE.zul
+END
+ConsultarRequisitosSCE.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/ConsultarRequisitosSCE.zul
+END
+PreinscripcionProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/696/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/PreinscripcionProyecto.zul
+END
+ConsultarDetalleStatus.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/898/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/ConsultarDetalleStatus.zul
+END
+ConsultarNormativaSCE.zul
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/ConsultarNormativaSCE.zul
+END
+ConsultarReglamentoSCE.zul
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/ConsultarReglamentoSCE.zul
+END
+CatalogoActividadesDeUnProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/CatalogoActividadesDeUnProyecto.zul
+END
+PopUpAsignarHoras.zul
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/685/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/PopUpAsignarHoras.zul
+END
+EvaluacionDeInscripcion.zul
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/971/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/EvaluacionDeInscripcion.zul
+END
+AsignarActividades.zul
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/1011/siagsce.webapp/WebContent/WEB-INF/vista/view/view.transacciones/AsignarActividades.zul
+END

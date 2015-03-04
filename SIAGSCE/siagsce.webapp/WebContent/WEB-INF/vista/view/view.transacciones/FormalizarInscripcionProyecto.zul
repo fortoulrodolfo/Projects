@@ -1,0 +1,504 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window minimizable="false"
+		title="Inscripción de Estudiantes al Proyecto"  border="normal"
+		apply="org.zkoss.bind.BindComposer" sclass="fondo_arbol1" width="100%"
+		height="498px" vflex="false"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMFormalizarInscripcionProyecto')">
+
+
+		<vbox>
+			<groupbox>
+				<caption sclass="text" label="Datos del Proyecto">
+				</caption>
+				<grid>
+					<columns>
+						<column width="15%" />
+						<column width="35%" />
+						<column width="15%" />
+						<column />
+					</columns>
+					<rows>
+						<row>
+							<cell>
+								<label value="Código:" />
+							</cell>
+							<cell>
+								<textbox readonly="true" width="200px"
+									id="txtcodigoproyecto"
+									value="@bind(vm.codigoProyecto)">
+								</textbox>
+								<button id="btnbuscar" width="40px"
+									height="25px" image="/images/iconos/16x16/buscar.png"
+									onClick="@command('MostrarCatalogoProyecto')" />
+							</cell>
+							<cell>
+								<label value="Responsable:" />
+							</cell>
+							<cell>
+								<textbox readonly="true" rows="2"
+									width="200px" value="@bind(vm.responsableProyecto)" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="Descripción:" />
+							</cell>
+							<cell>
+								<textbox readonly="true" width="200px"
+									rows="2" value="@bind(vm.descripcionProyecto)" />
+							</cell>
+							<cell>
+								<label value="Programa:" />
+							</cell>
+							<cell>
+								<textbox readonly="true" rows="2"
+									width="200px" value="@bind(vm.programaProyecto)" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+				<separator></separator>
+				<tabbox>
+					<tabs>
+						<tab label="Inscripción Estudiante"
+						onSelect="@command('abrirProyectosActivos')"/>
+						<tab label="Retirar Estudiante"
+						onSelect="@command('abrirProyectosActivos')"/>
+						<tab label="Cerrar Inscripción" 
+						onSelect="@command('abrirProyectosActivosParaCerrarlos')"/>
+						<tab label="Reabrir Inscripción"
+						onSelect="@command('abrirProyectosEnEjecucion')" />
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<grid height="200px">
+								<columns>
+									<column />
+								</columns>
+								<rows>
+									<row>
+										<hbox height="150px">
+											
+											<listbox height="188px" width="100%" vflex="true" 
+												model="@bind(vm.modeloEstudiantePreInscrito)"
+												emptyMessage="No hay estudiantes preinscritos"
+												selectedItem="@bind(vm.selectedPreinscripcion)"
+												checkmark="true"
+												onSelect="@command('seleccionarPreinscrito')">
+												<auxhead>
+													<auxheader
+														label="Estudiantes Pre-inscritos" colspan="6" />
+												</auxhead>
+												<auxhead>
+													<auxheader
+														colspan="6">
+														<hbox>
+															<image
+																src="images/iconos/16x16/Filter.png" />
+															<textbox
+																id="txtFiltroPreInscritos" placeholder="Nombre "
+																value="@bind(vm.texto)"
+																onChange="@command('filtrarEstudiantePre')"
+																instant="true" />
+															<combobutton
+																label="" image="images/iconos/16x16/buscar.png">
+																<popup
+																	id="popOpciones">
+																	<listbox
+																		id=" lbxSeleccionParametro" width="180px"
+																		model="@bind(vm.valores)"
+																		selectedItem="@bind(vm.seleccion)"
+																		onSelect="@command('seleccionFiltro')">
+																		<listhead>
+																			<listheader />
+																		</listhead>
+																		<template
+																			name="model">
+																			<listitem
+																				label="@bind(each)" />
+																		</template>
+																	</listbox>
+																</popup>
+															</combobutton>
+														</hbox>
+													</auxheader>
+												</auxhead>
+												<listhead>
+													<listheader label=""
+														width="40px" />
+													<listheader
+														label="Cédula" width="15%" />
+													<listheader
+														label="Nombre" width="15%" />
+													<listheader
+														label="Apellido" width="15%" />
+													<listheader
+														label="E-mail" width="30%" />
+													<listheader
+														label="Programa" width="25%" />
+
+
+												</listhead>
+												<template
+													name="model">
+
+													<listitem>
+														<listcell
+															label=" " />
+														<listcell
+															label="@bind(each.estudiante.estudianteCedula)" />
+														<listcell
+															label="@bind(each.estudiante.estudianteNombre)" />
+														<listcell
+															label="@bind(each.estudiante.estudianteApellido)" />
+
+														<listcell
+															label="@bind(each.estudiante.estudianteEmail)" />
+														<listcell
+															label="@bind(each.estudiante.direccionProgramae.direccionNombre)" />
+													</listitem>
+												</template>
+											</listbox>
+											<space></space>
+
+
+										</hbox>
+									</row>
+								</rows>
+							</grid>
+							<hbox width="100%" pack="end"
+								align="center">
+								<button
+									id="btnGuardarEvaluacionInscripcion8" label="Inscribir"
+									image="images/iconos/16x16/guardar.png" sclass="button"
+									onClick="@command('inscribir')" />
+
+
+								<button
+									id="btnCancelarEvaluacionInscripcion1" label="Cancelar"
+									image="images/iconos/16x16/cancelar.png" sclass="button"
+									onClick="@command('cancelar')" />
+
+
+
+								<button
+									id="btnSalirEvaluacionInscripcion2" label="Salir"
+									image="images/iconos/16x16/salir.png" sclass="button"
+									onClick="@command('salir')" />
+							</hbox>
+						</tabpanel>
+
+
+						<tabpanel>
+							<grid id="grdEditar">
+
+							<columns>
+								<column width="15%" />
+								<column width="35%" />
+								<column width="15%" />
+								<column />
+							</columns>
+
+							<rows>
+								<row>
+									<cell>
+										<label id="lblcedula"
+											value="Cédula:">
+										</label>
+
+									</cell>
+									<cell>
+										<hbox>
+											<textbox id="txtcedulainscrito"
+												width="200px" value = "@bind(vm.cedulaInscripcion)"
+												readonly="@bind(vm.lblcedulaRetiro)"/>
+											<button id="btnbuscarinscrito"
+												label="" width="35px" height="25px"
+												image="images/iconos/16x16/buscar.png"
+												onClick="@command('mostrarCatalogoEstudiantesInscritos')"
+												 disabled="@bind(vm.btnCatalogoEstudiantes)"/>
+										</hbox>
+									</cell>
+									<cell>
+										<label value="Nombre:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtnombreinscrito"
+												width="200px"  value = "@bind(vm.nombreInscripcion)"
+												readonly="@bind(vm.lblNombreRetiro)"/>
+									</cell>
+								</row>
+							<row>
+									<cell>
+										<label id="lblapellido"
+											value="Apellido:">
+										</label>
+
+									</cell>
+									<cell>
+										
+											<textbox id="txtapellidoinscrito"
+												width="200px" 
+												value = "@bind(vm.apellidoInscripcion)"
+												readonly="@bind(vm.lblApellidoRetiro)"/>
+											
+										
+									</cell>
+									<cell>
+										<label value="E-mail:"></label>
+									</cell>
+									<cell>
+										<textbox id="txtemailinscrito"
+												width="200px" 
+												value = "@bind(vm.emailInscripcion)"
+												readonly="@bind(vm.lblEmailRetiro)"/>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label id="lblprograma"
+											value="Programa:">
+										</label>
+
+									</cell>
+									<cell>
+										
+											<textbox id="txtprogramainscrito"
+												width="200px" 
+												value = "@bind(vm.direccionProgramaInscripcion)"
+												readonly="@bind(vm.lblProgramaRetiro)"/>
+											
+										
+									</cell>
+									<cell>
+										<label id="lblproyectoinscrito"
+											value="Proyecto:">
+										</label>
+									</cell>
+									<cell>
+										<textbox id="txtproyectoinscrito"
+												width="200px" 
+												value = "@bind(vm.proyecto)"
+												readonly="@bind(vm.lblProyectoRetiro)"/>
+									</cell>
+								</row>
+								<row>
+									<cell>
+										<label id="lblmotivo"
+											value="Motivo de Retiro:">
+										</label>
+
+									</cell>
+									<cell>
+											<combobox
+											value="@bind(vm.motivo)" model="@bind(vm.modeloMotivo)"
+											selectedItem="@bind(vm.selectedMotivo)" width="200px"
+											readonly="true"
+											disabled="@bind(vm.cmbMotivoRetiro)">
+											<template name="model">
+												<comboitem
+													label="@bind(each.motivoNombre)" width="200px" />
+											</template>
+										</combobox>
+									</cell>
+									<cell>
+										<label id="lblcontable"
+											value="¿Se contabilizará las horas ejecutadas?:">
+										</label>
+
+									</cell>
+									<cell>
+											<combobox id="cmbcontabilizar" 
+													width="200px" mold="rounded"
+													readonly="true"
+													disabled="@bind(vm.cmbContabilizarRetiro)">
+													<comboitem id="contable"
+														label="Si" />
+													<comboitem id="noContable"
+														label="No" />
+													
+												</combobox>
+									</cell>
+								</row>
+							</rows>
+						</grid>
+							<!-- AQUI LO OTRO -->
+
+							<hbox width="100%" pack="end"
+								align="center">
+								
+								<button
+									id="btnGuardarRetiroDeEstudiante11" label="Retirar"
+									image="images/iconos/16x16/remover.png" sclass="button"
+									onClick="@command('retirar')" />
+									
+								<button
+									id="btnCancelarEvaluacionInscripcion10" label="Cancelar"
+									image="images/iconos/16x16/cancelar.png" sclass="button"
+									onClick="@command('limpiarRetirar')" />
+
+								
+								<button
+									id="btnSalirEvaluacionInscripcion12" label="Salir"
+									image="images/iconos/16x16/salir.png" sclass="button"
+									onClick="@command('salir')" />
+							</hbox>
+
+
+						</tabpanel>
+
+						<tabpanel>
+
+
+							<grid>
+
+								<columns>
+									<column width="35%" />
+
+								</columns>
+								<rows>
+
+
+
+
+									<row>
+										<cell>
+											<label
+												value="¿Desea cerrar la inscripción?">
+											</label>
+										</cell>
+										<cell>
+											<hbox align="center">
+												
+												<combobox id="cmbValores" 
+													width="200px" mold="rounded"
+													readonly="true"
+													>
+													<comboitem id="valorSi"
+														label="Si" />
+													<comboitem id="valorNo"
+														label="No" />
+													
+												</combobox>
+
+
+											</hbox>
+										</cell>
+									</row>
+
+
+								</rows>
+							</grid>
+
+							<!-- AQUI LO OTRO -->
+
+							<hbox width="100%" pack="end"
+								align="center">
+
+								<button
+									id="btnGuardarCerraInscripcion" label="Guardar"
+									image="images/iconos/16x16/guardar.png" sclass="button"
+									onClick="@command('cerrarInscripcion')" />
+								
+								<button
+									id="btnCancelarEvaluacionInscripcion30" label="Cancelar"
+									image="images/iconos/16x16/cancelar.png" sclass="button"
+									onClick="@command('cancelar')" />
+
+								
+
+								<button
+									id="btnSalirEvaluacionInscripcion40" label="Salir"
+									image="images/iconos/16x16/salir.png" sclass="button"
+									onClick="@command('salir')" />
+							</hbox>
+
+
+						</tabpanel>
+						<tabpanel>
+
+
+							<grid>
+
+								<columns>
+									<column width="35%" />
+
+								</columns>
+								<rows>
+
+
+
+
+									<row>
+										<cell>
+											<label
+												value="¿Desea reabrir la inscripción?">
+											</label>
+										</cell>
+										<cell>
+											<hbox align="center">
+												
+												<combobox id="cmbValoresAbrir" 
+													width="200px" mold="rounded"
+													readonly="true"
+													>
+													<comboitem id="valorAbrirSi"
+														label="Si" />
+													<comboitem id="valorAbrirNo"
+														label="No" />
+													
+												</combobox>
+
+
+											</hbox>
+										</cell>
+									</row>
+
+
+								</rows>
+							</grid>
+
+							<!-- AQUI LO OTRO -->
+
+							<hbox width="100%" pack="end"
+								align="center">
+
+								<button
+									id="btnGuardarAbrirInscripcion" label="Guardar"
+									image="images/iconos/16x16/guardar.png" sclass="button"
+									onClick="@command('abrirInscripcion')" />
+								
+								<button
+									id="btnCancelarEvaluacionInscripcion31" label="Cancelar"
+									image="images/iconos/16x16/cancelar.png" sclass="button"
+									onClick="@command('cancelar')" />
+
+								
+
+								<button
+									id="btnSalirEvaluacionInscripcion41" label="Salir"
+									image="images/iconos/16x16/salir.png" sclass="button"
+									onClick="@command('salir')" />
+							</hbox>
+
+
+						</tabpanel>
+						<!-- AQUI LO OTRO 1 -->
+
+					</tabpanels>
+				</tabbox>
+			</groupbox>
+		</vbox>
+
+	</window>
+</zk>

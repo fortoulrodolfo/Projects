@@ -1,0 +1,74 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 02/03/2014
+
+***************************************************************************************** -->
+
+
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winCatalogoActividad"  title="Catalogo Actvidad"
+		border="normal" width="100%" sclass="fondo_arbol1">
+
+		<listbox id="lbxCatalogoActividad" width="100%">
+			<auxhead>
+				<auxheader colspan="4" label="Catalogo de Actividades"
+					align="center" />
+			</auxhead>
+			<auxhead>
+				<auxheader colspan="4">
+					<textbox id="txtFiltroActividad" value="Filtro" />
+				</auxheader>
+			</auxhead>
+
+			<listhead>
+				
+				<listheader label="Nombre" width="25%" sort="auto" align="center" />
+				<listheader label="Horas" width="25%" sort="auto" align="center" />
+				<listheader label="Descripcion" width="25%" sort="auto" align="center" />
+				<listheader label="Proyecto" width="25%" sort="auto" align="center" />
+
+			</listhead>
+			<listitem>
+				<listcell label="Captacion de Datos" />
+				<listcell label="4" />
+				<listcell label="Clase presencial" />
+				<listcell label="PCTAM" />
+				
+			</listitem>
+			<listitem>
+				<listcell label="Induccion al Curso" />
+				<listcell label="4" />
+				<listcell label="Clase presencial" />
+				<listcell label="PCTAM" />
+			</listitem>
+			<listitem>
+			<listcell label="Captacion de Datos" />
+				<listcell label="4" />
+				<listcell label="Clase presencial" />
+				<listcell label="Alfabetizacion Tecnologica" />
+			</listitem>
+			<listitem>
+				<listcell label="Induccio al curso" />
+				<listcell label="4" />
+				<listcell label="Clase presencial" />
+				<listcell label="Alfabetizacion Tecnologica" />
+			</listitem>
+
+		</listbox>
+		<space></space>
+
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnAceptarActividad" label="Aceptar"
+				image="/iconos/aceptar.png" sclass="button" />
+			<button id="btnSalirActividad" label="Salir"
+				image="/iconos/salir.png" sclass="button" />
+		</hbox>
+
+
+	</window>
+</zk>

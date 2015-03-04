@@ -1,0 +1,68 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Registrar Coordinador General de SCE"  border="normal" >
+
+
+<vbox>
+
+
+<listbox id="lbxDatosCoordinadorGeneral">
+			<listitem>
+					<listcell label="Cedula:"></listcell>
+					<listcell>
+						<textbox id="txtCedula" width="130px" />
+					</listcell>
+					<listcell>
+						<button id="btnBuscar" label="Buscar" />
+					</listcell>
+					
+				</listitem>
+				<listitem>
+					<listcell label="Nombre:"></listcell>
+					<listcell>
+						<textbox id="txtNombre" width="130px" />
+					</listcell>
+										
+				</listitem>
+				<listitem>
+					<listcell label="Apellido:"></listcell>
+					<listcell>
+						<textbox id="txtApellido" width="130px" />
+					</listcell>
+					
+					
+				</listitem>
+				<listitem>
+					<listcell label="Telefono:"></listcell>
+					<listcell>
+						<textbox id="txtTelefono" width="130px" />
+					</listcell>
+					
+					
+				</listitem>
+
+</listbox>
+
+
+
+
+
+				 <hbox width="100%" pack="end" align="center" >
+	<button id="btnGuardar" label="Guardar" image="/iconos/guardar.png" orient="vertical" width="70px" height="50px"/>
+ 	<button id="btnCancelar" label="Cancelar" image="/iconos/cancelar.png" orient="vertical" width="70px" height="50px"/>
+  	<button id="btnSalir" label="Salir" image="/iconos/salir.png" orient="vertical" width="70px" height="50px"/>
+</hbox>
+
+</vbox>
+
+</window>
+</zk>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/863/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos
+END
+SListadoProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/639/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoProyecto.java
+END
+SConsultadeEstatusdeProyectos.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/863/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SConsultadeEstatusdeProyectos.java
+END
+SListadoProyectoxProfResponsable.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/639/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoProyectoxProfResponsable.java
+END
+SListadoEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/639/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoEstudiante.java
+END
+SListadoProfesor.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/744/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoProfesor.java
+END
+SListadoTaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/639/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoTaller.java
+END
+SListadoEstudianteAprobado.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/639/siagsce.modelo/src/siagsce/modelo/servicio/reportes/abiertos/SListadoEstudianteAprobado.java
+END

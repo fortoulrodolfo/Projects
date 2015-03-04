@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1025/siagsce.webapp/src/siagsce/viewmodel/seguridad
+END
+VMConfiguraOpcionesUsuario.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/455/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMConfiguraOpcionesUsuario.java
+END
+VMRestaurarInformacionBD.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1012/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMRestaurarInformacionBD.java
+END
+VMContactTreeRenderer.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/786/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMContactTreeRenderer.java
+END
+VMContactTreeNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/450/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMContactTreeNode.java
+END
+VMContactTreeRenderer3.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/992/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMContactTreeRenderer3.java
+END
+VMContactTreeRenderer2.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/786/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMContactTreeRenderer2.java
+END
+VMRespaldarBaseDatos.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/786/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMRespaldarBaseDatos.java
+END
+VMUsuario.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/459/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMUsuario.java
+END
+VMRegistrarGrupo.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/1025/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMRegistrarGrupo.java
+END
+SecurityUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/935/siagsce.webapp/src/siagsce/viewmodel/seguridad/SecurityUtil.java
+END
+VMPortalAplicacion.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/1001/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMPortalAplicacion.java
+END
+VMAdvancedTreeModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/5/siagsce.webapp/src/siagsce/viewmodel/seguridad/VMAdvancedTreeModel.java
+END

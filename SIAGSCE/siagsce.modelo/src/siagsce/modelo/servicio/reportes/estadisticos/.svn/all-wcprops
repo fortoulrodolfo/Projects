@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/873/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos
+END
+SPromedioEstudiantesPorUnidades.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/873/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/SPromedioEstudiantesPorUnidades.java
+END
+SListaPromedioEstudiantesAptos.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/652/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/SListaPromedioEstudiantesAptos.java
+END
+SPorcentajeFinalizacionSCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/712/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/SPorcentajeFinalizacionSCE.java
+END
+STop5ProyectosSolicitados.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/846/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/STop5ProyectosSolicitados.java
+END
+SPromedioDuracionEstudiantesSce.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/822/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/SPromedioDuracionEstudiantesSce.java
+END
+SPromedioEstudiantesProgramaEstatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/652/siagsce.modelo/src/siagsce/modelo/servicio/reportes/estadisticos/SPromedioEstudiantesProgramaEstatus.java
+END

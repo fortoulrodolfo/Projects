@@ -1,0 +1,157 @@
+<!-- Siagsce - Desarrollado por Iterator -->
+<!-- Autor: Iterator -->
+<!--Interfaz: Consulta de proyectos disponibles por Programa-->
+<!-- Ultima modificación: 09/04/2014 -->
+
+<?page title="Reportes Abiertos" contentType="text/html;charset=UTF-8"?>
+<?style href="css/style2.css" type="text/css" ?>
+<zk>
+	<window id="winCatalogoDireccionPrograma" 
+		title="Consulta de Proyectos Disponibles" border="normal" width="100%"
+		height="520px" apply="org.zkoss.bind.BindComposer" minimizable="false"
+		maximizable="false" sclass="fondo_arbol1" vflex="false"
+		viewModel="@id('vm') @init('siagsce.viewmodel.reportes.abiertos.VMReporteProyectosActivos')">
+		<groupbox>
+			<caption sclass="text" label="Criterios de Búsqueda"></caption>
+			<listbox id="lbxDatos">
+				<listhead>
+					<listheader width="3%" />
+					<listheader width="10%" />
+					<listheader width="20%" />
+					<listheader width="10%" />
+					<listheader width="20%" />
+				</listhead>
+				<listitem>
+					<listcell></listcell>
+					<listcell id="idprograma" label="Dirección de Programa:"></listcell>
+					<listcell>
+						<combobox readonly="true" id="cmbPrograma"
+							placeholder="Seleccione un Programa" width="100%" mold="rounded"
+							model="@load(vm.modeloPrograma)"
+							selectedItem="@bind(vm.selectedPrograma)"
+							onSelect="@command('llenarListaDinamica')">
+							<template name="model">
+								<comboitem
+									label="${each.direccionNombre}" />
+							</template>
+						</combobox>
+					</listcell>
+					<listcell></listcell>
+					<listcell></listcell>
+				</listitem>
+			</listbox>
+		</groupbox>
+
+		<grid height="345px">
+			<rows>
+				<row>
+					<tabbox id="tab" height="335px">
+						<tabs id="tabs">
+							<tab id="pestana1" label="Proyectos"
+								closable="false" />
+							<tab id="pestana2" label="Reporte Exportado"
+								closable="false" visible="false" />
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+									<listbox height="290px" vflex="true"
+										model="@bind(vm.modeloListaProyecto)"
+										emptyMessage="Seleccione el criterio de búsqueda">
+											<auxhead>
+											<auxheader colspan="2">
+									
+									<hbox>
+										<image
+											src="images/iconos/16x16/Filter.png" />
+										<textbox id="txtFiltro"
+											placeholder="Codigo" value="@bind(vm.texto)"
+											onChange="@command('llenarListaDinamica')" instant="true" />
+										<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+
+									</hbox>
+
+							</auxheader>
+										</auxhead>
+										<listhead>
+											<listheader label="Código" />
+											<listheader
+												label="Descripción" />
+										</listhead>
+										<template name="model">
+											<listitem>
+												<listcell
+													label="@bind(each.codigo)" />
+												<listcell
+													label="@bind(each.descripcion)" />
+											</listitem>
+										</template>
+									</listbox>
+							</tabpanel>
+							<tabpanel>
+								Otro Formato :
+								<listbox id="lbxFormat" mold="select"
+									model="@load(vm.reportTypesModel)"
+									selectedItem="@bind(vm.reportType)"
+									onSelect='@command("showReport")'>
+									<template name="model">
+										<listitem value="@load(each)"
+											label="@load(each.label)">
+										</listitem>
+									</template>
+								</listbox>
+								<jasperreport id="report" height="255px"
+									src="@load(vm.reportConfig.source, after='showReport')"
+									parameters="@load(vm.reportConfig.parameters, after='showReport')"
+									type="@load(vm.reportConfig.type.value, after='showReport')"
+									datasource="@load(vm.reportConfig.dataSource, after='showReport')" />
+							</tabpanel>
+						</tabpanels>
+					</tabbox>
+				</row>
+			</rows>
+		</grid>
+		<hbox width="100%" pack="end" align="center">
+						<button label="Exportar" sclass="button" id="btnExportar"
+							onClick="@command('showReport')"
+							image="/images/iconos/16x16/reporteabierto.png"
+							disabled="true">
+							<attribute name = "onClick">
+												  <![CDATA[
+	pestana2.setSelected(true);
+	pestana2.setVisible(true);
+]]>
+						  </attribute>
+						</button>
+						<button id="btnCancelar" sclass="button" disabled="true"
+							label="Cancelar" image="images/iconos/16x16/cancelar.png"
+							onClick="@command('cancelar')" />
+						<attribute name = "onClick">
+							<![CDATA[
+	pestana1.setSelected(true);
+	pestana2.setVisible(false);
+]]>
+	</attribute>
+						<button id="btnEliminarRegistrarProyecto"
+							label="Salir" image="images/iconos/16x16/salir.png"
+							sclass="button" onClick="@command('cerrar')" />
+					</hbox>
+	</window>
+</zk>

@@ -1,0 +1,67 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<zk xmlns:c="client">
+<window id="winEditarPerfil" width="500px"  title="Recuperar Contraseña" border="normal" apply="org.zkoss.bind.BindComposer" 
+        viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMRecuperarContrasena')" >
+	<style>
+		.meter {
+			font-size: 1px;
+			height: 3px;
+		}
+		.meter-inner {
+			width: 0px;
+			height: 3px;
+		}
+		.meter-red .meter-inner{
+			background: red;
+		}
+		.meter-orange .meter-inner{
+			background: orange;
+		}
+		.meter-green .meter-inner{
+			background: green;
+		}
+	  </style>
+
+<vbox>
+				<groupbox id="groupboxRecuperarClave">
+				<caption
+				image="images/mensaje.png" sclass="text">
+				</caption>
+					<grid id="grdRecuperarContrasena" style="border:none;">
+						
+						<columns>
+						<column width="25%"/>
+			            <column width="75%" />
+						</columns>
+						
+						<rows>
+						<row></row>
+						<row></row>
+						<row  style="border:none;font-size: 0.975em;">	
+							<cell> 
+							<label id="lblcedula" value="Cédula "> </label>
+							</cell>
+							<cell>
+							<textbox id="txtcedula" value="@bind(vm.cedula)" width="100%"/>
+							</cell>
+						</row>	
+			        </rows>
+					</grid>				
+</groupbox>
+ <hbox width="100%" pack="end" align="center" >
+			     <button id="btnEnviar" label="Enviar" image="images/mensaje2.png" onClick="@command('recuperarContrasena')" 
+			             sclass="button"/>
+  	             <button id="btnsalir" label="Salir" image="images/iconos/16x16/salir.png" onClick="@command('salir')" 
+  	                    sclass="button"/>
+				 </hbox>
+</vbox>
+
+</window>
+</zk>

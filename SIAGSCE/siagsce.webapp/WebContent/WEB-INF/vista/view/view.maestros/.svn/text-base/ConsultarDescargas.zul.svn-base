@@ -1,0 +1,41 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Descargas" border="normal" 
+		id="winConsultarDescargas" mode="modal" width="700px" 
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMPortal')">
+	
+	<groupbox>
+		<caption label="Listado de descargas disponibles" sclass="text"></caption>
+		<listbox  vflex="true" height="400px"
+			model="@bind(vm.modeloDescarga)"
+			emptyMessage="No hay documentos para descargas">
+																
+			<listhead>
+				<listheader label="Nombre Documento" width="100%" />
+			</listhead>
+			
+			<template name="model">
+			 <listitem>	
+			  <listcell><a label="${each.descargaNombre}" onClick="@command('DescargarDocumento',parametro=self)"><custom-attributes codigo="${each.descargaCodigo}"/></a></listcell>
+			</listitem>
+			</template>
+															
+	 	</listbox>
+															
+			
+		<hbox width="100%" pack="end" align="center">
+			<button label="Salir" sclass="button"
+					image="/images/iconos/16x16/salir.png" 
+					onClick="@command('cerrarVentana')" />
+		</hbox>
+	</groupbox>
+
+</window>
+</zk>

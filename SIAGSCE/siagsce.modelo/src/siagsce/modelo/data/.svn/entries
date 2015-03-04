@@ -1,0 +1,40 @@
+10
+
+dir
+1044
+http://proyecto-si-siagsce.googlecode.com/svn/siagsce.modelo/src/siagsce/modelo/data
+http://proyecto-si-siagsce.googlecode.com/svn
+
+
+
+2014-05-14T00:46:05.668966Z
+1024
+moist.medina@gmail.com
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c78c3701-3cce-06dd-ca66-9e8f8177b5ec
+
+maestros
+dir
+
+reportes
+dir
+
+seguridad
+dir
+
+transacciones
+dir
+

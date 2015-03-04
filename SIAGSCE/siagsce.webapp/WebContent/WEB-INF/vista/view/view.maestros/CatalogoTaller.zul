@@ -1,0 +1,86 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winCatalogoTaller"  title="Catálogo de Taller" mode="modal"
+		border="normal" width="85%" height="60%" closable="false" sclass="fondo_arbol1" 
+		apply="org.zkoss.bind.BindComposer"
+		onCancel="@command('cerrarVentana')" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMCatalogoTaller')">
+		
+<zscript>
+<![CDATA[
+import java.text.SimpleDateFormat;
+SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+		]]>
+</zscript>		
+
+     <listbox height="300px" vflex="true" sizedByContent="true" span="true"  model="@bind(vm.modeloTaller)"
+			emptyMessage="No hay talleres registrados" selectedItem="@bind(vm.selectedTaller)" checkmark="true">
+				<auxhead>
+				<auxheader colspan="8">
+					<hbox><image src="images/iconos/16x16/Filter.png"/>
+						<textbox id="txtFiltroTaller"
+							placeholder="nombre " value="@bind(vm.texto)"
+							onChange="@command('filtrarTaller')" instant="true" />
+							<combobutton label=""
+											image="images/iconos/16x16/buscar.png">
+											<popup id="popOpciones">
+												<listbox
+													id=" lbxSeleccionParametro" width="180px"
+													model="@bind(vm.valores)"
+													selectedItem="@bind(vm.seleccion)"
+													onSelect="@command('seleccionFiltro')">
+													<listhead>
+														<listheader />
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															label="@bind(each)" />
+													</template>
+												</listbox>
+											</popup>
+										</combobutton>
+							
+					</hbox>
+				</auxheader>
+			</auxhead>
+			<listhead>
+				<listheader label="" width="15%"/>
+				<listheader label="Descripción" width="100%"/>
+				<listheader label="Inicio de inscripción" width="100%"/>
+				<listheader label="Finalizacion de inscripción" width="100%"/>
+				<listheader label="Modalidad" width="100%"/>
+				<listheader label="Inicio de taller" width="100%"/>
+				<listheader label="Finalizacion de taller" width="100%"/>
+				<listheader label="Responsable" width="100%"/>
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="" />
+					<listcell label="@bind(each.tallerDescripcion)" />
+					<listcell label="@bind(format.format(each.tallerInscripcionFechaInicio))" />
+					<listcell label="@bind(format.format(each.tallerInscripcionFechaFinal))" />
+					<listcell label="@bind(each.tallerModalidad)" />
+					<listcell label="@bind(format.format(each.tallerFechaInicio))" />
+					<listcell label="@bind(format.format(each.tallerFechaCulminacion))" />
+					<listcell label="@bind(each.tallerNombreCompletoResponsable)" />
+					
+				</listitem>
+			</template>
+		</listbox>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Aceptar"
+				image="images/iconos/16x16/aceptar.png" onClick="@command('aceptar')"
+				sclass="button" />
+			<button label="Salir" image="images/iconos/16x16/salir.png"
+				onClick="@command('cerrarVentana')" sclass="button" />
+		</hbox>
+
+</window>
+</zk>

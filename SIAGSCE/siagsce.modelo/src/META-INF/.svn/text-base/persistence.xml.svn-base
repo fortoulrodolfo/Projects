@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="persistencia" >
+		<class>siagsce.modelo.data.maestros.Actividad</class>
+		<class>siagsce.modelo.data.maestros.CoordinacionSce</class>
+		<class>siagsce.modelo.data.maestros.CoordinadorSce</class>
+		<class>siagsce.modelo.data.maestros.Descarga</class>
+		<class>siagsce.modelo.data.maestros.DireccionPrograma</class>
+		<class>siagsce.modelo.data.maestros.DirectorPrograma</class>
+		<class>siagsce.modelo.data.maestros.InscripcionTaller</class>
+		<class>siagsce.modelo.data.maestros.RepresentanteProfesoral</class>
+		<class>siagsce.modelo.data.maestros.Proyecto</class>
+		<class>siagsce.modelo.data.maestros.Exonerado</class>
+		<class>siagsce.modelo.data.maestros.Motivo</class>
+		<class>siagsce.modelo.data.maestros.Causa</class>
+		<class>siagsce.modelo.data.maestros.Retiro</class>
+		<class>siagsce.modelo.data.maestros.Profesor</class>
+		<class>siagsce.modelo.data.maestros.Taller</class>
+		<class>siagsce.modelo.data.transacciones.ActividadAsignada</class>
+		<class>siagsce.modelo.data.transacciones.ActividadEjecutada</class>
+		<class>siagsce.modelo.data.transacciones.InscripcionProyecto</class>
+		<class>siagsce.modelo.data.transacciones.PreInscripcionProyecto</class>
+		<class>siagsce.modelo.data.seguridad.Grupo</class>
+		<class>siagsce.modelo.data.seguridad.Nodo</class>
+		<class>siagsce.modelo.data.seguridad.Usuario</class>
+		<class>siagsce.modelo.data.seguridad.MiembroGrupo</class>
+		<class>siagsce.modelo.data.seguridad.MiembroGrupoPK</class>
+		<class>siagsce.modelo.data.maestros.Estudiante</class>
+		<class>siagsce.modelo.general.Archivo</class>
+		<class>siagsce.modelo.general.Documento</class>
+		<class>siagsce.modelo.data.maestros.Noticia</class>
+		<class>siagsce.modelo.data.maestros.Parametro</class>
+		</persistence-unit>
+</persistence>

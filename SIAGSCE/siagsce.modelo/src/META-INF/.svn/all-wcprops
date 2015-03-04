@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/805/siagsce.modelo/src/META-INF
+END
+DB-configuracion.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/3/siagsce.modelo/src/META-INF/DB-configuracion.xml
+END
+DB.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/442/siagsce.modelo/src/META-INF/DB.xml
+END
+persistence.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/567/siagsce.modelo/src/META-INF/persistence.xml
+END
+ApplicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/siagsce.modelo/src/META-INF/ApplicationContext.xml
+END
+MANIFEST.MF
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/3/siagsce.modelo/src/META-INF/MANIFEST.MF
+END
+spring-security.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/805/siagsce.modelo/src/META-INF/spring-security.xml
+END

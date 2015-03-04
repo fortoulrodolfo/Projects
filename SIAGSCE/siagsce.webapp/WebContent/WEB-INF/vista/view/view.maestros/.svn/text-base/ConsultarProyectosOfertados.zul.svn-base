@@ -1,0 +1,74 @@
+<!--  * Consulta de los proyectos ofertados-->
+<!--  * @author Delba López -->
+<!--  * Version 1.0, 02/02/2014 -->
+
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Consultar proyectos ofertados" border="normal" 
+		id="winConsultarProyectosOfertados" mode="modal" width="950px" height="450px"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMConsultarProyectosOfertados')">
+	
+	<groupbox>
+		<caption label="Listado de proyectos ofertados" sclass="text"></caption>
+			<listbox id="lbxConsultarProyectosOfertados" width="100%" height="300px"
+					model="@bind(vm.modeloProyectosOfertados)" vflex="true"
+					emptyMessage="No hay proyectos ofertados">
+					
+					<auxhead>
+								<auxheader colspan="4">
+									<hbox><image src="images/iconos/16x16/Filter.png"/>
+										<textbox id="txtFiltroProyecto"
+											placeholder="nombre " value="@bind(vm.texto)"
+											onChange="@command('filtrarProyecto')" instant="true" />
+											<combobutton label=""
+															image="images/iconos/16x16/buscar.png">
+															<popup id="popOpciones">
+																<listbox
+																	id=" lbxSeleccionParametro" width="180px"
+																	model="@bind(vm.valores)"
+																	selectedItem="@bind(vm.seleccion)"
+																	onSelect="@command('seleccionFiltro')">
+																	<listhead>
+																		<listheader />
+																	</listhead>
+																	<template
+																		name="model">
+																		<listitem
+																			label="@bind(each)" />
+																	</template>
+																</listbox>
+															</popup>
+														</combobutton>
+											
+									</hbox>
+								</auxheader>
+							</auxhead>
+	
+				<listhead>
+					<listheader label="Código" width="14%"  />
+					<listheader label="Nombre" width="20%"  />
+					<listheader label="Descripción" width="30%"  />
+					<listheader label="Programa" width="20%"  />
+				</listhead>
+				
+				<template name="model">
+					<listitem>
+						<listcell label="@bind(each.proyectoCodigo)" />
+						<listcell label="@bind(each.proyectoNombre)" />
+						<listcell label="@bind(each.proyectoDescripcion)" />
+						<listcell label="@bind(each.getProgramaString())" />
+					</listitem>
+				</template>
+
+			</listbox>			
+		
+		
+		<hbox width="100%" pack="end" align="center">
+			<button label="Salir" sclass="button"
+					image="/images/iconos/16x16/salir.png" 
+					onClick="@command('cerrarVentana')" />
+		</hbox>
+	</groupbox>
+
+</window>
+</zk>

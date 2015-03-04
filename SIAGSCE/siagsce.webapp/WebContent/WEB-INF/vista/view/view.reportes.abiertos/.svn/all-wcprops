@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1031/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos
+END
+ReporteTalleresEjecutadosEjecutandose.zul
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/!svn/ver/1031/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteTalleresEjecutadosEjecutandose.zul
+END
+ReporteProyectoProfResponsable.zul
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/734/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteProyectoProfResponsable.zul
+END
+ReporteProfesorPorEstatus.zul
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/991/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteProfesorPorEstatus.zul
+END
+ReporteProfesorParticipanteProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/996/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteProfesorParticipanteProyecto.zul
+END
+ListadoProyectosActivos.zul
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/905/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ListadoProyectosActivos.zul
+END
+ReporteConsultadeEstatusdeProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/1031/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteConsultadeEstatusdeProyecto.zul
+END
+ReporteEstatusEstudiante.zul
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/1031/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteEstatusEstudiante.zul
+END
+ReporteProfesorResponsableProyecto.zul
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/991/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteProfesorResponsableProyecto.zul
+END
+ReporteEstudianteAprobado.zul
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/928/siagsce.webapp/WebContent/WEB-INF/vista/view/view.reportes.abiertos/ReporteEstudianteAprobado.zul
+END

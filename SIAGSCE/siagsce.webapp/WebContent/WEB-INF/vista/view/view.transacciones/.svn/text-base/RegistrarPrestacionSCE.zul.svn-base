@@ -1,0 +1,206 @@
+<!--************************************************************************************
+	* SIAGSCE - Desarrollado por Iterator
+	*Autor: Iterator
+	*Ultima modificaci�n: 09/03/2014
+	
+	***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winRegistrarPrestacion" title="Registrar Ejecución"
+		border="normal" apply="org.zkoss.bind.BindComposer"
+		sclass="fondo_arbol1" width="100%" height="600px" vflex="false"
+		viewModel="@id('vm') @init('siagsce.viewmodel.transacciones.VMRegistrarEjecucion')">
+
+
+		<groupbox>
+			<caption sclass="text" label="Datos del proyecto"></caption>
+			<grid id="grdRegistrarEjecucion2">
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Proyecto:"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" width="200px"
+								value="@bind(vm.nombreProyecto)" />
+							<button id="btnbuscar" width="40px"
+								height="25px" image="/images/iconos/16x16/buscar.png"
+								onClick="@command('mostrarProyecto')" />
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Responsable"></label>
+						</cell>
+						<cell>
+							<hbox spacing="5px">
+								<textbox readonly="true"
+									value="@bind(vm.responsableProyecto)" rows="2" multiline="true"
+									width="230px" />
+
+							</hbox>
+						</cell>
+						<cell>
+							<label value="Descripción:"></label>
+						</cell>
+						<cell>
+							<textbox rows="2" multiline="true"
+								width="250px" readonly="true"
+								value="@bind(vm.descripcionProyecto)">
+							</textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<groupbox>
+			<caption sclass="text" label="Datos de la actividad">
+			</caption>
+			<grid id="grdRegistrarEjecucion">
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<cell>
+							<label value="Actividad:"></label>
+						</cell>
+						<cell>
+							<combobox id="cmbActividad"
+								model="@bind(vm.modeloActividad)" width="230px"
+								selectedItem="@bind(vm.selectedActividad)"
+								onSelect="@command('cargarInscritos')" readonly="true">
+								<template name="model">
+									<comboitem
+										label="@bind(each.actividadNombre)" />
+								</template>
+							</combobox>
+						</cell>
+					</row>
+					<row>
+						<cell>
+							<label value="Cantidad de Horas"></label>
+						</cell>
+						<cell>
+							<textbox readonly="true" width="230px"
+								value="@bind(vm.cantHorasActividad)">
+							</textbox>
+						</cell>
+						<cell>
+							<label value="Descripción:"></label>
+						</cell>
+						<cell>
+							<textbox rows="2" multiline="true"
+								width="250px" readonly="true"
+								value="@bind(vm.descripcionActividad)">
+							</textbox>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+
+		<tabbox height="200px">
+			<tabs>
+				<tab label="Prestacion SCE" />
+				<tab label="Culminar Estudiantes Proyecto" />
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<groupbox>
+						<caption sclass="text"
+							label="Estudiantes inscritos en el Proyecto">
+						</caption>
+
+						<listbox id="lbxAlumnosAsig" height="100px;"
+							vflex="true" model="@bind(vm.modeloEstudianteActividadAsignada)"
+							emptyMessage="No hay estudiantes inscritos">
+
+							<listhead>
+								<listheader label="Cédula" />
+								<listheader label="Nombre" />
+								<listheader label="Apellido" />
+								<listheader label="Horas Ejecutadas" />
+								<listheader label="Fecha Ejecución" />
+							</listhead>
+							<template name="model">
+								<listitem>
+									<listcell
+										label="@bind(each.cedula)" />
+									<listcell
+										label="@bind(each.nombre)" />
+									<listcell
+										label="@bind(each.apellido)" />
+									<listcell>
+										<textbox
+											onBlur="@command('asignarHorasAlEstudiante',parametro=self)">
+											<custom-attributes
+												cedulaHora="${each.getCedula()}" />
+										</textbox>
+									</listcell>
+									<listcell>
+										<datebox readonly="true"
+											onBlur="@command('asignarFechaEjecucionAlEstudiante',parametro=self)">
+											<custom-attributes
+												cedulaFecha="${each.getCedula()}" />
+										</datebox>
+									</listcell>
+								</listitem>
+							</template>
+						</listbox>
+					</groupbox>
+				</tabpanel>
+				<tabpanel>
+
+					<grid id="LbxInscripcionesCulminadas" vflex="true"
+						emptyMessage="No hay estudiantes con actividades culminadas"
+						height="85px" model="@bind(vm.modeloEstudiantesCulminados)">
+						<columns>
+							<column label="Cédula" width="30%" />
+							<column label="Nombre" width="30%" />
+							<column label="Apellido" width="30%" />
+							<column label="Culminar" width="15%" />
+						</columns>
+						<template name="model">
+							<row>
+								<label
+									value="@bind(each.preInscripcion.estudiante.estudianteCedula)" />
+								<label
+									value="@bind(each.preInscripcion.estudiante.estudianteNombre)" />
+								<label
+									value="@bind(each.preInscripcion.estudiante.estudianteApellido)" />
+								<button
+									image="/images/iconos/16x16/aceptar.png"
+									onClick="@command('culminar',Inscripcion=each)" />
+							</row>
+						</template>
+					</grid>
+
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		<hbox width="100%" pack="end" align="center">
+			<button id="btnGuardarRegistrarPrestacion" label="Guardar"
+				image="images/iconos/16x16/guardar.png" sclass="button"
+				onClick="@command('Guardar')" />
+			<button id="btnCancelarRegistrarPrestacion" label="Cancelar"
+				image="images/iconos/16x16/cancelar.png" sclass="button"
+				onClick="@command('cancelar')" />
+			<button id="btnSalirRegistrarPrestacion" label="Salir"
+				image="images/iconos/16x16/salir.png" sclass="button"
+				onClick="@command('salir')" />
+		</hbox>
+
+	</window>
+</zk>

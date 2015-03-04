@@ -1,0 +1,69 @@
+<?page title="Agregar Nueva Actividad" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Agregar Nueva Actividad" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMAgregarActividad')" width="800px" height="250px">
+		<groupbox  closable="false">
+			<caption sclass="text"
+					label="Datos de la Actividad">
+			</caption>
+			<grid height="100px">
+				<columns>
+					<column width="15%" />
+					<column width="35%" />
+					<column width="15%" />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<label id="lblNombreActividadMo"
+							value="Nombre:" />
+						<textbox id="txtNombreActividadMo" width="200px"
+							value="@bind(vm.nombreActividadMo)" />
+
+						<label id="lblDuracionActividadMo"
+							value="Duración (Horas):" />
+						<intbox id="txtDuracionActividadMo"
+							width="200px" value="@bind(vm.duracionActividadMo)" />
+
+					</row>
+					<row>
+						<label id="lblDescripcionActividadMo"
+							value="Descripción:" />
+						<textbox id="txtDescripcionActividadMo"
+							value="@bind(vm.descripcionActividadMo)" multiline="true"
+							rows="2" width="200px" />
+
+						<label id="lblParticipantesActividadMo"
+							value="Participantes:" />
+						<hbox>
+							<textbox id="txtParticipantesActividadMo"
+								value="@bind(vm.participantesMo)" multiline="true" rows="2"
+								width="200px" readonly="true" />
+							<button id="btnMostrarParticipanteMo"
+								image="images/iconos/16x16/buscar.png"
+								onClick="@command('mostrarCatalogoProfAcreditadosPIncluir')" />
+						</hbox>
+
+
+
+					</row>
+				</rows>
+			</grid>
+			<div align="right">
+				<hbox>
+					<button id="btnAgregarMo" label="Agregar"
+						image="images/iconos/16x16/agregar.png" sclass="button"
+						onClick="@command('aceptar')" />
+					<button id="btnCancelarMo" label="Limpiar"
+						image="images/iconos/16x16/limpiar.png" sclass="button"
+						onClick="@command('cancelarIncluirActividad')" />
+						<button id="btnSalirMo" label="Salir"
+						image="images/iconos/16x16/salir.png" sclass="button"
+						onClick="@command('salir')" />
+		
+				</hbox>
+			</div>
+		</groupbox>
+	</window>
+</zk>

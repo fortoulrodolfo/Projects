@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteConsultadeHorasCumplidasporEstudiante" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97a0f6a0-6afe-4217-901d-74b81ec042d3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="fc9863bc-6e19-48db-8c6e-e993d931e602"/>
+	<parameter name="ICON_LEFT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_FOOTER" class="java.lang.String"/>
+	<parameter name="ICON_RIGHT_HEADER" class="java.lang.String"/>
+	<parameter name="estatus" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from profesor where profesor_status='Acreditado';]]>
+	</queryString>
+	<field name="cedula" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="direccionPrograma" class="java.lang.String"/>
+	<field name="horasCumplidas" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="139" splitType="Stretch">
+			<rectangle>
+				<reportElement x="104" y="82" width="353" height="20" uuid="bde52866-4ecb-48ad-a751-67507cde7a10"/>
+			</rectangle>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="467" y="3" width="100" height="79" uuid="e8f5975a-5154-4c35-b4e1-ca09686b7ab0"/>
+				<imageExpression><![CDATA[$P{ICON_RIGHT_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="130" y="9" width="322" height="64" forecolor="#0B68C3" backcolor="#0B68C3" uuid="4ef19d3e-9c4f-4c27-962a-246fb29ea961"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTROCCIDENTAL “LISANDRO ALVARADO”
+ DECANATO DE CIENCIAS Y TECNOLOGIA
+COORDINACION SERVICIO COMUNITARIO ESTUDIANTIL
+BARQUISIMETO
+]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="6" y="3" width="97" height="79" uuid="02cb4929-10c6-443c-bd78-e1081421420d"/>
+				<imageExpression><![CDATA[$P{ICON_LEFT_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="136" y="82" width="300" height="23" forecolor="#0B68C3" backcolor="#0B68C3" uuid="fa474368-2c72-4f31-a8bd-260712be270b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Horas Cumplidas por Estudiantes en SCE]]></text>
+			</staticText>
+			<textField pattern="d/M/yyyy">
+				<reportElement x="478" y="109" width="92" height="12" forecolor="#0B68C3" backcolor="#0B68C3" uuid="e9b0cf13-d377-42b8-b579-1d7b2b35c86f"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="396" y="109" width="99" height="16" forecolor="#0B68C3" backcolor="#0B68C3" uuid="d32575b4-e182-4c92-b46a-07ddb3a4abcf"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="9" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="128" width="571" height="3" forecolor="#0B68C3" backcolor="#0B68C3" uuid="9bf99807-e95e-4425-8387-84797e08ed3f"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="6" y="2" width="71" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="755a7f1f-053d-47f6-925a-aed24749fe73"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="170" y="0" width="73" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="5dc9bf79-26ce-4165-8915-698f40f7f972"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="331" y="2" width="57" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="a160bd03-fbb9-4279-92b7-ca808ebe2c07"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="430" y="0" width="119" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="da231537-7e9c-422a-8d61-28c75e5f932b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12"/>
+				</textElement>
+				<text><![CDATA[Horas Cumplidas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="-2" y="2" width="96" height="20" uuid="6db28b56-81fa-4536-8955-30706d01574c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="2" width="98" height="20" uuid="79449587-1f87-4409-8dec-cd856a21ea77"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="0" width="99" height="20" uuid="765ad3db-0c22-4162-89de-163bbad2ee3c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="2" width="100" height="20" uuid="f1e70e97-2b1f-4f07-976a-1c3f35c0c391"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horasCumplidas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="8" width="571" height="3" forecolor="#0B68C3" backcolor="#0B68C3" uuid="db426610-a443-4096-b8ea-084d7829aba8"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="195" y="34" width="193" height="26" uuid="ae5ea106-1853-4d2b-aa43-b4584b2c36bc"/>
+				<imageExpression><![CDATA[$P{ICON_FOOTER}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement mode="Opaque" x="520" y="17" width="29" height="22" forecolor="#0B68C3" backcolor="#FFFFFF" uuid="7fb98dd8-9392-4801-9ccc-232ab055da78"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="14" width="251" height="20" forecolor="#0B68C3" backcolor="#0B68C3" uuid="8a27b4fc-569e-4790-b8fa-adb9b579bd1d"/>
+				<box rightPadding="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avenida Las Industrias, Núcleo Obelisco]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="16" splitType="Stretch"/>
+	</summary>
+</jasperReport>

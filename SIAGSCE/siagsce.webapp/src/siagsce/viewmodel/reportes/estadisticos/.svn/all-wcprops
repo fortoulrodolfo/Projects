@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos
+END
+VMReportePorcentajeFinalizaronSCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos/VMReportePorcentajeFinalizaronSCE.java
+END
+VMReportePromedioEstudiantesProgramaEstatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos/VMReportePromedioEstudiantesProgramaEstatus.java
+END
+VMTop5ProyectosSolicitados.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos/VMTop5ProyectosSolicitados.java
+END
+VMPromedioEstudiantesPorUnidad.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos/VMPromedioEstudiantesPorUnidad.java
+END
+VMPromedioDuracionEstudiantesSce.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/963/siagsce.webapp/src/siagsce/viewmodel/reportes/estadisticos/VMPromedioDuracionEstudiantesSce.java
+END

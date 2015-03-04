@@ -1,0 +1,19 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="Reglamento del S.C.E" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Reglamento del S.C.E"  border="normal" closable="true">
+
+	<iframe id="iframe" src="doc/ReglamentoSCE_UCLA.pdf" 
+	width="800px" height="550px" style="border: 1px solid gray" />
+		
+	
+</window>
+</zk>

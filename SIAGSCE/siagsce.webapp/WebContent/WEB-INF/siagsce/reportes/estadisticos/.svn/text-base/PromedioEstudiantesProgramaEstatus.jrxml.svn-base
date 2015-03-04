@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PromedioEstudiantesProgramaEstatus" language="groovy" pageWidth="651" pageHeight="907" columnWidth="611" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0493a76f-7c83-4dd8-9590-6af7ef4aeb06">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="25"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tablaPromedio" uuid="b1c8487a-837b-403c-b3df-725d807372e4">
+		<field name="nombrePrograma" class="java.lang.String"/>
+		<field name="cantidadAptos" class="java.math.BigDecimal"/>
+		<field name="cantidadAcreditados" class="java.math.BigDecimal"/>
+		<field name="cantidadAprobados" class="java.math.BigDecimal"/>
+		<field name="cantidadTotalEstudiantes" class="java.math.BigDecimal"/>
+		<variable name="promedioAptos" class="java.lang.String" calculation="Average">
+			<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAptos}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+			<initialValueExpression><![CDATA[]]></initialValueExpression>
+		</variable>
+		<variable name="promedioAcreditados" class="java.lang.String" calculation="Average">
+			<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAcreditados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+			<initialValueExpression><![CDATA[]]></initialValueExpression>
+		</variable>
+		<variable name="promedioAprobados" class="java.lang.String" calculation="Average">
+			<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAprobados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+			<initialValueExpression><![CDATA[]]></initialValueExpression>
+		</variable>
+	</subDataset>
+	<parameter name="programa" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.util.Date"/>
+	<parameter name="ICON_LEFT_HEADER" class="java.lang.String"/>
+	<parameter name="ICON_FOOTER" class="java.lang.String"/>
+	<parameter name="ICON_RIGHT_HEADER" class="java.lang.String"/>
+	<parameter name="fecha_inicio" class="java.util.Date"/>
+	<parameter name="lista" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombrePrograma" class="java.lang.String"/>
+	<field name="cantidadAptos" class="java.math.BigDecimal"/>
+	<field name="cantidadAcreditados" class="java.math.BigDecimal"/>
+	<field name="cantidadAprobados" class="java.math.BigDecimal"/>
+	<field name="cantidadTotalEstudiantes" class="java.math.BigDecimal"/>
+	<variable name="cantidadAptos_1" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{cantidadAptos}]]></variableExpression>
+	</variable>
+	<variable name="cantidadAcreditados_1" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{cantidadAcreditados}]]></variableExpression>
+	</variable>
+	<variable name="promedioAptos" class="java.lang.String" calculation="Average">
+		<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAptos}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="promedioAcreditados" class="java.lang.String" calculation="Average">
+		<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAcreditados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="promedioAprobados" class="java.lang.String" calculation="Average">
+		<variableExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAprobados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="168" splitType="Stretch">
+			<rectangle>
+				<reportElement x="74" y="101" width="481" height="21" uuid="d72fa634-3ce8-4819-91b3-59e4e36c4bec"/>
+			</rectangle>
+			<textField>
+				<reportElement x="142" y="142" width="135" height="16" forecolor="#0B68C3" backcolor="#000000" uuid="b7dcf2cb-c943-49d3-a72b-7b23039dd603"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{programa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="514" y="142" width="92" height="16" forecolor="#0B68C3" backcolor="#0B68C3" uuid="15a19525-1fde-4f0b-924a-561a72e75cfa"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="394" y="142" width="124" height="16" forecolor="#0B68C3" backcolor="#0B68C3" uuid="b9ac1be0-9786-4f6e-aba0-e418dae44a32"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="9" y="142" width="156" height="16" forecolor="#0B68C3" backcolor="#000000" uuid="a92122fa-0aab-4bc5-8dbe-2be1b29eef74"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Dirección de Programa: ]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="466" y="10" width="100" height="79" uuid="68eb3d11-71bc-41f3-a39a-df7af5d7a401"/>
+				<imageExpression><![CDATA[$P{ICON_RIGHT_HEADER}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="74" y="103" width="481" height="28" forecolor="#0B68C3" backcolor="#000000" uuid="a92122fa-0aab-4bc5-8dbe-2be1b29eef74"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Estatus de Estudiantes por Programa ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="25" width="322" height="64" forecolor="#0B68C3" backcolor="#0B68C3" uuid="839aa02b-4660-4a8b-b40e-427811766998"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="11" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTROCCIDENTAL “LISANDRO ALVARADO”
+ DECANATO DE CIENCIAS Y TECNOLOGIA
+COORDINACION SERVICIO COMUNITARIO ESTUDIANTIL
+BARQUISIMETO
+]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="10" y="10" width="97" height="79" uuid="f1f68ffb-9086-47a1-b343-b4bdef54724f"/>
+				<imageExpression><![CDATA[$P{ICON_LEFT_HEADER}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="2" y="161" width="609" height="3" forecolor="#0B68C3" backcolor="#0B68C3" uuid="dfe5102d-dfe0-4abd-a948-fe6fb7d62e4e"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="78" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="21" y="0" width="588" height="54" backcolor="#FFFFFF" uuid="ded3e62c-6298-40b7-aba4-d317f21252cb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="tablaPromedio" uuid="b40df8b1-ad3d-436d-972d-e03b201fcda1">
+						<dataSourceExpression><![CDATA[$P{lista}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="172" uuid="61658852-99c9-4af1-b07d-4cda63318764">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="172" height="30" forecolor="#FFFFFF" backcolor="#006699" uuid="9e729780-c424-4ec8-955b-834d62dd20b8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dirección de Programa]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="172" height="30" forecolor="#000000" backcolor="#FFFFFF" uuid="9e729780-c424-4ec8-955b-834d62dd20b8"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Porcentaje]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="28" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="172" height="28" backcolor="#FFFFFF" uuid="7dbe3a49-0b04-4986-a1c0-78618eb78fd6"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{nombrePrograma}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="104" uuid="4584a159-c6a5-4819-913a-a1cb5dfa2a6a">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="104" height="30" forecolor="#FFFFFF" backcolor="#006699" uuid="16b70891-1df9-4123-9219-50d6da7734a1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[APTOS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="104" height="30" backcolor="#FFFFFF" uuid="e8af8e60-c4f3-49e8-b470-5fbe8bfbdcd0"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{promedioAptos}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="28" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="94" height="28" backcolor="#FFFFFF" uuid="e4677a1d-e9f5-41b6-9b09-9e71131c1122"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cantidadAptos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="99" uuid="e220323f-9c90-473d-a875-e73758c27b69">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="99" height="30" forecolor="#FFFFFF" backcolor="#006699" uuid="07ad286d-4d67-4eaa-bb2d-5186e78e903d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ACREDITADOS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="1" y="0" width="98" height="30" backcolor="#FFFFFF" uuid="2efc3541-1c9a-4048-b963-2ba80225f5df"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{promedioAcreditados}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="28" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="99" height="28" backcolor="#FFFFFF" uuid="5a5ab803-2d8e-4206-b800-4e3e55e9c9d9"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cantidadAcreditados}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="107" uuid="2d8657f0-08d3-401a-8bc3-3af6001cd7e4">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="107" height="30" forecolor="#FFFFFF" backcolor="#006699" uuid="91e176ba-68b9-4ff9-9c93-fa237e2ec129"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[APROBADOS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="107" height="30" backcolor="#FFFFFF" uuid="2cb1cb6d-e115-45c9-afc0-5ecf8c6559db"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{promedioAprobados}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="28" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="107" height="28" backcolor="#FFFFFF" uuid="6f9da30d-e93f-465f-8c63-45004d80a86a"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cantidadAprobados}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="68fe4b74-af0c-4ea5-8f5b-54061ddf4e6f">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="80" height="30" forecolor="#FFFFFF" backcolor="#006699" uuid="52a1df59-4916-4666-8782-bed0eb4f1154"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="80" height="30" forecolor="#000000" backcolor="#FFFFFF" uuid="9e729780-c424-4ec8-955b-834d62dd20b8"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[100%]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="28" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="80" height="28" backcolor="#FFFFFF" uuid="b846e4ba-5acc-45ca-9c0d-fa9afac6f1a4"/>
+								<textElement textAlignment="Center">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cantidadTotalEstudiantes}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</pageHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="66" splitType="Stretch">
+			<image scaleImage="FillFrame" hAlign="Center">
+				<reportElement x="207" y="31" width="193" height="26" uuid="9c6f6408-c6cd-4f44-89c2-833ce36dfd6e"/>
+				<imageExpression><![CDATA[$P{ICON_FOOTER}]]></imageExpression>
+			</image>
+			<textField evaluationTime="Report">
+				<reportElement x="562" y="8" width="40" height="20" forecolor="#0B68C3" uuid="675c7e9b-055e-4eff-bef3-fe4156845b83"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="186" y="11" width="251" height="20" forecolor="#0B68C3" backcolor="#0B68C3" uuid="717d66d7-b7c5-4844-93d9-8c6499c0f878"/>
+				<box rightPadding="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avenida Las Industrias, Núcleo Obelisco]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="4" width="609" height="3" forecolor="#0B68C3" backcolor="#0B68C3" uuid="f7502acd-5623-4038-9272-fd7ab174c437"/>
+				<graphicElement>
+					<pen lineWidth="4.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="369" splitType="Stretch">
+			<rectangle>
+				<reportElement x="34" y="54" width="545" height="307" uuid="e4b36e2b-6f3c-4a9b-9ad3-3566edd62711"/>
+			</rectangle>
+			<bar3DChart>
+				<chart isShowLegend="true" renderType="draw" theme="default">
+					<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="46" y="69" width="517" height="282" uuid="b25dc894-5167-4fc7-97c1-b9acd690f127"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["% Aptos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombrePrograma}]]></categoryExpression>
+						<valueExpression><![CDATA[($F{cantidadAptos})*100/($F{cantidadTotalEstudiantes})]]></valueExpression>
+						<labelExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAptos}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["% Acreditados"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombrePrograma}]]></categoryExpression>
+						<valueExpression><![CDATA[($F{cantidadAcreditados})*100/$F{cantidadTotalEstudiantes}]]></valueExpression>
+						<labelExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAcreditados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["% Aprobados"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{nombrePrograma}]]></categoryExpression>
+						<valueExpression><![CDATA[($F{cantidadAprobados})*100/$F{cantidadTotalEstudiantes}]]></valueExpression>
+						<labelExpression><![CDATA[new java.text.DecimalFormat("0.0").format(($F{cantidadAprobados}.doubleValue()*100)/$F{cantidadTotalEstudiantes})+ "%"]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot labelRotation="0.0"/>
+					<itemLabel color="#FFFFFF" backgroundColor="#FFFFFF">
+						<font size="8" isBold="true"/>
+					</itemLabel>
+					<categoryAxisLabelExpression><![CDATA["Dirección de Programa"]]></categoryAxisLabelExpression>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat tickLabelMask="0" verticalTickLabels="true">
+							<labelFont>
+								<font size="10"/>
+							</labelFont>
+							<tickLabelFont>
+								<font size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisLabelExpression><![CDATA["PORCENTAJES"]]></valueAxisLabelExpression>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+					<rangeAxisMinValueExpression><![CDATA[0]]></rangeAxisMinValueExpression>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,174 @@
+
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificación: 02/03/2014
+
+***************************************************************************************** -->
+
+
+
+
+<?page title="Bienvenido" contentType="text/html;charset=UTF-8" ?>
+<zk>
+<window id="winPortalQ"
+		border="0"
+		apply="org.zkoss.bind.BindComposer" sclass="principal" height="100%" width="100%"
+		viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMPortal')">
+		
+<?meta name="viewport" content="width=device-width, initial-scale=1.0" ?>
+<style src="/css/style2.css" />
+<style src="/css/navbar.css" />
+
+     <borderlayout height="100%" width="100%" >
+    
+			   <north height="20%">
+					 <borderlayout >
+			<!-- Inicio del Encabezado-->        
+			         	<north sclass="banner" flex="true" size="75%" >
+			       			 <div >
+								<a href="../Portal.zul"><image src="/images/logo/SIAGSCE.png"  height="100%" width="160px" zindex="2" style="margin-left:15px;"/></a>
+								<image src="/images/logo/LogoDCyT.png" height="100%" zindex="2" align="right"/>
+							 </div>
+						</north>
+			<!-- Fin del encabezado-->
+			
+			<!-- Inicio del Menu-->
+						<south size="40%" border="0" flex="true" collapsible="false" sclass="fondo_arbol1">
+			             <include src="pruebaBanner.zul"> </include>
+						 </south>
+			<!--Fin del Menu-->
+			        </borderlayout>
+			    </north>
+			    <center border="0" sclass="body">
+			    	<borderlayout style="margin-top:10px; margin-right:5px; margin-left:5px;">
+			    	<center border="0" sclass="body" >
+			    		<vlayout>
+			    		<image src="/images/quienes somos.png" width="100%" style="margin-top:50px; margin-right:5px; margin-left:5px;" />
+			    		</vlayout>
+					</center>
+					<east title="" sclass="body" size="20%" flex="true">
+					    	<vlayout >		    		
+					    		<window id="win1" title="" border="normal" width="100%" sclass="fondo_arbol1"> 
+					    		<caption label="Iniciar Sesión" style="color: white; font-style:bold;" image="/images/iconos/16x16/login.png"/>
+					    		<h:form id="f" name="f" action="j_spring_security_check"
+				                method="POST" xmlns:h="native">
+					    			<hlayout  width="100%">					    				
+					    				<textbox id="log_usuario" name="j_username" hflex="1" placeholder="Usuario"/>					    				
+					    				<textbox id="log_clave" hflex="1" type="password" name="j_password" placeholder="Clave"/>
+					    				<button label="Entrar" type="submit"></button>
+					    			</hlayout>
+					    		</h:form>
+					    		</window>
+					    		<window title="" border="normal" width="100%" vflex="1" sclass="fondo_arbol1" >
+					    		<caption label="Timeline" style="color: white; font-style:bold;" image="/images/iconos/16x16/twitter-icon.png"/>
+	 						 			<include src="/widgets/twitter.html"/>
+	   							</window>
+	   							 <window title="" border="normal" height="105px;"  hflex="1" sclass="fondo_arbol1" >
+	   							  <caption label="Descargas" style="color: white; font-style:bold;" image="/images/iconos/16x16/download.png"/>
+							       					  <a onClick="@command('MostrarDescarga')"><image src="/images/descarga.png" style="margin-left:80px;" height="90%" width="35%" /></a>
+					       		</window>
+			 					</vlayout>
+		    		 </east>
+		    		  <west title="" sclass="body" size="20%" flex="true">
+			            	 <vlayout>		    		
+					    		<window title="" border="normal" width="100%" sclass="fondo_arbol1"> 
+					    		<caption label="Consultar Estatus: " style="color: white; font-style:bold;" image="/images/iconos/16x16/Status.png"/>
+	 						 	
+					    		<vlayout>
+					    			<hlayout  width="100%">
+					    				<label value="Cédula: " style="font-size:12px;"/>
+					    				<textbox id="log_usuario" value="@bind(vm.estudianteCedula)" hflex="1"/>
+					    				<button label="Consultar" onClick="@command('buscarEstudiante')">
+										</button>
+					    			</hlayout>
+					    		</vlayout>
+					    		</window>
+					    	
+					    		<window title="Proyectos: " border="normal" width="100%" sclass="fondo_arbol1" style="margin-top:5px;"> 
+					    		<vlayout>
+					    			<hlayout  width="100%">
+					    				<button label="Pre-Inscribirse" id="preInscripcion" image="/images/iconos/24x24/reporteabierto.png" width="130px" style="margin-left:50px;" onClick="@command('MostrarPreInscripcion')"/>
+					    			</hlayout>
+					    		</vlayout>
+					    		</window>
+					    		
+					    		
+					    		<window title="" border="normal" width="100%" sclass="fondo_arbol1" style="margin-top:5px;">
+	 						 		<caption label="Enlaces de Interés" style="color: white; font-style:bold;" image="/images/iconos/16x16/Link.png"/>
+	 						 	
+	 						 		<vlayout>
+										<grid>
+											<columns>
+												<column />
+												<column />
+												<column />
+											</columns>
+											<rows>
+												<row>
+												<image src="/images/iconos/24x24/Sigepp.jpg" width="100%" height="100%" />
+												<image src="/images/iconos/24x24/siteg.png" width="100%" height="100%" />
+												<image src="/images/iconos/24x24/Logo SIGAREP.png" width="110%" height="120%" />
+												</row>
+											</rows>
+										</grid>
+									</vlayout>
+	   							</window>
+	   							
+	   							<window title="" border="normal" vflex="1" width="100%" sclass="fondo_arbol1">
+	   						
+	   							<caption label="Noticias" style="color: white; font-style:bold; wigth:20px; margin-left:3px;" image="/images/iconos/16x16/noticias.png" ></caption>
+	   							
+	   							<vlayout>
+	   							 
+	   							 <timer id="tiempo" delay="5000" repeats="true">
+												<!-- <attribute name="onTimer">
+												Listitem listi = lbxNoticias.getChildren().get(lbxNoticias.getChildren().size()-2);  
+												lbxNoticias.removeChild(lbxNoticias.getChildren().get(lbxNoticias.getChildren().size()-2)); 
+												lbxNoticias.insertBefore(listi, (Component) lbxNoticias.getChildren().get(0)); 	 
+												</attribute> -->
+											</timer>
+											
+												<listbox id="lbxNoticias" height="300px"
+													model="@bind(vm.modeloNoticias)"
+													emptyMessage="No hay noticias disponibles" >
+													
+													<listhead>
+														<listheader label="" width="20%" />
+														<listheader label="" width="80%" />
+													</listhead>
+													
+													<template name="model">
+														<listitem selected="false" >
+															<listcell>
+														   <image width="40px" height="40px" content="${each.foto}"></image>
+															</listcell>
+															<listcell>
+															<div>
+															<label value="${each.fecha}" style="font-size:10px;"></label><html><![CDATA[<br/>]]></html>
+															<a sclass="news-title" label="${each.titulo}" onClick="@command('MostrarNoticia',parametro=self)"><custom-attributes codigoNoti="${each.codigo}"/></a>
+															</div>
+															</listcell>
+														</listitem>
+													</template>
+												</listbox>
+	   							</vlayout>
+	   							</window>
+	   							
+			 					</vlayout>
+			            </west>
+			           <south vflex="1" flex="true" >
+						         <div sclass="footer">
+						             <label  style="padding-left:35%;" value="© 2014 Desarrollado por Iterator- Todos los derechos reservados.">
+						   	     	</label>
+						   	      </div>
+					
+		</south>
+					</borderlayout>
+					
+				</center>
+				
+		</borderlayout>
+</window>
+   
+</zk>

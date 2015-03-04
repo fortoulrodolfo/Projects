@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1040/siagsce.webapp/src/siagsce/viewmodel/transacciones
+END
+VMEvaluarPreInscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/948/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMEvaluarPreInscripcionProyecto.java
+END
+VMCatalogoActividadesDeUnProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/5/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMCatalogoActividadesDeUnProyecto.java
+END
+VMConsultarStatusEstudiante.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1020/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMConsultarStatusEstudiante.java
+END
+VMFormalizarInscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/999/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMFormalizarInscripcionProyecto.java
+END
+VMAsignarActividades.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1040/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMAsignarActividades.java
+END
+VMPopUpAsignarHoras.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/5/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMPopUpAsignarHoras.java
+END
+VMConsultarDetalleStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1020/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMConsultarDetalleStatus.java
+END
+VMPreInscripcionProyecto.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/696/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMPreInscripcionProyecto.java
+END
+VMActividadEstatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/297/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMActividadEstatus.java
+END
+VMRegistrarEjecucion.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/1017/siagsce.webapp/src/siagsce/viewmodel/transacciones/VMRegistrarEjecucion.java
+END

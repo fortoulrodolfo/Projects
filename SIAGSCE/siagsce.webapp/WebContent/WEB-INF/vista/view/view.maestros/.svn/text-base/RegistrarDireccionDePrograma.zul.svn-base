@@ -1,0 +1,64 @@
+<!--************************************************************************************
+* SIAGSCE - Desarrollado por Iterator
+*Autor: Iterator
+*Ultima modificaci�n: 09/03/2014
+
+***************************************************************************************** -->
+
+
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="win2"  title="Registro de Direccion de Programa"
+		border="normal">
+
+		<grid>
+			<columns>
+				<column label="" width="140px" />
+				<column label="" />
+			</columns>
+			<rows>
+				<row>
+					<cell>
+						<label value="Codigo:"></label>
+					</cell>
+					<cell>
+						<hbox>
+							<intbox value="@bind(vm.codigo)"></intbox>
+							<button
+								image="images/iconos/16x16/buscar.png"
+								onClick="@command('MostrarCatalogo')" width="35px"
+								height="20px" />
+						</hbox>
+					</cell>
+				</row>
+				<row>
+					<cell>
+						<label value="Nombre:"></label>
+					</cell>
+					<cell>
+						<textbox value="@bind(vm.nombre)"></textbox>
+					</cell>
+				</row>
+				<row>
+					<cell>
+						<label value="Unidades Academicas:"></label>
+					</cell>
+					<cell>
+						<intbox value="@bind(vm.unidadescredito)"></intbox>
+					</cell>
+				</row>
+			</rows>
+		</grid>
+		<hbox width="100%" pack="end" align="center">
+			<button label="Guardar"
+				image="images/iconos/24x24/guardar.png" orient="vertical"
+				width="70px" onClick="@command('registrar')" />
+			<button label="Cancelar"
+				image="images/iconos/24x24/cancelar.png" orient="vertical"
+				width="70px" onClick="@command('cancelar')" />
+			<button label="Salir" image="images/iconos/24x24/salir.png"
+				orient="vertical" width="70px" onClick="@command('cerrarVentana')" />
+		</hbox>
+
+	</window>
+</zk>

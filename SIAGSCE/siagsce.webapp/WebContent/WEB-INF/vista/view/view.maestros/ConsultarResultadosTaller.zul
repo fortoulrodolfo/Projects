@@ -1,0 +1,133 @@
+<!--  * Consulta de los estudiantes que han participado en un determinado taller-->
+<!--  * @author Delba López -->
+<!--  * Version 1.0, 02/02/2014 -->
+<!--  * Version 1.1, 20/02/2014 -->
+
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Consultar resultados del taller" border="normal" 
+		id="winConsultarResultadosTaller" mode="modal" width="60%"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('siagsce.viewmodel.maestros.VMConsultarResultadosTaller')">
+
+
+<groupbox closable="false">
+ <caption label="Datos del Taller" sclass="text"></caption>
+   <grid>
+		<columns>
+			<column width="15%" />
+			<column width="35%"/>
+			<column width="20%"/>
+			<column/>
+
+		</columns>
+		<rows>
+			<row>	
+				<cell>
+					<label value="Nombre:"></label>
+				</cell>
+				<cell>
+					<hbox align="center">
+						<textbox id="nombreTaller" Readonly="true" 
+							value="@bind(vm.nombreTaller)"  width="155px"/>
+						<button image="/images/iconos/16x16/buscar.png" 
+								onClick="@command('MostrarCatalogoTaller')" width="35px"/>
+					</hbox>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label value="Fecha Inicio:" ></label>
+				</cell>
+				<cell>
+					<textbox id="fechaInicioTaller" Readonly="true"
+						value="@bind(vm.fechaInicioTaller)"  width="155px"/>
+				</cell>
+				<cell>
+					<label value="Fecha Culminación:"></label>
+				</cell>
+				<cell>
+					<textbox id="fechaCulminacionTaller" Readonly="true"
+						value="@bind(vm.fechaCulminacionTaller)"   width="155px"/>
+				</cell>
+			</row>
+			<row>
+				
+				<cell>
+					<label value="Descripción:" ></label>
+				</cell>
+				<cell colspan="3">
+					<textbox rows="2" Readonly="true" 
+						value="@bind(vm.descripcionInscripcionTaller)" 
+						width="90%"/>
+				</cell>
+			</row>
+		
+		</rows>
+	</grid>
+	
+	
+	<groupbox closable="false">
+		<caption label="Resultados de los estudiantes participantes del taller" sclass="text"></caption>
+			<listbox id="lbxConsultarResultadosTaller" width="100%" height="300px"
+					model="@bind(vm.modeloEstudianteTaller)" vflex="true"
+					emptyMessage="No hay estudiantes para mostrar">
+					<auxhead>
+						<auxheader colspan="5">
+							<hbox><image src="images/iconos/16x16/Filter.png"/>
+								<textbox id="txtFiltroEstudiante"
+									placeholder="Nombre " value="@bind(vm.texto)"
+									onChange="@command('filtrarEstudiante')" instant="true" />
+									<combobutton label=""
+													image="images/iconos/16x16/buscar.png">
+													<popup id="popOpciones">
+														<listbox
+															id=" lbxSeleccionParametro" width="180px"
+															model="@bind(vm.valores)"
+															selectedItem="@bind(vm.seleccion)"
+															onSelect="@command('seleccionFiltro')">
+															<listhead>
+																<listheader />
+															</listhead>
+															<template
+																name="model">
+																<listitem
+																	label="@bind(each)" />
+															</template>
+														</listbox>
+													</popup>
+												</combobutton>
+									
+							</hbox>
+						</auxheader>
+					</auxhead>
+				<listhead>
+					<listheader label="Cédula" width="15%"  />
+					<listheader label="Nombre" width="18%"  />
+					<listheader label="Apellido" width="18%" />
+					<listheader label="Programa" width="20%"  />
+					<listheader label="Estatus" width="13%" />
+				</listhead>
+				
+				<template name="model">
+					<listitem>
+						<!-- <listcell label="@bind(each.estudiante.getEstudianteCedula())" />-->
+						<listcell label="@bind(each.estudianteCedula)" />
+						<listcell label="@bind(each.estudianteNombre)" />
+						<listcell label="@bind(each.estudianteApellido)" />
+						<listcell label="@bind(each.direccionProgramae.getDireccionNombre())" />
+						<listcell label="@bind(each.estudianteStatus)" />
+					</listitem>
+				</template>
+
+			</listbox>			
+		
+		
+		<hbox width="100%" pack="end" align="center">
+			<button label="Salir" sclass="button"
+					image="/images/iconos/16x16/salir.png" 
+					onClick="@command('cerrarVentana')" />
+		</hbox>
+	</groupbox>
+</groupbox>
+</window>
+</zk>
